@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EarlyApply Privacy Policy</title>
+<meta name="description" content="How the EarlyApply Chrome extension handles your data: everything stays in your browser, nothing is collected or sold.">
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --surface: #ffffff;
+    --fg: #1d2226;
+    --muted: #5e6b78;
+    --border: #dde3e8;
+    --accent: #057642;
+    --link: #0a66c2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111416;
+      --surface: #1b1f23;
+      --fg: #e9ecef;
+      --muted: #a3adb7;
+      --border: #2e353b;
+      --accent: #6dae4f;
+      --link: #70b5f9;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.6 -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 16px 64px;
+  }
+  header { margin-bottom: 28px; }
+  h1 { margin: 0 0 6px; font-size: 30px; line-height: 1.25; }
+  .meta { margin: 0; color: var(--muted); font-size: 14px; }
+  .summary {
+    margin: 24px 0 32px;
+    padding: 16px 20px;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    background: var(--surface);
+  }
+  .summary p { margin: 0 0 8px; font-weight: 600; }
+  .summary ul { margin: 0; padding-left: 20px; }
+  h2 { margin: 36px 0 10px; font-size: 21px; }
+  h3 { margin: 22px 0 6px; font-size: 17px; }
+  p, li { overflow-wrap: anywhere; }
+  ul { padding-left: 22px; }
+  li { margin: 4px 0; }
+  table {
+    width: 100%;
+    margin: 10px 0;
+    border-collapse: collapse;
+    background: var(--surface);
+    font-size: 15px;
+  }
+  th, td { padding: 8px 10px; border: 1px solid var(--border); text-align: left; vertical-align: top; }
+  th { font-weight: 600; }
+  .table-wrap { overflow-x: auto; }
+  a { color: var(--link); }
+  code { font-size: 14px; }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>EarlyApply Privacy Policy</h1>
+    <p class="meta">Effective date: October 15, 2026</p>
+  </header>
+
+  <p>EarlyApply is a Chrome extension that helps you find and apply to LinkedIn jobs soon after they're posted. This policy explains what information EarlyApply handles and where it stays. EarlyApply is made by Dheeraj, an independent developer. It is not affiliated with, endorsed by or sponsored by LinkedIn.</p>
+
+  <section class="summary" aria-label="In short">
+    <p>In short</p>
+    <ul>
+      <li>Everything EarlyApply stores stays in your own Chrome browser.</li>
+      <li>EarlyApply has no server. It does not collect, send, sell or share your data.</li>
+      <li>No analytics, no tracking, no advertising, no cookies of its own.</li>
+      <li>It never applies to jobs, fills in forms or sends anything on LinkedIn for you.</li>
+    </ul>
+  </section>
+
+  <h2>1. What EarlyApply reads on LinkedIn</h2>
+  <p>EarlyApply runs only on <code>www.linkedin.com</code>. On LinkedIn Jobs pages it reads what LinkedIn already shows you, inside your browser, to do its job:</p>
+  <ul>
+    <li><strong>Job search results:</strong> job titles, company names, when a job was posted, and labels such as "Promoted", "Reposted" or "Be an early applicant". This is used to filter, sort and highlight jobs, and for Job Radar to notice new jobs.</li>
+    <li><strong>Easy Apply forms (Saved answers):</strong> the text of the questions on the form, to show which of your saved answers fits. When you click <em>Save</em> or <em>Update</em> on the Saved answers card, EarlyApply reads the answer you typed in that field so it can save it. It never types into, clicks or submits LinkedIn's forms.</li>
+    <li><strong>Application confirmations (Daily goal):</strong> LinkedIn's "Your application was sent" message, or your "Yes" to LinkedIn's "Did you apply?" question, to count applications toward your daily goal.</li>
+  </ul>
+  <p>This information is processed in your browser. It is not sent to the developer or to anyone else.</p>
+
+  <h2>2. What EarlyApply stores, and where</h2>
+  <p>EarlyApply uses Chrome's built-in extension storage. Nothing is stored on any server operated by the developer.</p>
+
+  <h3>Stored in Chrome sync storage</h3>
+  <p>If you're signed in to Chrome with sync turned on, Chrome keeps this in your Google account so it follows you to your other computers. This is handled by Google under Google's privacy policy; the developer cannot see it.</p>
+  <ul>
+    <li>Your EarlyApply settings: which filters are on, sort order, Job Radar settings (how often it checks, when alerts appear, what happens when LinkedIn is closed).</li>
+    <li>Your blocklist: company names and title words you chose to hide.</li>
+    <li>The date you first installed EarlyApply, saved once. It may be used to thank early users if paid plans are introduced.</li>
+  </ul>
+
+  <h3>Stored only on this computer (Chrome local storage)</h3>
+  <ul>
+    <li><strong>Job Radar:</strong> the LinkedIn search it watches (its link and keywords), the IDs of jobs already seen, the new jobs it found (title, company, posted time), and simple counts such as how many new jobs it has found for you.</li>
+    <li><strong>Saved answers:</strong> the answers you save, such as notice period, expected or current salary, years of experience, a short introduction, and your own questions and answers. These can be personal; they stay on this computer, are never synced and never sent anywhere.</li>
+    <li><strong>Daily goal:</strong> your goal, how many applications were counted each day (kept for 30 days), and the LinkedIn job IDs counted today so a job is not counted twice.</li>
+    <li><strong>Small usage notes:</strong> for example whether you closed the first-run tip, and on how many days you used EarlyApply, so the extension knows when to show a one-time message.</li>
+    <li><strong>A license key,</strong> only if you buy and enter one (see section 3).</li>
+  </ul>
+
+  <h3>Temporary</h3>
+  <p>While Chrome is open, EarlyApply also keeps short-lived notes, such as which tab Job Radar is running in, in Chrome's session storage and in the LinkedIn tab's own session storage. These are cleared by Chrome when the browser or tab session ends.</p>
+
+  <h2>3. Network requests</h2>
+  <p>EarlyApply does not send your data anywhere. In particular:</p>
+  <ul>
+    <li><strong>Job Radar</strong> works by reloading the LinkedIn search page in your own browser, like pressing refresh. It does not use any other server.</li>
+    <li><strong>Paid licenses (only if you buy one):</strong> if paid plans are offered and you enter a license key, EarlyApply sends that key to the payment provider (for example Dodo Payments or Lemon Squeezy) to check that it's valid. Only the key is sent. While EarlyApply is free, this never happens.</li>
+    <li><strong>Links you click:</strong> "Feedback" opens a Gmail message to the developer in a new tab, and "Connect with Dheeraj" opens a LinkedIn profile. Nothing is sent unless you choose to send that email.</li>
+  </ul>
+
+  <h2>4. Permissions and why they're needed</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Permission</th><th>Why EarlyApply needs it</th></tr></thead>
+      <tbody>
+        <tr><td>Access to <code>www.linkedin.com</code></td><td>To show the filter bar, Job Radar and the Saved answers card on LinkedIn Jobs pages. EarlyApply runs on no other website.</td></tr>
+        <tr><td><code>storage</code></td><td>To save your settings, Job Radar's watched search, Saved answers and your daily goal, as described above.</td></tr>
+        <tr><td><code>activeTab</code></td><td>So the toolbar popup can show and change the filters for the LinkedIn tab you're looking at.</td></tr>
+        <tr><td><code>offscreen</code></td><td>To play Job Radar's short alert sound.</td></tr>
+        <tr><td><code>notifications</code> (optional, asked only if you turn on desktop alerts)</td><td>To show a desktop alert when Job Radar finds new jobs.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>5. What EarlyApply does not do</h2>
+  <ul>
+    <li>It does not collect personal information on any server, and has no accounts or sign-in.</li>
+    <li>It does not sell, rent or share your data, or use it for advertising or credit decisions.</li>
+    <li>It does not use analytics, tracking pixels or third-party scripts, and loads no remote code.</li>
+    <li>It does not apply to jobs, send messages, or click or submit anything on LinkedIn for you.</li>
+  </ul>
+  <p>The use of information received by EarlyApply complies with the <a href="https://developer.chrome.com/docs/webstore/program-policies/policies" rel="noopener">Chrome Web Store User Data Policy</a>, including its Limited Use requirements.</p>
+
+  <h2>6. Your choices and deleting your data</h2>
+  <ul>
+    <li>Change or delete Saved answers at any time in the EarlyApply popup. Turn off Job Radar with <em>Turn off</em>, which also forgets the watched search.</li>
+    <li>Turn off desktop alerts, or remove the notifications permission in Chrome's extension settings.</li>
+    <li>Uninstalling EarlyApply removes everything it stored on this computer. Settings kept by Chrome sync can be removed from your Google account's Chrome sync settings.</li>
+  </ul>
+
+  <h2>7. Children</h2>
+  <p>EarlyApply is meant for job seekers and is not directed at children under 13. It does not knowingly collect information from anyone, including children.</p>
+
+  <h2>8. Changes to this policy</h2>
+  <p>If EarlyApply's handling of data changes, this page will be updated and the effective date above changed. Significant changes will also be noted in the extension's update notes.</p>
+
+  <h2>9. Contact</h2>
+  <p>Questions about this policy or your data: <a href="mailto:iamdheeraj0211@gmail.com">iamdheeraj0211@gmail.com</a></p>
+
+  <footer>EarlyApply is an independent project and is not affiliated with LinkedIn Corporation. LinkedIn is a trademark of LinkedIn Corporation.</footer>
+</main>
+</body>
+</html>

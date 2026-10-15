@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EarlyApply</title>
+<meta name="description" content="EarlyApply is a free Chrome extension that helps you be an early applicant on LinkedIn: see jobs posted minutes ago, hide the noise, and get alerts for new jobs. You apply yourself.">
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --surface: #ffffff;
+    --fg: #1d2226;
+    --muted: #5e6b78;
+    --border: #dde3e8;
+    --accent: #057642;
+    --link: #0a66c2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111416;
+      --surface: #1b1f23;
+      --fg: #e9ecef;
+      --muted: #a3adb7;
+      --border: #2e353b;
+      --accent: #6dae4f;
+      --link: #70b5f9;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.6 -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 16px 64px; }
+  h1 { margin: 0; font-size: 34px; line-height: 1.2; }
+  .tagline { margin: 8px 0 28px; color: var(--muted); font-size: 18px; }
+  .features { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+  .features li {
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+  }
+  .features strong { display: block; margin-bottom: 2px; }
+  .note {
+    margin: 28px 0 0;
+    padding: 14px 16px;
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    background: var(--surface);
+  }
+  a { color: var(--link); }
+  footer { margin-top: 40px; color: var(--muted); font-size: 14px; }
+  footer a { margin-right: 16px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>EarlyApply</h1>
+  <p class="tagline">Be an early applicant on LinkedIn. You apply yourself.</p>
+
+  <ul class="features">
+    <li><strong>See the freshest jobs first</strong>One click shows jobs posted in the last 15 minutes, 1 hour or more, newest first.</li>
+    <li><strong>Hide the noise</strong>Hide promoted, reposted and too-old jobs, staffing agencies, and companies or title words you choose.</li>
+    <li><strong>Job Radar</strong>Watches your search and alerts you the minute a new job is posted, even while you work in other tabs or apps.</li>
+    <li><strong>Saved answers</strong>Keep your usual answers (notice period, salary, a short intro) and copy them in one click while you apply.</li>
+    <li><strong>Daily goal</strong>Set how many fresh jobs to apply to each day and see your progress.</li>
+  </ul>
+
+  <p class="note">Everything stays in your browser. No account, no tracking, nothing sent to any server. EarlyApply never applies or fills in forms for you.</p>
+
+  <footer>
+    <a href="privacy.html">Privacy policy</a>
+    <a href="https://www.linkedin.com/in/iamdheeraj0211/" rel="noopener">Made by Dheeraj</a>
+    <p>EarlyApply is an independent project and is not affiliated with LinkedIn Corporation.</p>
+  </footer>
+</main>
+</body>
+</html>
