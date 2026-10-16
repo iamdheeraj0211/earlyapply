@@ -3,79 +3,197 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EarlyApply</title>
+<title>EarlyApply: be an early applicant on LinkedIn</title>
 <meta name="description" content="EarlyApply is a free Chrome extension that helps you be an early applicant on LinkedIn: see jobs posted minutes ago, hide the noise, and get alerts for new jobs. You apply yourself.">
-<style>
-  :root {
-    --bg: #f7f7f5;
-    --surface: #ffffff;
-    --fg: #1d2226;
-    --muted: #5e6b78;
-    --border: #dde3e8;
-    --accent: #057642;
-    --link: #0a66c2;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #111416;
-      --surface: #1b1f23;
-      --fg: #e9ecef;
-      --muted: #a3adb7;
-      --border: #2e353b;
-      --accent: #6dae4f;
-      --link: #70b5f9;
-    }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--fg);
-    font: 16px/1.6 -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  }
-  main { max-width: 760px; margin: 0 auto; padding: 48px 16px 64px; }
-  h1 { margin: 0; font-size: 34px; line-height: 1.2; }
-  .tagline { margin: 8px 0 28px; color: var(--muted); font-size: 18px; }
-  .features { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
-  .features li {
-    padding: 14px 16px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--surface);
-  }
-  .features strong { display: block; margin-bottom: 2px; }
-  .note {
-    margin: 28px 0 0;
-    padding: 14px 16px;
-    border-left: 4px solid var(--accent);
-    border-radius: 8px;
-    background: var(--surface);
-  }
-  a { color: var(--link); }
-  footer { margin-top: 40px; color: var(--muted); font-size: 14px; }
-  footer a { margin-right: 16px; }
-</style>
+<meta name="theme-color" content="#050b0a">
+<meta property="og:title" content="EarlyApply: be an early applicant on LinkedIn">
+<meta property="og:description" content="See LinkedIn jobs minutes after they're posted, hide the noise, and get an alert the moment a new one appears. Free, private, no account.">
+<meta property="og:image" content="https://iamdheeraj0211.github.io/earlyapply/img/job-radar.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
+<!-- The Chrome Web Store link: every "Add to Chrome" button uses data-store. -->
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="logo.png" alt="" width="32" height="32">EarlyApply</a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="privacy.html">Privacy</a>
+      <a class="btn btn--primary btn--small" data-store href="https://chromewebstore.google.com/search/EarlyApply">Add to Chrome</a>
+    </nav>
+  </div>
+</header>
+
 <main>
-  <h1>EarlyApply</h1>
-  <p class="tagline">Be an early applicant on LinkedIn. You apply yourself.</p>
+  <section class="hero">
+    <div class="wrap">
+      <span class="pill"><i></i>Free Chrome extension for LinkedIn Jobs</span>
+      <h1>Apply in the first <em>15&nbsp;minutes</em>, not the first 500.</h1>
+      <p class="hero__lead">EarlyApply shows you LinkedIn jobs minutes after they're posted, hides the noise, and alerts you the moment a new one appears. You still apply yourself.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" data-store href="https://chromewebstore.google.com/search/EarlyApply">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="currentColor"/></svg>
+          Add to Chrome, it's free
+        </a>
+        <a class="btn" href="#features">See how it works</a>
+      </div>
+      <ul class="trust">
+        <li>No account</li>
+        <li>No tracking</li>
+        <li>Everything stays in your browser</li>
+      </ul>
 
-  <ul class="features">
-    <li><strong>See the freshest jobs first</strong>One click shows jobs posted in the last 15 minutes, 1 hour or more, newest first.</li>
-    <li><strong>Hide the noise</strong>Hide promoted, reposted and too-old jobs, staffing agencies, and companies or title words you choose.</li>
-    <li><strong>Job Radar</strong>Watches your search and alerts you the minute a new job is posted, even while you work in other tabs or apps.</li>
-    <li><strong>Saved answers</strong>Keep your usual answers (notice period, salary, a short intro) and copy them in one click while you apply.</li>
-    <li><strong>Daily goal</strong>Set how many fresh jobs to apply to each day and see your progress.</li>
-  </ul>
+      <div class="stage">
+        <div class="radar" aria-hidden="true"></div>
+        <figure class="shot shot--hero">
+          <img src="img/job-radar.jpg" width="880" height="720" alt="EarlyApply on a LinkedIn job search: Job Radar lists three new jobs and a desktop alert appears">
+        </figure>
+      </div>
 
-  <p class="note">Everything stays in your browser. No account, no tracking, nothing sent to any server. EarlyApply never applies or fills in forms for you.</p>
+      <div class="stats">
+        <div class="stat"><b>15 min</b><span>freshest jobs, one click</span></div>
+        <div class="stat"><b>3 min</b><span>how often Job Radar can check</span></div>
+        <div class="stat"><b>0</b><span>servers: your data stays with you</span></div>
+        <div class="stat"><b>$0</b><span>free, no account needed</span></div>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <a href="privacy.html">Privacy policy</a>
-    <a href="https://www.linkedin.com/in/iamdheeraj0211/" rel="noopener">Made by Dheeraj</a>
-    <p>EarlyApply is an independent project and is not affiliated with LinkedIn Corporation.</p>
-  </footer>
+  <section class="section" id="features">
+    <div class="wrap">
+      <p class="eyebrow">Features</p>
+      <h2 class="section__title">Everything you need to be early. Nothing that applies for you.</h2>
+      <p class="section__lead">The first applicants get read first. EarlyApply puts the newest jobs in front of you and keeps the rest out of the way.</p>
+
+      <article class="feature reveal">
+        <div class="feature__text">
+          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <h3>See the freshest jobs first</h3>
+          <p>One click filters your search to jobs posted in the last 15 minutes, 30 minutes or a few hours, sorted newest first.</p>
+          <ul class="ticks">
+            <li>Time filters LinkedIn doesn't offer, right on the page</li>
+            <li>Fresh jobs are highlighted with how long ago they were posted</li>
+            <li>Works on LinkedIn's classic and AI-powered search</li>
+          </ul>
+        </div>
+        <figure class="shot"><img src="img/fresh-jobs.jpg" width="880" height="720" alt="LinkedIn job list filtered to the last 15 minutes with fresh jobs highlighted" loading="lazy"></figure>
+      </article>
+
+      <article class="feature reveal">
+        <div class="feature__text">
+          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 12l6-6"/></svg></div>
+          <h3>Job Radar alerts you first</h3>
+          <p>Turn it on for any search and keep working. Job Radar checks it every few minutes and tells you the minute something new appears.</p>
+          <ul class="ticks">
+            <li>Desktop alert and a soft chime, even in other apps</li>
+            <li>The toolbar icon lights up with the number of new jobs</li>
+            <li>Remembers your search, even after Chrome restarts</li>
+          </ul>
+        </div>
+        <figure class="shot"><img src="img/popup.jpg" width="730" height="740" alt="The EarlyApply popup: Job Radar status with new jobs found, page details and the daily goal" loading="lazy"></figure>
+      </article>
+
+      <article class="feature reveal">
+        <div class="feature__text">
+          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4-2v-4z"/></svg></div>
+          <h3>Hide the noise</h3>
+          <p>Promoted posts, reposts, old listings and staffing agencies push real openings down. Switch them off with a tap.</p>
+          <ul class="ticks">
+            <li>Hide promoted, reposted and too-old jobs</li>
+            <li>Block companies or title words you never want to see</li>
+            <li>"N hidden · show" lets you peek at what was filtered</li>
+          </ul>
+        </div>
+        <figure class="shot"><img src="img/hide-noise.jpg" width="880" height="720" alt="Hide toggles for promoted, reposted, too old and agencies above a cleaner job list" loading="lazy"></figure>
+      </article>
+
+      <article class="feature reveal">
+        <div class="feature__text">
+          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></div>
+          <h3>Saved answers and a daily goal</h3>
+          <p>Notice period, salary, a short intro: keep your usual answers and copy them in one click beside LinkedIn's Easy Apply form.</p>
+          <ul class="ticks">
+            <li>A card shows the answers that fit each question</li>
+            <li>Set a daily goal and keep your streak going</li>
+            <li>You stay in control: EarlyApply never fills or submits forms</li>
+          </ul>
+        </div>
+        <figure class="shot"><img src="img/saved-answers.jpg" width="880" height="720" alt="Saved answers card beside a LinkedIn Easy Apply form" loading="lazy"></figure>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="wrap">
+      <p class="eyebrow">How it works</p>
+      <h2 class="section__title">Set up in under a minute.</h2>
+      <div class="steps">
+        <div class="step reveal"><h3>Add EarlyApply to Chrome</h3><p>Free from the Chrome Web Store. No account, no sign-up.</p></div>
+        <div class="step reveal"><h3>Search on LinkedIn Jobs</h3><p>The EarlyApply bar appears above the results. Pick 15 minutes and hide the noise.</p></div>
+        <div class="step reveal"><h3>Turn on Job Radar</h3><p>Get an alert when a new job lands, open it, and be one of the first to apply.</p></div>
+      </div>
+
+      <div class="band reveal">
+        <div>
+          <p class="eyebrow">Private by design</p>
+          <h2 class="section__title">Your job search stays yours.</h2>
+          <p class="section__lead">EarlyApply has no server. What it stores lives in your own Chrome, and it never acts on LinkedIn for you.</p>
+          <p style="margin-top:20px"><a href="privacy.html">Read the privacy policy →</a></p>
+        </div>
+        <div class="grid">
+          <div class="chip"><b>No account</b><span>Install and go. Nothing to sign up for.</span></div>
+          <div class="chip"><b>No tracking</b><span>No analytics, ads or third-party scripts.</span></div>
+          <div class="chip"><b>Stays local</b><span>Saved answers never leave this computer.</span></div>
+          <div class="chip"><b>You apply</b><span>It never fills, clicks or submits anything.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap reveal">
+      <img src="logo.png" alt="" width="88" height="88">
+      <h2>Be early on the next job you want.</h2>
+      <p>Free for everyone. Made by an independent developer, with your privacy in mind.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" data-store href="https://chromewebstore.google.com/search/EarlyApply">Add to Chrome, it's free</a>
+      </div>
+    </div>
+  </section>
 </main>
+
+<footer class="footer">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="logo.png" alt="" width="24" height="24">EarlyApply</a>
+    <nav aria-label="Footer">
+      <a href="privacy.html">Privacy policy</a>
+      <a href="https://www.linkedin.com/in/iamdheeraj0211/" rel="noopener">Made by Dheeraj</a>
+    </nav>
+    <p>EarlyApply is an independent project and is not affiliated with LinkedIn Corporation.</p>
+  </div>
+</footer>
+
+<script>
+  // Fade sections in as they scroll into view (everything shows at once without JS or with reduced motion).
+  (function () {
+    var items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      items.forEach(function (el) { el.classList.add('is-in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('is-in'); io.unobserve(entry.target); }
+      });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  })();
+</script>
 </body>
 </html>
