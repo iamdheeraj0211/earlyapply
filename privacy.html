@@ -20,7 +20,7 @@
     <nav class="nav__links" aria-label="Main">
       <a href="./#features">Features</a>
       <a href="privacy.html" aria-current="page">Privacy</a>
-      <a class="btn btn--primary btn--small" href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add to Chrome</a>
+      <a class="btn btn--primary btn--small" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add to Chrome</a>
     </nav>
   </div>
 </header>
@@ -160,5 +160,9 @@
     <p>EarlyApply is an independent project and is not affiliated with LinkedIn Corporation. LinkedIn is a trademark of LinkedIn Corporation.</p>
   </div>
 </footer>
+<script>
+  // In Microsoft Edge: the store button goes to the Edge Add-ons store.
+  if (/\sEdg\//.test(navigator.userAgent)) document.querySelectorAll('[data-store]').forEach(function (a) { a.href = 'https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep'; a.textContent = a.textContent.replace('Chrome', 'Edge'); });
+</script>
 </body>
 </html>

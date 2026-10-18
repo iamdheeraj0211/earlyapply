@@ -21,7 +21,7 @@
   "applicationCategory": "BrowserApplication",
   "operatingSystem": "Google Chrome, Microsoft Edge",
   "url": "https://iamdheeraj0211.github.io/earlyapply/",
-  "downloadUrl": "https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo",
+  "downloadUrl": ["https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo", "https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep"],
   "image": "https://iamdheeraj0211.github.io/earlyapply/logo.png",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "author": { "@type": "Person", "name": "Dheeraj", "url": "https://iamdheeraj0211.github.io/" }
@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
-<!-- The Chrome Web Store link: every "Add to Chrome" button uses data-store. -->
+<!-- Store links: every "Add to Chrome" button uses data-store; in Microsoft Edge they become "Add to Edge" (script at the end). -->
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="./"><img src="logo.png" alt="" width="32" height="32">EarlyApply</a>
@@ -61,6 +61,7 @@
           </a>
           <a class="btn" href="#features">See how it works</a>
         </div>
+        <p class="hero__alt" data-edge-alt>Also on <a href="https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep">Microsoft Edge</a></p>
         <ul class="trust">
           <li>No account</li>
           <li>No tracking</li>
@@ -197,6 +198,17 @@
 </footer>
 
 <script>
+  // In Microsoft Edge: the store buttons go to the Edge Add-ons store and say "Edge".
+  (function () {
+    if (!/\sEdg\//.test(navigator.userAgent)) return;
+    var edge = 'https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep';
+    document.querySelectorAll('[data-store]').forEach(function (a) {
+      a.href = edge;
+      a.childNodes.forEach(function (n) { if (n.nodeType === 3) n.nodeValue = n.nodeValue.replace('Chrome', 'Edge'); });
+    });
+    document.querySelectorAll('[data-edge-alt]').forEach(function (p) { p.hidden = true; });
+  })();
+
   // Fade sections in as they scroll into view (everything shows at once without JS or with reduced motion).
   (function () {
     var items = document.querySelectorAll('.reveal');
