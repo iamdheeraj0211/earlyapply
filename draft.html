@@ -191,6 +191,12 @@ summary::-webkit-details-marker { display: none; }
 summary::after { content: "+"; color: var(--accent); font-size: 24px; line-height: 1; transition: rotate .2s; }
 details[open] summary::after { rotate: 45deg; }
 details p { margin: 12px 0 0; color: var(--muted); }
+.support { margin-top: 34px; padding-top: 24px; border-top: 1px solid var(--line); }
+.support p { margin: 0; color: var(--muted); max-width: 34ch; }
+.support__row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.support__mail { color: var(--accent); font-weight: 600; word-break: break-all; }
+.support__copy { padding: 6px 14px; border-radius: 999px; border: 1px solid var(--accent); background: none; color: var(--accent); font: 600 13px var(--body); cursor: pointer; }
+.support__copy:hover { background: color-mix(in srgb, var(--accent) 12%, transparent); }
 
 /* ---------- Final ---------- */
 .final { position: relative; padding: 170px 0 150px; text-align: center; overflow: hidden; }
@@ -416,7 +422,16 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
 
   <section class="faq" id="faq">
     <div class="wrap">
-      <div class="rv"><span class="kicker">FAQ</span><h2>Good questions.</h2></div>
+      <div class="rv">
+        <span class="kicker">FAQ</span><h2>Good questions.</h2>
+        <div class="support">
+          <p>Still stuck, found a bug, or have an idea? Email us, we read every message.</p>
+          <div class="support__row">
+            <a class="support__mail" href="mailto:iamdheeraj0211@gmail.com?subject=EarlyApply%20support">iamdheeraj0211@gmail.com</a>
+            <button class="support__copy" type="button" data-copy="iamdheeraj0211@gmail.com">Copy</button>
+          </div>
+        </div>
+      </div>
       <div class="rv">
         <details open><summary>Is EarlyApply really free?</summary><p>Yes. Every feature, including Job Radar, is free. No account, no card.</p></details>
         <details><summary>Will LinkedIn block my account?</summary><p>EarlyApply only filters and sorts what LinkedIn already shows you, and refreshes your own tab like you would. It never applies, clicks or sends messages for you, and it never scrapes LinkedIn in the background.</p></details>
@@ -440,7 +455,7 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
 <footer>
   <div class="wrap">
     <a class="brand" href="./"><img src="logo.png" alt="" width="22" height="22">EarlyApply</a>
-    <nav><a href="privacy.html">Privacy policy</a></nav>
+    <nav><a href="mailto:iamdheeraj0211@gmail.com?subject=EarlyApply%20support">Support</a><a href="privacy.html">Privacy policy</a></nav>
     <p>EarlyApply is an independent project and is not affiliated with LinkedIn Corporation.</p>
   </div>
 </footer>
@@ -478,6 +493,16 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
       else if (!entries[0].isIntersecting) { clearTimeout(timer); timer = null; }
     }, { threshold: 0.4 }).observe(box);
   })();
+
+  // Support email: Copy puts the address on the clipboard (a mailto link does nothing without a mail app).
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      navigator.clipboard.writeText(b.getAttribute('data-copy')).then(function () {
+        b.textContent = 'Copied ✓';
+        setTimeout(function () { b.textContent = 'Copy'; }, 1800);
+      });
+    });
+  });
 
   // Video: YouTube loads only when clicked.
   (function () {
