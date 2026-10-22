@@ -256,6 +256,19 @@ h1, h2, h3 { font-family: var(--head); letter-spacing: -0.025em; margin: 0; text
 .zeros span { display: block; margin-top: 10px; font: 500 16px var(--body); color: var(--muted); text-shadow: none; }
 .private p { max-width: 560px; margin: 40px auto 0; color: var(--muted); }
 
+/* ---------- Guides (rows like the FAQ, no cards) ---------- */
+.guides { padding: 140px 0 0; }
+.guides .wrap { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; }
+.guides h2 { font-size: clamp(32px, 4.6vw, 54px); line-height: 1.08; }
+.guides .wrap > div > p { color: var(--muted); margin: 16px 0 0; max-width: 34ch; }
+.guide { display: flex; align-items: center; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+.guide:first-child { border-top: 1px solid var(--line); }
+.guide b { display: block; font: 600 19px var(--head); }
+.guide small { display: block; margin-top: 4px; color: var(--muted); font-size: 15px; }
+.guide i { margin-left: auto; color: var(--accent); font-style: normal; font-size: 22px; transition: translate .2s; }
+.guide:hover b { color: var(--accent); }
+.guide:hover i { translate: 4px 0; }
+
 /* ---------- FAQ ---------- */
 .faq { padding: 140px 0 0; }
 .faq .wrap { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; }
@@ -303,7 +316,7 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
   .stop time { height: auto; }
   .stop .dot { position: absolute; left: -34px; top: 6px; margin: 0; }
   .stop--you .dot { left: -38px; top: 2px; margin: 0; }
-  .chapter .wrap, .faq .wrap { grid-template-columns: 1fr; gap: 40px; }
+  .chapter .wrap, .faq .wrap, .guides .wrap { grid-template-columns: 1fr; gap: 40px; }
   .chapter:nth-of-type(even) .text { order: 0; }
   .num { font-size: 72px; }
   .stage { min-height: 0; }
@@ -327,6 +340,7 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
     <nav aria-label="Main">
       <a href="#race">Why early</a>
       <a href="#features">Features</a>
+      <a href="#guides">Guides</a>
       <a href="#faq">FAQ</a>
       <a class="btn btn--go" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add to Chrome</a>
     </nav>
@@ -491,6 +505,20 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
         <div>0<span>servers</span></div>
       </div>
       <p class="rv">Everything EarlyApply saves stays in your own browser, and it never clicks, fills or applies for you. <a href="privacy.html">Read the privacy policy →</a></p>
+    </div>
+  </section>
+
+  <section class="guides" id="guides">
+    <div class="wrap">
+      <div class="rv">
+        <span class="kicker">Free guides</span><h2>LinkedIn job search tricks.</h2>
+        <p>Useful even without EarlyApply.</p>
+      </div>
+      <div class="rv">
+        <a class="guide" href="linkedin-jobs-posted-last-hour.html"><div><b>See jobs posted in the last hour</b><small>LinkedIn stops at 24 hours. One number in the address fixes it.</small></div><i>→</i></a>
+        <a class="guide" href="hide-promoted-reposted-jobs-linkedin.html"><div><b>Hide promoted and reposted jobs</b><small>How to spot them, and what actually works.</small></div><i>→</i></a>
+        <a class="guide" href="linkedin-instant-job-alerts.html"><div><b>Get job alerts within minutes</b><small>Why LinkedIn's alerts are slow, and how to be faster.</small></div><i>→</i></a>
+      </div>
     </div>
   </section>
 
