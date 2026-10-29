@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Get LinkedIn Classic Job Search Back (Workaround That Still Works)</title>
+<meta name="description" content="LinkedIn removed the Switch to classic job search button. The workaround that still works: the logged-out job list, with Most recent sort and a last-hour filter. Tested October 2026.">
+<link rel="canonical" href="https://iamdheeraj0211.github.io/earlyapply/linkedin-classic-job-search.html">
+<meta name="theme-color" content="#050b0a">
+<meta property="og:title" content="How to get LinkedIn classic job search back">
+<meta property="og:description" content="The classic search button is gone. Here is the workaround that still gives you Most recent and last-hour jobs.">
+<meta property="og:image" content="https://iamdheeraj0211.github.io/earlyapply/img/share.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iamdheeraj0211.github.io/earlyapply/linkedin-classic-job-search.html">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to get LinkedIn classic job search back",
+  "description": "LinkedIn removed the Switch to classic job search button. The workaround that still works: the logged-out job list, with Most recent sort and a last-hour filter.",
+  "datePublished": "2026-10-29",
+  "dateModified": "2026-10-29",
+  "image": "https://iamdheeraj0211.github.io/earlyapply/img/share.jpg",
+  "mainEntityOfPage": "https://iamdheeraj0211.github.io/earlyapply/linkedin-classic-job-search.html",
+  "author": { "@type": "Organization", "name": "EarlyApply", "url": "https://iamdheeraj0211.github.io/earlyapply/" },
+  "publisher": { "@type": "Organization", "name": "EarlyApply", "logo": { "@type": "ImageObject", "url": "https://iamdheeraj0211.github.io/earlyapply/logo.png" } }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Can I switch back to classic job search on LinkedIn?",
+   "acceptedAnswer": { "@type": "Answer", "text": "Not while logged in. LinkedIn removed the Switch to classic job search button, and the old address now opens the AI-powered search. The closest thing is LinkedIn's logged-out job list: open linkedin.com/jobs/search in a private window." }
+  },
+  {
+   "@type": "Question",
+   "name": "Why can't I sort LinkedIn jobs by Most recent anymore?",
+   "acceptedAnswer": { "@type": "Answer", "text": "LinkedIn's AI-powered search has no sort option. Results are ordered by relevance only. Logged out, adding sortBy=DD to the search address still sorts the list newest first." }
+  },
+  {
+   "@type": "Question",
+   "name": "Does the f_TPR last-hour trick still work?",
+   "acceptedAnswer": { "@type": "Answer", "text": "Only when you are logged out. Logged in, the AI-powered search treats any time filter under 24 hours as 24 hours. Logged out, f_TPR=r3600 still shows only jobs from the last hour." }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I apply to jobs from the logged-out list?",
+   "acceptedAnswer": { "@type": "Answer", "text": "Yes. Open the job and sign in when you click Apply or Easy Apply. If LinkedIn doesn't return you to the job, search for it again while logged in." }
+  }
+ ]
+}
+</script>
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap">
+<link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="logo.png" alt="" width="28" height="28">EarlyApply</a>
+    <span class="tag">Free LinkedIn Jobs extension for Chrome &amp; Edge</span>
+    <a class="btn" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add to Chrome, free</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <span class="kicker">LinkedIn job search guide</span>
+    <h1>How to get LinkedIn classic job search back</h1>
+    <div class="pf">
+      <div class="p"><b>PROBLEM</b><span>LinkedIn removed the <strong>classic job search</strong> button. The new AI search has <strong>no "Most recent" sort</strong> and treats any time filter under 24 hours as 24 hours.</span></div>
+      <div class="f"><b>FIX</b><span><strong>EarlyApply</strong>, a free browser extension, adds <strong>Newest first</strong> and <strong>15m to 12h</strong> buttons to the new search, and its Job Radar alerts you to new jobs within minutes.</span></div>
+    </div>
+    <div class="acts">
+      <a class="btn" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add to Chrome, it's free</a>
+      <a class="alt" href="#by-hand">or use the free workaround &darr;</a>
+    </div>
+    <p class="trust">No account &middot; no tracking &middot; never applies for you<span data-edge-alt> &middot; also on <a href="https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep">Edge</a></span></p>
+  </div>
+  <figure class="shot">
+    <picture><source srcset="img/fresh-jobs.webp" type="image/webp"><img src="img/fresh-jobs.jpg" alt="EarlyApply Newest first and time buttons on the LinkedIn jobs page" width="880" height="720"></picture>
+    <figcaption>EarlyApply on LinkedIn: newest jobs first, posted minutes ago</figcaption>
+  </figure>
+</section>
+
+<main>
+  <article class="wrap">
+    <p class="lead" id="by-hand">LinkedIn moved everyone to its <strong>AI-powered job search</strong> and took away the "Switch to classic job search" button. Most people miss two things: sorting by <strong>Most recent</strong>, and seeing only the jobs posted in the last hour. Here is what changed, and the workaround that still works.</p>
+
+    <div class="answer">
+      <strong>Short answer:</strong> there is <b>no switch back</b> while you're logged in. The closest thing is LinkedIn's <strong>logged-out job list</strong>: open <code>linkedin.com/jobs/search</code> in a private window, search, and add <code>&amp;sortBy=DD</code> (newest first) and <code>&amp;f_TPR=r3600</code> (last hour) to the address. Sign in only when you apply.
+    </div>
+
+    <h2>What changed</h2>
+    <table>
+      <thead><tr><th></th><th>Classic search (before)</th><th>AI search (now, logged in)</th></tr></thead>
+      <tbody>
+        <tr><td>Sort by Most recent</td><td>Yes</td><td>No sort at all, relevance only</td></tr>
+        <tr><td>Last hour (<code>f_TPR=r3600</code>)</td><td>Worked</td><td>Treated as 24 hours</td></tr>
+        <tr><td>Old address <code>/jobs/search/</code></td><td>Classic list</td><td>Redirects to <code>/jobs/search-results/</code></td></tr>
+        <tr><td>Order between reloads</td><td>Newest on top</td><td>Same jobs in the same order</td></tr>
+      </tbody>
+    </table>
+    <p>We tested this in October 2026 with a "sales" search in the United States. Logged in, a "last hour" search showed jobs 2 to 21 hours old. Logged out, the same search showed only jobs under an hour old, newest first.</p>
+
+    <h2>The workaround: LinkedIn's logged-out job list</h2>
+    <ol class="steps">
+      <li>
+        <h3>Open a private window</h3>
+        <p><strong>Ctrl+Shift+N</strong> in Chrome, <strong>Ctrl+Shift+P</strong> in Edge (<strong>Cmd</strong> on a Mac). You stay logged in in your normal window.</p>
+      </li>
+      <li>
+        <h3>Search on linkedin.com/jobs/search</h3>
+        <p>Type your job title and location as usual. If a sign-in pop-up appears, close it.</p>
+      </li>
+      <li>
+        <h3>Add newest first and a time window to the address</h3>
+        <p>Click the address bar and add these two settings at the end, then press Enter:</p>
+        <div class="url">https://www.linkedin.com/jobs/search?keywords=data%20analyst&amp;location=India<mark>&amp;sortBy=DD&amp;f_TPR=r3600</mark></div>
+        <p><code>sortBy=DD</code> puts the newest job on top. <code>f_TPR=r3600</code> keeps only the last hour (3,600 seconds). See <a href="linkedin-jobs-posted-last-hour.html">all the f_TPR codes</a>.</p>
+      </li>
+      <li>
+        <h3>Use the filters it shows</h3>
+        <p>Logged out, LinkedIn shows <strong>Past 24 hours</strong>, <strong>Company</strong>, <strong>Easy Apply</strong> and <strong>Under 10 applicants</strong>. That last one is great for applying early.</p>
+      </li>
+      <li>
+        <h3>Bookmark it, sign in to apply</h3>
+        <p>Save the address as a bookmark and open it in a private window. When a job looks right, click Apply and sign in.</p>
+      </li>
+    </ol>
+
+    <h2>Good to know</h2>
+    <ul class="notes">
+      <li><strong>Fewer filters logged out.</strong> Experience level, remote and job type menus are hidden. Put the most important words in your keywords instead.</li>
+      <li><strong>No job alerts or saved searches</strong> without signing in. For alerts, see <a href="linkedin-instant-job-alerts.html">how to get job alerts within minutes</a>.</li>
+      <li><strong>Promoted and reposted jobs still show up.</strong> See <a href="hide-promoted-reposted-jobs-linkedin.html">how to remove promoted and reposted jobs</a>.</li>
+      <li><strong>LinkedIn can change this any time.</strong> The logged-out list is LinkedIn's own public page, but it is not an official "classic mode". We'll update this guide if it stops working.</li>
+    </ul>
+
+    <section class="cta">
+      <span class="kicker">Stay logged in</span>
+      <h2>Get back what classic search gave you, with EarlyApply</h2>
+      <p>EarlyApply is a free Chrome and Edge extension that works on LinkedIn's new AI search, while you're logged in.</p>
+      <ul>
+        <li>Newest first: sorts the jobs on the page by when they were posted</li>
+        <li>15m, 30m, 1h to 12h buttons hide everything older</li>
+        <li>Job Radar checks LinkedIn's newest jobs every 3 minutes and alerts you</li>
+        <li>Hides promoted, reposted and staffing-agency jobs</li>
+      </ul>
+      <a class="btn" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add to Chrome, it's free</a>
+      <small>No account, no tracking. <span data-edge-alt>Also on <a href="https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep">Microsoft Edge</a>. </span><a href="./">See how it works →</a></small>
+    </section>
+
+    <h2>Questions</h2>
+    <details><summary>Can I switch back to classic job search on LinkedIn?</summary><p>Not while logged in. LinkedIn removed the Switch to classic job search button, and the old address now opens the AI-powered search. The closest thing is LinkedIn's logged-out job list: open <code>linkedin.com/jobs/search</code> in a private window.</p></details>
+    <details><summary>Why can't I sort LinkedIn jobs by Most recent anymore?</summary><p>LinkedIn's AI-powered search has no sort option. Results are ordered by relevance only. Logged out, adding <code>sortBy=DD</code> to the search address still sorts the list newest first.</p></details>
+    <details><summary>Does the f_TPR last-hour trick still work?</summary><p>Only when you are logged out. Logged in, the AI-powered search treats any time filter under 24 hours as 24 hours. Logged out, <code>f_TPR=r3600</code> still shows only jobs from the last hour.</p></details>
+    <details><summary>Can I apply to jobs from the logged-out list?</summary><p>Yes. Open the job and sign in when you click Apply or Easy Apply. If LinkedIn doesn't return you to the job, search for it again while logged in.</p></details>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="./"><img src="logo.png" alt="" width="22" height="22">EarlyApply</a>
+    <nav><a href="./">Home</a><a href="linkedin-jobs-posted-last-hour.html">Jobs posted in the last hour</a><a href="hide-promoted-reposted-jobs-linkedin.html">Remove promoted &amp; reposted jobs</a><a href="linkedin-instant-job-alerts.html">Instant job alerts</a><a href="linkedin-easy-apply-questions.html">Easy Apply questions</a><a href="privacy.html">Privacy policy</a></nav>
+    <p>EarlyApply is an independent project and is not affiliated with LinkedIn Corporation.</p>
+  </div>
+</footer>
+
+<script>
+  // In Microsoft Edge: the store buttons go to the Edge Add-ons store and say "Edge".
+  (function () {
+    if (!/\sEdg\//.test(navigator.userAgent)) return;
+    var edge = 'https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep';
+    document.querySelectorAll('[data-store]').forEach(function (a) {
+      a.href = edge;
+      a.childNodes.forEach(function (n) { if (n.nodeType === 3) n.nodeValue = n.nodeValue.replace('Chrome', 'Edge'); });
+    });
+    document.querySelectorAll('[data-edge-alt]').forEach(function (p) { p.hidden = true; });
+  })();
+</script>
+</body>
+</html>
