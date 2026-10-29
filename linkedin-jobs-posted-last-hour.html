@@ -35,7 +35,7 @@
   {
    "@type": "Question",
    "name": "Can I filter LinkedIn jobs by the last hour?",
-   "acceptedAnswer": { "@type": "Answer", "text": "Not from the menu: LinkedIn's Date posted filter only offers Past 24 hours, Past week and Past month. But the search address has a setting called f_TPR. Set it to r3600 and you see jobs from the last hour (3,600 seconds)." }
+   "acceptedAnswer": { "@type": "Answer", "text": "Not from the menu: LinkedIn's Date posted filter only offers Past 24 hours, Past week and Past month. The search address has a setting called f_TPR: set it to r3600 for the last hour (3,600 seconds). Since LinkedIn moved logged-in users to its AI-powered search, this only works when you are logged out, for example in a private window." }
   },
   {
    "@type": "Question",
@@ -93,17 +93,17 @@
 
 <main>
   <article class="wrap">
-    <p class="lead" id="by-hand">LinkedIn's <strong>Date posted</strong> filter stops at "Past 24 hours". By then a good job can already have hundreds of applicants. There is a simple way to see only the jobs posted in the last hour, or even the last 15 minutes.</p>
+    <p class="lead" id="by-hand">LinkedIn's <strong>Date posted</strong> filter stops at "Past 24 hours". By then a good job can already have hundreds of applicants. There is still a simple way to see only the jobs posted in the last hour, or even the last 15 minutes. One catch: it now only works when you're <strong>logged out</strong>.</p>
 
     <div class="answer">
-      <strong>Short answer:</strong> pick <strong>Past 24 hours</strong> in Date posted, then in the address bar change <code>f_TPR=r86400</code> to <b><code>f_TPR=r3600</code></b> and press Enter. The number is in seconds, so 3600 = 1 hour.
+      <strong>Short answer:</strong> open LinkedIn Jobs in a <strong>private window</strong> (logged out), search, pick <strong>Past 24 hours</strong> in Date posted, then in the address bar change <code>f_TPR=r86400</code> to <b><code>f_TPR=r3600</code></b> and press Enter. The number is in seconds, so 3600 = 1 hour.
     </div>
 
     <h2>Step by step</h2>
     <ol class="steps">
       <li>
-        <h3>Search for jobs on LinkedIn</h3>
-        <p>Open <strong>linkedin.com/jobs</strong> in Chrome or Edge on your computer and search as usual, for example "data analyst" in your city.</p>
+        <h3>Open LinkedIn Jobs logged out</h3>
+        <p>Open a private window (<strong>Ctrl+Shift+N</strong> in Chrome, <strong>Ctrl+Shift+P</strong> in Edge), go to <strong>linkedin.com/jobs/search</strong> and search as usual, for example "data analyst" in your city. Don't sign in: logged in, LinkedIn now sends you to its AI-powered search, which ignores anything shorter than 24 hours.</p>
       </li>
       <li>
         <h3>Choose "Past 24 hours"</h3>
@@ -111,16 +111,16 @@
       </li>
       <li>
         <h3>Change the number in the address bar</h3>
-        <p>Click the address bar, find <code>r86400</code> and replace it with <code>r3600</code>. Press Enter. (EarlyApply's <strong>1h</strong> button does this in one click.)</p>
-        <div class="url">https://www.linkedin.com/jobs/search/?keywords=data%20analyst&amp;f_TPR=r<s>86400</s><mark>3600</mark>&amp;sortBy=DD</div>
+        <p>Click the address bar, find <code>r86400</code> and replace it with <code>r3600</code>. Press Enter.</p>
+        <div class="url">https://www.linkedin.com/jobs/search?keywords=data%20analyst&amp;f_TPR=r<s>86400</s><mark>3600</mark>&amp;sortBy=DD</div>
       </li>
       <li>
         <h3>Sort by "Most recent"</h3>
-        <p>On the classic search page, set <strong>Sort by</strong> to <strong>Most recent</strong> (that is <code>sortBy=DD</code> in the address), so the newest job is on top.</p>
+        <p>Add <code>&amp;sortBy=DD</code> to the address (or pick <strong>Most recent</strong> if the page offers it), so the newest job is on top.</p>
       </li>
       <li>
         <h3>Bookmark it</h3>
-        <p>Save the page as a bookmark. Next time, one click shows the last hour's jobs. Reload it every so often to see new ones.</p>
+        <p>Save the page as a bookmark and open it in a private window. Reload it every so often to see new ones. When you find a job, sign in to apply.</p>
       </li>
     </ol>
 
@@ -145,7 +145,8 @@
     <h2>Good to know</h2>
     <ul class="notes">
       <li><strong>Older jobs can still slip in.</strong> LinkedIn sometimes mixes promoted and reposted jobs into the list. Check the "posted X ago" line before you apply, or see <a href="hide-promoted-reposted-jobs-linkedin.html">how to remove promoted and reposted jobs</a>.</li>
-      <li><strong>The new AI-powered search works too.</strong> If your address starts with <code>/jobs/search-results/</code>, the same <code>f_TPR</code> trick works, but that page has no "Most recent" sort.</li>
+      <li><strong>Logged in, it no longer works.</strong> LinkedIn now sends signed-in users to its AI-powered search (<code>/jobs/search-results/</code>). There, anything shorter than 24 hours is treated as 24 hours, and there is no "Most recent" sort. We tested this in October 2026: <code>r3600</code> showed jobs 2 to 21 hours old. Logged out, the same search showed only jobs under an hour old.</li>
+      <li><strong>Logged in, EarlyApply helps.</strong> Its time buttons hide everything older than you pick, and <a href="linkedin-instant-job-alerts.html">Job Radar</a> checks LinkedIn's newest-first list for you and alerts you within minutes.</li>
       <li><strong>It doesn't refresh by itself.</strong> New jobs only appear when you reload the page, so you have to keep checking, or <a href="linkedin-instant-job-alerts.html">get an alert within minutes</a> instead.</li>
       <li><strong>Not in the mobile app.</strong> The app has no address bar. Use a browser.</li>
     </ul>
@@ -156,7 +157,7 @@
     <section class="cta">
       <span class="kicker">The one-click way</span>
       <h2>Skip the address bar: use EarlyApply</h2>
-      <p>EarlyApply is a free Chrome and Edge extension that does all of the above for you, right on the LinkedIn page.</p>
+      <p>EarlyApply is a free Chrome and Edge extension that works while you're logged in, right on the LinkedIn page.</p>
       <ul>
         <li>One-click buttons: 15m, 30m, 1h, 3h, 6h, 12h, newest first</li>
         <li>Hides promoted, reposted and old jobs that slip in</li>
@@ -167,7 +168,7 @@
     </section>
 
     <h2>Questions</h2>
-    <details><summary>Can I filter LinkedIn jobs by the last hour?</summary><p>Not from the menu: LinkedIn's Date posted filter only offers Past 24 hours, Past week and Past month. But the search address has a setting called <code>f_TPR</code>. Set it to <code>r3600</code> and you see jobs from the last hour (3,600 seconds).</p></details>
+    <details><summary>Can I filter LinkedIn jobs by the last hour?</summary><p>Not from the menu: LinkedIn's Date posted filter only offers Past 24 hours, Past week and Past month. The search address has a setting called <code>f_TPR</code>: set it to <code>r3600</code> for the last hour (3,600 seconds). Since LinkedIn moved logged-in users to its AI-powered search, this only works when you are logged out, for example in a private window.</p></details>
     <details><summary>What does f_TPR mean in a LinkedIn URL?</summary><p>It is the Date posted filter. The value is the letter r followed by a number of seconds: <code>r86400</code> is 24 hours, <code>r3600</code> is 1 hour, <code>r900</code> is 15 minutes.</p></details>
     <details><summary>Does this work in the LinkedIn app?</summary><p>No. The app has no address bar to edit. Use LinkedIn in a browser on your computer, or open the edited link in your phone's browser.</p></details>
     <details><summary>Why do I still see older jobs?</summary><p>LinkedIn sometimes mixes in promoted and reposted jobs that are older than your filter. Look at the "posted X ago" line on each job, or use a tool like EarlyApply that hides them for you.</p></details>
