@@ -134,7 +134,7 @@ h1, h2, h3 { font-family: var(--head); letter-spacing: -0.025em; margin: 0; text
 .nav .btn { padding: 10px 18px; font-size: 14px; }
 
 /* ---------- Hero: one radar, as atmosphere ---------- */
-.hero { position: relative; padding: 150px 0 40px; text-align: center; isolation: isolate; }
+.hero { position: relative; padding: 150px 0 40px; text-align: center; isolation: isolate; overflow-x: clip; } /* the radar circle is wider than a phone */
 .hero__radar {
   position: absolute; z-index: -1; left: 50%; top: 40px; width: 1100px; aspect-ratio: 1; translate: -50% 0; border-radius: 50%;
   background: repeating-radial-gradient(circle, transparent 0 69px, color-mix(in srgb, var(--accent) 9%, transparent) 69px 70px);
@@ -516,7 +516,7 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
       </div>
       <div class="rv">
         <a class="guide" href="linkedin-jobs-posted-last-hour.html"><div><b>See jobs posted in the last hour</b><small>LinkedIn stops at 24 hours. One number in the address fixes it.</small></div><i>→</i></a>
-        <a class="guide" href="hide-promoted-reposted-jobs-linkedin.html"><div><b>Hide promoted and reposted jobs</b><small>How to spot them, and what actually works.</small></div><i>→</i></a>
+        <a class="guide" href="hide-promoted-reposted-jobs-linkedin.html"><div><b>Remove promoted and reposted jobs</b><small>How to spot them, and what actually works.</small></div><i>→</i></a>
         <a class="guide" href="linkedin-instant-job-alerts.html"><div><b>Get job alerts within minutes</b><small>Why LinkedIn's alerts are slow, and how to be faster.</small></div><i>→</i></a>
         <a class="guide" href="linkedin-easy-apply-questions.html"><div><b>Answer Easy Apply questions faster</b><small>The questions every company asks, and how to stop retyping them.</small></div><i>→</i></a>
       </div>
@@ -558,7 +558,7 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
 <footer>
   <div class="wrap">
     <a class="brand" href="./"><img src="logo.png" alt="" width="22" height="22">EarlyApply</a>
-    <nav><a href="linkedin-jobs-posted-last-hour.html">Guide: jobs posted in the last hour</a><a href="hide-promoted-reposted-jobs-linkedin.html">Guide: hide promoted &amp; reposted jobs</a><a href="linkedin-instant-job-alerts.html">Guide: instant job alerts</a><a href="linkedin-easy-apply-questions.html">Guide: Easy Apply questions</a><a href="mailto:iamdheeraj0211@gmail.com?subject=EarlyApply%20support">Support</a><a href="privacy.html">Privacy policy</a></nav>
+    <nav><a href="linkedin-jobs-posted-last-hour.html">Guide: jobs posted in the last hour</a><a href="hide-promoted-reposted-jobs-linkedin.html">Guide: remove promoted &amp; reposted jobs</a><a href="linkedin-instant-job-alerts.html">Guide: instant job alerts</a><a href="linkedin-easy-apply-questions.html">Guide: Easy Apply questions</a><a href="mailto:iamdheeraj0211@gmail.com?subject=EarlyApply%20support">Support</a><a href="privacy.html">Privacy policy</a></nav>
     <p>EarlyApply is an independent project and is not affiliated with LinkedIn Corporation.</p>
   </div>
 </footer>

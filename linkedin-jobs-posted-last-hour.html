@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How to See LinkedIn Jobs Posted in the Last Hour (or Last 15 Minutes)</title>
-<meta name="description" content="LinkedIn's Date posted filter stops at 24 hours. Change one number in the search address to see jobs posted in the last hour, 30 minutes or 15 minutes. Step by step, with a ready table of values.">
+<meta name="description" content="LinkedIn's Date posted filter stops at 24 hours. Change f_TPR=r86400 to r3600 in the search address to see jobs posted in the last hour, 30 minutes or 15 minutes. Step by step, with every f_TPR code.">
 <link rel="canonical" href="https://iamdheeraj0211.github.io/earlyapply/linkedin-jobs-posted-last-hour.html">
 <meta name="theme-color" content="#050b0a">
 <meta property="og:title" content="How to see LinkedIn jobs posted in the last hour">
@@ -20,7 +20,7 @@
   "headline": "How to see LinkedIn jobs posted in the last hour",
   "description": "Change f_TPR in the LinkedIn job search address to see jobs posted in the last hour, 30 minutes or 15 minutes.",
   "datePublished": "2026-10-23",
-  "dateModified": "2026-10-23",
+  "dateModified": "2026-10-29",
   "image": "https://iamdheeraj0211.github.io/earlyapply/img/share.jpg",
   "mainEntityOfPage": "https://iamdheeraj0211.github.io/earlyapply/linkedin-jobs-posted-last-hour.html",
   "author": { "@type": "Organization", "name": "EarlyApply", "url": "https://iamdheeraj0211.github.io/earlyapply/" },
@@ -66,15 +66,34 @@
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="./"><img src="logo.png" alt="" width="28" height="28">EarlyApply</a>
-    <a class="btn" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add to Chrome</a>
+    <span class="tag">Free LinkedIn Jobs extension for Chrome &amp; Edge</span>
+    <a class="btn" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add to Chrome, free</a>
   </div>
 </header>
 
-<main>
-  <article class="wrap">
+<section class="hero">
+  <div>
     <span class="kicker">LinkedIn job search guide</span>
     <h1>How to see LinkedIn jobs posted in the last hour</h1>
-    <p class="lead">LinkedIn's <strong>Date posted</strong> filter stops at "Past 24 hours". By then a good job can already have hundreds of applicants. There is a simple way to see only the jobs posted in the last hour, or even the last 15 minutes.</p>
+    <div class="pf">
+      <div class="p"><b>PROBLEM</b><span>LinkedIn's <strong>Date posted</strong> filter stops at 24 hours. By then a good job can already have hundreds of applicants.</span></div>
+      <div class="f"><b>FIX</b><span><strong>EarlyApply</strong>, a free browser extension, adds <strong>15m &middot; 30m &middot; 1h</strong> buttons right on the LinkedIn jobs page. One click, no address editing.</span></div>
+    </div>
+    <div class="acts">
+      <a class="btn" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add to Chrome, it's free</a>
+      <a class="alt" href="#by-hand">or do it by hand &darr;</a>
+    </div>
+    <p class="trust">No account &middot; no tracking &middot; never applies for you<span data-edge-alt> &middot; also on <a href="https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep">Edge</a></span></p>
+  </div>
+  <figure class="shot">
+    <picture><source srcset="img/fresh-jobs.webp" type="image/webp"><img src="img/fresh-jobs.jpg" alt="EarlyApply time buttons (15m, 30m, 1h) on the LinkedIn jobs page" width="880" height="720"></picture>
+    <figcaption>EarlyApply on LinkedIn: jobs posted in the last 15 minutes, newest first</figcaption>
+  </figure>
+</section>
+
+<main>
+  <article class="wrap">
+    <p class="lead" id="by-hand">LinkedIn's <strong>Date posted</strong> filter stops at "Past 24 hours". By then a good job can already have hundreds of applicants. There is a simple way to see only the jobs posted in the last hour, or even the last 15 minutes.</p>
 
     <div class="answer">
       <strong>Short answer:</strong> pick <strong>Past 24 hours</strong> in Date posted, then in the address bar change <code>f_TPR=r86400</code> to <b><code>f_TPR=r3600</code></b> and press Enter. The number is in seconds, so 3600 = 1 hour.
@@ -92,7 +111,7 @@
       </li>
       <li>
         <h3>Change the number in the address bar</h3>
-        <p>Click the address bar, find <code>r86400</code> and replace it with <code>r3600</code>. Press Enter.</p>
+        <p>Click the address bar, find <code>r86400</code> and replace it with <code>r3600</code>. Press Enter. (EarlyApply's <strong>1h</strong> button does this in one click.)</p>
         <div class="url">https://www.linkedin.com/jobs/search/?keywords=data%20analyst&amp;f_TPR=r<s>86400</s><mark>3600</mark>&amp;sortBy=DD</div>
       </li>
       <li>
@@ -105,8 +124,8 @@
       </li>
     </ol>
 
-    <h2>Values for other time windows</h2>
-    <p>Use any number of seconds. These are the useful ones:</p>
+    <h2>f_TPR codes: what r86400, r3600 and r900 mean</h2>
+    <p><code>f_TPR</code> is LinkedIn's <strong>Date posted</strong> filter in the search address. The value is <code>r</code> plus a number of seconds: <code>f_TPR=r86400</code> means "posted in the last 86,400 seconds", which is 24 hours. Use any number of seconds. These are the useful ones:</p>
     <table>
       <thead><tr><th>Posted within</th><th>Put this in the address</th></tr></thead>
       <tbody>
@@ -117,13 +136,15 @@
         <tr><td>6 hours</td><td><code>f_TPR=r21600</code></td></tr>
         <tr><td>12 hours</td><td><code>f_TPR=r43200</code></td></tr>
         <tr><td>24 hours (LinkedIn's own)</td><td><code>f_TPR=r86400</code></td></tr>
+        <tr><td>Past week (LinkedIn's own)</td><td><code>f_TPR=r604800</code></td></tr>
+        <tr><td>Past month (LinkedIn's own)</td><td><code>f_TPR=r2592000</code></td></tr>
       </tbody>
     </table>
     <p>Very short windows like 15 minutes often show few or no jobs for narrow searches. Start with 1 hour and go shorter if there are plenty.</p>
 
     <h2>Good to know</h2>
     <ul class="notes">
-      <li><strong>Older jobs can still slip in.</strong> LinkedIn sometimes mixes promoted and reposted jobs into the list. Check the "posted X ago" line before you apply, or see <a href="hide-promoted-reposted-jobs-linkedin.html">how to hide promoted and reposted jobs</a>.</li>
+      <li><strong>Older jobs can still slip in.</strong> LinkedIn sometimes mixes promoted and reposted jobs into the list. Check the "posted X ago" line before you apply, or see <a href="hide-promoted-reposted-jobs-linkedin.html">how to remove promoted and reposted jobs</a>.</li>
       <li><strong>The new AI-powered search works too.</strong> If your address starts with <code>/jobs/search-results/</code>, the same <code>f_TPR</code> trick works, but that page has no "Most recent" sort.</li>
       <li><strong>It doesn't refresh by itself.</strong> New jobs only appear when you reload the page, so you have to keep checking, or <a href="linkedin-instant-job-alerts.html">get an alert within minutes</a> instead.</li>
       <li><strong>Not in the mobile app.</strong> The app has no address bar. Use a browser.</li>
@@ -156,7 +177,7 @@
 <footer>
   <div class="wrap">
     <a class="brand" href="./"><img src="logo.png" alt="" width="22" height="22">EarlyApply</a>
-    <nav><a href="./">Home</a><a href="hide-promoted-reposted-jobs-linkedin.html">Hide promoted &amp; reposted jobs</a><a href="linkedin-instant-job-alerts.html">Instant job alerts</a><a href="linkedin-easy-apply-questions.html">Easy Apply questions</a><a href="privacy.html">Privacy policy</a></nav>
+    <nav><a href="./">Home</a><a href="hide-promoted-reposted-jobs-linkedin.html">Remove promoted &amp; reposted jobs</a><a href="linkedin-instant-job-alerts.html">Instant job alerts</a><a href="linkedin-easy-apply-questions.html">Easy Apply questions</a><a href="privacy.html">Privacy policy</a></nav>
     <p>EarlyApply is an independent project and is not affiliated with LinkedIn Corporation.</p>
   </div>
 </footer>

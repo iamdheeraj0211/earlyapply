@@ -36,6 +36,31 @@ h1, h2, h3 { font-family: var(--head); letter-spacing: -0.02em; line-height: 1.1
 .brand { display: flex; align-items: center; gap: 10px; font: 700 19px var(--head); text-decoration: none; color: var(--fg); }
 .nav .btn { margin-left: auto; padding: 9px 16px; font-size: 14px; box-shadow: none; }
 
+.nav .tag { color: var(--muted); font-size: 14px; border-left: 1px solid var(--line); padding-left: 16px; }
+
+/* Above the fold: the problem, the fix and a picture of it, in one glance. */
+.hero { width: min(1120px, 100% - 32px); margin: 0 auto; padding: 36px 0 20px; display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; }
+.hero h1 { font-size: clamp(30px, 4.2vw, 46px); margin: 12px 0 0; }
+.pf { margin: 24px 0 0; display: grid; gap: 12px; }
+.pf div { display: grid; grid-template-columns: 84px 1fr; gap: 12px; align-items: start; padding: 14px 16px; border-radius: 12px; background: var(--ui); border: 1px solid var(--line); font-size: 16.5px; line-height: 1.5; color: var(--muted); }
+.pf strong { color: var(--fg); }
+.pf b { font: 700 12px var(--body); letter-spacing: .1em; padding: 4px 0; border-radius: 6px; text-align: center; }
+.pf .p b { color: var(--red); background: color-mix(in srgb, var(--red) 14%, transparent); }
+.pf .f { border-color: var(--ui-line); }
+.pf .f b { color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
+.acts { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin: 24px 0 0; }
+.acts .alt { color: var(--muted); font-size: 15px; }
+.trust { margin: 14px 0 0; color: var(--faint); font-size: 13.5px; }
+.shot { margin: 0; }
+.shot img { width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--ui-line); box-shadow: 0 20px 80px var(--glow); display: block; }
+.shot figcaption { color: var(--faint); font-size: 13px; margin-top: 8px; text-align: center; }
+.hero + main article { padding-top: 8px; }
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; gap: 22px; padding-top: 20px; }
+  .nav .tag { display: none; }
+  .pf div { grid-template-columns: 72px 1fr; font-size: 15.5px; padding: 12px 14px; }
+}
+
 article { padding: 48px 0 40px; }
 article h1 { font-size: clamp(34px, 5.6vw, 54px); margin: 14px 0 0; }
 .lead { color: var(--muted); font-size: 19px; margin: 20px 0 0; }
