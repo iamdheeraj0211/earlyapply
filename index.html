@@ -6,7 +6,7 @@
 <title>EarlyApply: Instant LinkedIn Job Alerts & Last-Hour Filter</title>
 <meta name="description" content="Free Chrome extension for LinkedIn job search: see jobs posted in the last hour or the last 15 minutes first, get job alerts the moment a new job is posted, and hide promoted, reposted and agency jobs. No sign-in.">
 <link rel="canonical" href="https://iamdheeraj0211.github.io/earlyapply/">
-<meta name="theme-color" content="#050b0a">
+<meta name="theme-color" content="#f5f8f6">
 <meta property="og:title" content="EarlyApply: LinkedIn job alerts & jobs posted in the last hour">
 <meta property="og:description" content="See LinkedIn jobs minutes after they're posted, hide the noise, and get an alert the moment a new one appears. Free, private, no account.">
 <meta property="og:image" content="https://iamdheeraj0211.github.io/earlyapply/img/share.jpg">
@@ -117,10 +117,10 @@
   --body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color-scheme: dark;
 }
-@media (prefers-color-scheme: light) {
+@media all {
   :root:not([data-theme="dark"]) {
     --bg: #f5f8f6; --bg-2: #eaf2ee; --fg: #0c1714; --muted: #4c615b; --faint: #62786f;
-    --line: rgba(10, 40, 32, 0.1); --accent: #04a372; --accent-ink: #fff; --red: #d64545;
+    --line: rgba(10, 40, 32, 0.1); --accent: #04835a; --accent-ink: #fff; --red: #d64545;
     --ui: #ffffff; --ui-line: rgba(4, 140, 96, 0.2); --glow: rgba(4, 140, 96, 0.14);
     color-scheme: light;
   }
@@ -176,7 +176,7 @@ h1, h2, h3 { font-family: var(--head); letter-spacing: -0.025em; margin: 0; text
 .float { position: relative; height: 380px; margin-top: 44px; }
 .piece {
   position: absolute; background: var(--ui); border: 1px solid var(--ui-line); border-radius: 14px; text-align: left;
-  box-shadow: 0 30px 70px rgba(0, 0, 0, .45), 0 0 0 1px rgba(255,255,255,.02) inset; animation: bob 6s ease-in-out infinite;
+  box-shadow: 0 12px 32px rgba(10, 40, 32, .10), 0 2px 6px rgba(10, 40, 32, .06); animation: bob 6s ease-in-out infinite;
 }
 @keyframes bob { 50% { translate: 0 -10px; } }
 .chips { display: flex; gap: 6px; align-items: center; padding: 12px 14px; font-size: 13px; color: var(--muted); }
@@ -236,7 +236,7 @@ h1, h2, h3 { font-family: var(--head); letter-spacing: -0.025em; margin: 0; text
 /* ---------- Video ---------- */
 .video { padding: 110px 0 20px; text-align: center; }
 .video p { color: var(--muted); margin: 14px 0 0; }
-.screen { position: relative; max-width: 980px; margin: 44px auto 0; border-radius: 20px; overflow: hidden; aspect-ratio: 16/9; background: #000; box-shadow: 0 50px 120px rgba(0,0,0,.6), 0 0 140px var(--glow); }
+.screen { position: relative; max-width: 980px; margin: 44px auto 0; border-radius: 20px; overflow: hidden; aspect-ratio: 16/9; background: #000; box-shadow: 0 24px 60px rgba(10, 40, 32, .22), 0 0 100px var(--glow); }
 .screen a, .screen iframe { display: block; width: 100%; height: 100%; border: 0; }
 .screen img { width: 100%; height: 100%; object-fit: cover; transition: scale .5s; }
 .screen a:hover img { scale: 1.03; }
@@ -262,6 +262,12 @@ h1, h2, h3 { font-family: var(--head); letter-spacing: -0.025em; margin: 0; text
 .gone { transition: opacity .6s, translate .6s, max-height .6s .3s, margin .6s .3s, padding .6s .3s; max-height: 90px; overflow: hidden; }
 .gone.out { opacity: 0; translate: 60px 0; max-height: 0; padding-block: 0; margin-top: -10px; border-width: 0; }
 .label { margin-left: auto; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: 700; background: color-mix(in srgb, var(--red) 15%, transparent); color: var(--red); }
+.hide-btn { margin-left: auto; padding: 4px 11px; border-radius: 999px; border: 1px solid var(--accent); color: var(--accent); font-size: 12px; font-weight: 700; transition: background .2s, color .2s, scale .15s; }
+.hide-btn.press { background: var(--accent); color: var(--accent-ink); scale: .93; }
+.forever { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-height: 30px; font-size: 13px; color: var(--muted); }
+.fv-chip { padding: 3px 10px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent); font-weight: 700; opacity: 0; scale: .8; transition: opacity .4s, scale .4s; }
+.fv-chip.in { opacity: 1; scale: 1; }
+.hidden-count { transition: opacity .4s; }
 .hidden-count { align-self: flex-end; font-size: 13px; color: var(--muted); }
 .hidden-count b { color: var(--fg); }
 .watching { display: flex; align-items: center; gap: 10px; padding: 12px 16px; font-size: 14px; }
@@ -510,20 +516,21 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
         <div class="text rv">
           <span class="num">03</span>
           <h2>Hide everything you'd skip anyway.</h2>
-          <p>Promoted posts, reposts, staffing agencies, companies you never want to see again, and titles like "Senior" when you're a fresher.</p>
+          <p>Promoted posts, reposts, staffing agencies, companies you never want to see again, and titles like "Senior" when you're entry-level.</p>
           <ul>
-            <li>One click "Hide company" on any job</li>
-            <li>Block job titles by word</li>
-            <li>"5 hidden · show" lets you peek at what was filtered</li>
+            <li>One click "Hide company" on any job, and it stays hidden in every search</li>
+            <li>Block job titles by word, like "Senior" or "Intern", for good</li>
+            <li>"3 hidden · show" lets you peek at what was filtered</li>
           </ul>
         </div>
         <div class="stage rv" aria-hidden="true">
           <div class="stack" data-hide>
             <div class="piece job"><span class="logo" style="background:#0a66c2">A</span><div><b>Sales Executive</b><small>Acme Pharma · <em>2 min ago</em></small></div></div>
-            <div class="piece job gone"><span class="logo" style="background:#5e6b78">R</span><div><b>Account Manager</b><small>Robert Staffing</small></div><span class="label">Agency</span></div>
-            <div class="piece job gone"><span class="logo" style="background:#5e6b78">V</span><div><b>Sales Associate</b><small>Vandelay</small></div><span class="label">Promoted</span></div>
+            <div class="piece job gone" data-step="company"><span class="logo" style="background:#5e6b78">R</span><div><b>Account Manager</b><small>Robert Staffing</small></div><span class="hide-btn">Hide company</span></div>
+            <div class="piece job gone" data-step="promoted"><span class="logo" style="background:#5e6b78">V</span><div><b>Sales Associate</b><small>Vandelay</small></div><span class="label">Promoted</span></div>
             <div class="piece job"><span class="logo" style="background:#7b3fa0">G</span><div><b>Inside Sales Rep</b><small>Globex · <em>3 min ago</em></small></div></div>
-            <div class="piece job gone"><span class="logo" style="background:#5e6b78">H</span><div><b>Senior Sales Lead</b><small>Hooli</small></div><span class="label">Reposted</span></div>
+            <div class="piece job gone" data-step="role"><span class="logo" style="background:#5e6b78">H</span><div><b>Senior Sales Lead</b><small>Hooli</small></div><span class="label">Senior</span></div>
+            <div class="forever"><span class="forever__label">Hidden for good:</span><span class="fv-chip" data-chip="company">Robert Staffing</span><span class="fv-chip" data-chip="role">title: Senior</span></div>
             <span class="hidden-count"><b>3 hidden</b> · show</span>
           </div>
         </div>
@@ -534,8 +541,8 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
       <div class="wrap">
         <div class="text rv">
           <span class="num">04</span>
-          <h2>Answer the same questions faster.</h2>
-          <p>Notice period, salary, a short intro: save your usual answers once and copy them in one click beside LinkedIn's Easy Apply form.</p>
+          <h2>Stop typing the same answers again.</h2>
+          <p>"Tell us about yourself." "Do you need visa sponsorship?" "What salary do you expect?" Every Easy Apply form asks the same awkward questions, and writing them out again and again is exhausting. Write each answer once, then copy it in one click, right beside the form.</p>
           <ul>
             <li>Shows the answers that fit each question</li>
             <li>A daily goal and a streak to keep you going</li>
@@ -544,8 +551,8 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
         </div>
         <div class="stage rv" aria-hidden="true">
           <div class="stack">
-            <div class="piece qa"><small>★ matches: What is your notice period?</small><div>30 days<span class="copy">Copy</span></div></div>
-            <div class="piece qa"><small>★ matches: Expected CTC (in lakhs)</small><div>8 LPA<span class="copy">Copy</span></div></div>
+            <div class="piece qa"><small>★ matches: Tell us about yourself</small><div>Sales exec, 4 yrs in pharma…<span class="copy">Copy</span></div></div>
+            <div class="piece qa"><small>★ matches: Will you now or in the future require visa sponsorship?</small><div>No<span class="copy">Copy</span></div></div>
             <div class="piece goal"><b>6 of 10 applied today</b> · 3-day streak 🔥<div class="bar"><i></i></div></div>
           </div>
         </div>
@@ -654,19 +661,28 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
     }, { threshold: 0.5 }).observe(track);
   })();
 
-  // "Hide the noise": the unwanted jobs slide out, then come back, on a loop while visible.
+  // "Hide the noise": click Hide company, add a title word, and the jobs slide out and STAY hidden (it plays once).
   (function () {
     var box = document.querySelector('[data-hide]');
-    if (!box || matchMedia('(prefers-reduced-motion: reduce)').matches) { box && box.querySelectorAll('.gone').forEach(function (g) { g.classList.add('out'); }); return; }
-    var rows = box.querySelectorAll('.gone'), timer = null;
-    var cycle = function () {
-      rows.forEach(function (r, i) { setTimeout(function () { r.classList.add('out'); }, 500 + i * 450); });
-      timer = setTimeout(function () { rows.forEach(function (r) { r.classList.remove('out'); }); timer = setTimeout(cycle, 1400); }, 4600);
+    if (!box) return;
+    var rows = {}, chips = {};
+    box.querySelectorAll('[data-step]').forEach(function (r) { rows[r.getAttribute('data-step')] = r; });
+    box.querySelectorAll('[data-chip]').forEach(function (c) { chips[c.getAttribute('data-chip')] = c; });
+    var out = function (k) { rows[k].classList.add('out'); };
+    var chip = function (k) { chips[k].classList.add('in'); };
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { ['company', 'promoted', 'role'].forEach(function (k) { out(k); chip(k === 'promoted' ? 'company' : k); }); return; }
+    var btn = rows.company.querySelector('.hide-btn');
+    var at = function (ms, fn) { setTimeout(fn, ms); };
+    var play = function () {
+      at(600, function () { btn.classList.add('press'); });      // 1. click "Hide company"
+      at(1000, function () { out('company'); chip('company'); }); // 2. the job goes, the company is saved
+      at(1900, function () { out('promoted'); });                  // 3. promoted jobs are hidden by themselves
+      at(2800, function () { chip('role'); });                     // 4. a title word is added
+      at(3300, function () { out('role'); });                      // 5. every "Senior" job goes
     };
-    new IntersectionObserver(function (entries) {
-      if (entries[0].isIntersecting && !timer) cycle();
-      else if (!entries[0].isIntersecting) { clearTimeout(timer); timer = null; }
-    }, { threshold: 0.4 }).observe(box);
+    new IntersectionObserver(function (entries, obs) {
+      if (entries[0].isIntersecting) { obs.disconnect(); play(); }
+    }, { threshold: 0.5 }).observe(box);
   })();
 
   // Support email: Copy puts the address on the clipboard (a mailto link does nothing without a mail app).

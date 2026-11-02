@@ -19,7 +19,7 @@
   --body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color-scheme: dark;
 }
-@media (prefers-color-scheme: light) {
+@media all {
   :root {
     --bg: #f6f8f7;
     --bg-2: #eaf1ee;
@@ -30,7 +30,7 @@
     --fg: #0c1714;
     --muted: #4c615b;
     --faint: #7d8f8a;
-    --accent: #048c60;
+    --accent: #04835a;
     --accent-ink: #ffffff;
     --gold: #c98a00;
     --glow: rgba(4, 140, 96, 0.12);
@@ -139,7 +139,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   background-clip: text;
   color: transparent;
 }
-@media (prefers-color-scheme: light) {
+@media all {
   .hero h1 em { background: linear-gradient(100deg, #048c60 10%, #0aa874 60%, #c98a00 100%); -webkit-background-clip: text; background-clip: text; }
 }
 .hero__lead { margin: 16px 0 0; color: var(--muted); font-size: 16.5px; }
