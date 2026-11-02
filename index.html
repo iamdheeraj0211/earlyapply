@@ -331,6 +331,23 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
   .hero__radar::after { rotate: 215deg; }
 }
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4STR109LDN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4STR109LDN');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="chromewebstore.google.com"], a[href*="microsoftedge.microsoft.com"]');
+    if (!a) return;
+    gtag('event', 'store_click', {
+      store: a.href.indexOf('microsoftedge') > -1 ? 'edge' : 'chrome',
+      page_path: location.pathname,
+      transport_type: 'beacon'
+    });
+  });
+</script>
 </head>
 <body>
 
