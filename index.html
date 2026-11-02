@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EarlyApply – LinkedIn Job Alerts & Jobs Posted in the Last Hour (Free Chrome Extension)</title>
+<title>EarlyApply: Instant LinkedIn Job Alerts & Last-Hour Filter</title>
 <meta name="description" content="Free Chrome extension for LinkedIn job search: see jobs posted in the last hour or the last 15 minutes first, get job alerts the moment a new job is posted, and hide promoted, reposted and agency jobs. No sign-in.">
 <link rel="canonical" href="https://iamdheeraj0211.github.io/earlyapply/">
 <meta name="theme-color" content="#050b0a">
@@ -75,6 +75,22 @@
     "@type": "Answer",
     "text": "Yes, it's on the Edge Add-ons store too, and works on LinkedIn's classic and AI-powered job search."
    }
+  },
+  {
+   "@type": "Question",
+   "name": "Does it work on my phone or the LinkedIn app?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. EarlyApply is a browser extension for Chrome and Edge on a computer. It does not work in the LinkedIn app or in phone browsers."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does it work on Mac, and do I need to be logged in?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes to both. It runs in Chrome or Edge on Windows, Mac and Linux, and it works while you are logged in to LinkedIn."
+   }
   }
  ]
 }
@@ -89,7 +105,7 @@
   --bg-2: #08120f;
   --fg: #eef5f2;
   --muted: #8fa59e;
-  --faint: #4d625c;
+  --faint: #70887f;
   --line: rgba(255, 255, 255, 0.08);
   --accent: #34f5b0;
   --accent-ink: #04221a;
@@ -103,7 +119,7 @@
 }
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
-    --bg: #f5f8f6; --bg-2: #eaf2ee; --fg: #0c1714; --muted: #4c615b; --faint: #a3b3ae;
+    --bg: #f5f8f6; --bg-2: #eaf2ee; --fg: #0c1714; --muted: #4c615b; --faint: #62786f;
     --line: rgba(10, 40, 32, 0.1); --accent: #04a372; --accent-ink: #fff; --red: #d64545;
     --ui: #ffffff; --ui-line: rgba(4, 140, 96, 0.2); --glow: rgba(4, 140, 96, 0.14);
     color-scheme: light;
@@ -134,7 +150,7 @@ h1, h2, h3 { font-family: var(--head); letter-spacing: -0.025em; margin: 0; text
 .nav .btn { padding: 10px 18px; font-size: 14px; }
 
 /* ---------- Hero: one radar, as atmosphere ---------- */
-.hero { position: relative; padding: 150px 0 40px; text-align: center; isolation: isolate; overflow-x: clip; } /* the radar circle is wider than a phone */
+.hero { position: relative; padding: 130px 0 30px; text-align: center; isolation: isolate; overflow-x: clip; } /* the radar circle is wider than a phone */
 .hero__radar {
   position: absolute; z-index: -1; left: 50%; top: 40px; width: 1100px; aspect-ratio: 1; translate: -50% 0; border-radius: 50%;
   background: repeating-radial-gradient(circle, transparent 0 69px, color-mix(in srgb, var(--accent) 9%, transparent) 69px 70px);
@@ -157,7 +173,7 @@ h1, h2, h3 { font-family: var(--head); letter-spacing: -0.025em; margin: 0; text
 .hero__small a { color: var(--muted); }
 
 /* Floating pieces of the real UI, drawn in our theme */
-.float { position: relative; height: 380px; margin-top: 60px; }
+.float { position: relative; height: 380px; margin-top: 44px; }
 .piece {
   position: absolute; background: var(--ui); border: 1px solid var(--ui-line); border-radius: 14px; text-align: left;
   box-shadow: 0 30px 70px rgba(0, 0, 0, .45), 0 0 0 1px rgba(255,255,255,.02) inset; animation: bob 6s ease-in-out infinite;
@@ -187,6 +203,15 @@ h1, h2, h3 { font-family: var(--head); letter-spacing: -0.025em; margin: 0; text
 .f4 { left: 10%; top: 210px; rotate: 2deg; animation-delay: -1s; }
 .f5 { left: 45%; top: 170px; rotate: -2deg; animation-delay: -3s; }
 .f6 { right: 8%; top: 250px; rotate: -3deg; animation-delay: -5s; }
+
+/* ---------- How it works ---------- */
+.how { padding: 90px 0 0; }
+.how h2 { font-size: clamp(32px, 4.6vw, 54px); line-height: 1.08; }
+.how__steps { list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.how__steps b { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--accent); color: var(--accent); font: 700 17px var(--head); }
+.how__steps h3 { font-size: 20px; margin-top: 16px; }
+.how__steps p { margin: 8px 0 0; color: var(--muted); }
+.race__note { margin: 28px 0 0; color: var(--faint); font-size: 13.5px; }
 
 /* ---------- The race ---------- */
 .race { padding: 120px 0 40px; }
@@ -303,7 +328,9 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
 .rv.in { opacity: 1; translate: 0 0; }
 
 @media (max-width: 860px) {
-  .nav nav a:not(.btn) { display: none; }
+  .nav nav a:not(.btn):not([href="#guides"]) { display: none; }
+  .nav nav { gap: 16px; }
+  .how__steps { grid-template-columns: 1fr; gap: 28px; }
   .hero { padding-top: 120px; }
   .float { height: auto; display: flex; flex-direction: column; align-items: center; gap: 14px; margin-top: 44px; }
   .piece.f1, .piece.f3, .piece.f6 { display: none; }
@@ -331,6 +358,7 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
   .hero__radar::after { rotate: 215deg; }
 }
 </style>
+<noscript><style>.rv { opacity: 1; translate: none; } .track::after { width: 100%; }</style></noscript>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4STR109LDN"></script>
 <script>
@@ -369,13 +397,13 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
     <div class="hero__radar" aria-hidden="true"></div>
     <div class="wrap">
       <span class="kicker">Free extension for LinkedIn Jobs</span>
-      <h1>Apply in the first <em>15&nbsp;minutes</em>, not the <span class="strike">first 500</span>.</h1>
+      <h1>Be applicant <em>#3</em>, not <span class="strike">#300</span>.</h1>
       <p class="lead">EarlyApply shows you LinkedIn jobs minutes after they're posted, hides the noise, and alerts you the moment a new one appears. You still apply yourself.</p>
       <div class="hero__cta">
         <a class="btn btn--go" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add to Chrome, it's free</a>
         <a class="link-play" href="#video"><i>▶</i>Watch the 1-min video</a>
       </div>
-      <p class="hero__small">No account · No tracking<span data-edge-alt> · Also on <a href="https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep">Microsoft Edge</a></span></p>
+      <p class="hero__small">No account · No sign-up · No data collected<span data-edge-alt> · Also on <a href="https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep">Microsoft Edge</a></span></p>
 
       <div class="float" aria-hidden="true">
         <div class="piece chips f2"><b>Posted</b><span class="chip on">✓ 15m</span><span class="chip">30m</span><span class="chip">1h</span><span class="chip">3h</span><span class="chip">↓ Newest first</span></div>
@@ -385,6 +413,18 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
         <div class="piece you f5">You're applicant #3<span>while others are still scrolling</span></div>
         <div class="piece watching f6"><span class="pulse"></span>Job Radar is watching “sales” · checks every 3 min</div>
       </div>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="wrap">
+      <span class="kicker rv">How it works</span>
+      <h2 class="rv">Three steps. Under a minute.</h2>
+      <ol class="how__steps">
+        <li class="rv"><b>1</b><h3>Add it to your browser</h3><p>Free from the Chrome or Edge store. No account.</p></li>
+        <li class="rv"><b>2</b><h3>Open LinkedIn Jobs</h3><p>A small filter bar appears above your search results.</p></li>
+        <li class="rv"><b>3</b><h3>Pick a time, or click "Alert me"</h3><p>See only the newest jobs, or let Job Radar tell you when one is posted.</p></li>
+      </ol>
     </div>
   </section>
 
@@ -402,6 +442,7 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
         <div class="stop rv"><time>1 hour</time><i class="dot"></i><h3>Everyone else finds it</h3><p>LinkedIn starts showing it to more people.</p><span class="count">200</span></div>
         <div class="stop stop--late rv"><time>1 day</time><i class="dot"></i><h3>Too late</h3><p>The recruiter stopped reading long ago.</p><span class="count">1,200</span></div>
       </div>
+      <p class="race__note rv">Example timeline. Real numbers vary by job.</p>
     </div>
   </section>
 
@@ -518,7 +559,7 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
       <h2 class="rv">Your job search stays yours.</h2>
       <div class="zeros rv">
         <div>0<span>accounts</span></div>
-        <div>0<span>tracking</span></div>
+        <div>0<span>data collected</span></div>
         <div>0<span>servers</span></div>
       </div>
       <p class="rv">Everything EarlyApply saves stays in your own browser, and it never clicks, fills or applies for you. <a href="privacy.html">Read the privacy policy →</a></p>
@@ -559,6 +600,8 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
         <details><summary>Does it apply to jobs for me?</summary><p>No, and that's on purpose. You read the job and apply yourself. EarlyApply just gets you there first.</p></details>
         <details><summary>How fast are the alerts?</summary><p>Job Radar checks your search every 3 minutes (you can choose up to 1 hour) and alerts you when it finds a new job.</p></details>
         <details><summary>Does it work in Microsoft Edge?</summary><p>Yes, it's on the Edge Add-ons store too, and works on LinkedIn's classic and AI-powered job search.</p></details>
+        <details><summary>Does it work on my phone or the LinkedIn app?</summary><p>No. EarlyApply is a browser extension for Chrome and Edge on a computer. It does not work in the LinkedIn app or in phone browsers.</p></details>
+        <details><summary>Does it work on Mac, and do I need to be logged in?</summary><p>Yes to both. It runs in Chrome or Edge on Windows, Mac and Linux, and it works while you are logged in to LinkedIn.</p></details>
       </div>
     </div>
   </section>

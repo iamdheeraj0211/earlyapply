@@ -3,7 +3,7 @@
   --bg: #040908;
   --fg: #eef5f2;
   --muted: #8fa59e;
-  --faint: #4d625c;
+  --faint: #70887f;
   --line: rgba(255, 255, 255, 0.08);
   --accent: #34f5b0;
   --accent-ink: #04221a;
@@ -18,7 +18,7 @@
 }
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
-    --bg: #f5f8f6; --fg: #0c1714; --muted: #4c615b; --faint: #a3b3ae;
+    --bg: #f5f8f6; --fg: #0c1714; --muted: #4c615b; --faint: #62786f;
     --line: rgba(10, 40, 32, 0.1); --accent: #04a372; --accent-ink: #fff; --red: #d64545;
     --ui: #ffffff; --ui-line: rgba(4, 140, 96, 0.2); --glow: rgba(4, 140, 96, 0.14);
     color-scheme: light;
@@ -32,6 +32,7 @@ h1, h2, h3 { font-family: var(--head); letter-spacing: -0.02em; line-height: 1.1
 .kicker { color: var(--accent); font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
 .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 999px; font-weight: 700; text-decoration: none; background: var(--accent); color: var(--accent-ink); box-shadow: 0 10px 40px var(--glow); }
 
+.nav { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--line); }
 .nav .wrap { display: flex; align-items: center; height: 72px; gap: 20px; width: min(1120px, 100% - 32px); }
 .brand { display: flex; align-items: center; gap: 10px; font: 700 19px var(--head); text-decoration: none; color: var(--fg); }
 .nav .btn { margin-left: auto; padding: 9px 16px; font-size: 14px; box-shadow: none; }
@@ -41,6 +42,8 @@ h1, h2, h3 { font-family: var(--head); letter-spacing: -0.02em; line-height: 1.1
 /* Above the fold: the problem, the fix and a picture of it, in one glance. */
 .hero { width: min(1120px, 100% - 32px); margin: 0 auto; padding: 36px 0 20px; display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; }
 .hero h1 { font-size: clamp(30px, 4.2vw, 46px); margin: 12px 0 0; }
+.byline { margin: 10px 0 0; color: var(--faint); font-size: 14px; }
+.byline a { color: var(--muted); }
 .pf { margin: 24px 0 0; display: grid; gap: 12px; }
 .pf div { display: grid; grid-template-columns: 84px 1fr; gap: 12px; align-items: start; padding: 14px 16px; border-radius: 12px; background: var(--ui); border: 1px solid var(--line); font-size: 16.5px; line-height: 1.5; color: var(--muted); }
 .pf strong { color: var(--fg); }
@@ -111,5 +114,6 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
   body { font-size: 16px; }
   ol.steps > li { padding-left: 46px; }
   th, td { padding: 10px 8px; }
+  table { display: block; overflow-x: auto; }
   .cta { padding: 26px 20px; }
 }
