@@ -117,3 +117,6 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
   table { display: block; overflow-x: auto; }
   .cta { padding: 26px 20px; }
 }
+.hero--solo { grid-template-columns: 1fr; }
+.hero--solo > div { max-width: 820px; }
+.hero--solo .answer { margin-top: 26px; }

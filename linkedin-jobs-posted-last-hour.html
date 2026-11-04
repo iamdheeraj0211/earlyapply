@@ -86,34 +86,23 @@
   </div>
 </header>
 
-<section class="hero">
+<section class="hero hero--solo">
   <div>
     <span class="kicker">LinkedIn job search guide</span>
     <h1>How to see LinkedIn jobs posted in the last hour</h1>
     <p class="byline">By <a href="https://iamdheeraj0211.github.io/">Dheeraj</a> · Tested Oct 2026 · Updated Nov 2026</p>
-    <div class="pf">
-      <div class="p"><b>PROBLEM</b><span>LinkedIn's <strong>Date posted</strong> filter stops at 24 hours. By then a good job can already have hundreds of applicants.</span></div>
-      <div class="f"><b>FIX</b><span><strong>EarlyApply</strong>, a free browser extension, adds <strong>15m &middot; 30m &middot; 1h</strong> buttons right on the LinkedIn jobs page. One click, no address editing.</span></div>
+    <div class="answer">
+      <strong>Short answer:</strong> open LinkedIn Jobs in a <strong>private window</strong> (logged out), search, pick <strong>Past 24 hours</strong> in Date posted, then in the address bar change <code>f_TPR=r86400</code> to <b><code>f_TPR=r3600</code></b> and press Enter. The number is in seconds, so 3600 = 1 hour.
     </div>
     <div class="acts">
-      <a class="btn" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add EarlyApply to Chrome, free</a>
-      <a class="alt" href="#by-hand">or do it by hand &darr;</a>
+      <a class="alt" href="#by-hand">Read the steps &darr;</a>
     </div>
-    <p class="trust">No account &middot; no data collected &middot; never applies for you<span data-edge-alt> &middot; also on <a href="https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep">Edge</a></span></p>
   </div>
-  <figure class="shot">
-    <picture><source srcset="img/fresh-jobs.webp" type="image/webp"><img src="img/fresh-jobs.jpg" alt="EarlyApply time buttons (15m, 30m, 1h) on the LinkedIn jobs page" width="880" height="550"></picture>
-    <figcaption>EarlyApply on LinkedIn: jobs posted in the last 15 minutes, newest first</figcaption>
-  </figure>
 </section>
 
 <main>
   <article class="wrap">
     <p class="lead" id="by-hand">LinkedIn's <strong>Date posted</strong> filter stops at "Past 24 hours". By then a good job can already have hundreds of applicants. There is still a simple way to see only the jobs posted in the last hour, or even the last 15 minutes. One catch: it now only works when you're <strong>logged out</strong>.</p>
-
-    <div class="answer">
-      <strong>Short answer:</strong> open LinkedIn Jobs in a <strong>private window</strong> (logged out), search, pick <strong>Past 24 hours</strong> in Date posted, then in the address bar change <code>f_TPR=r86400</code> to <b><code>f_TPR=r3600</code></b> and press Enter. The number is in seconds, so 3600 = 1 hour.
-    </div>
 
     <h2>Step by step</h2>
     <ol class="steps">
@@ -179,6 +168,10 @@
         <li>Hides promoted, reposted and old jobs that slip in</li>
         <li>Job Radar: a desktop alert the minute a new job is posted, so you don't have to keep reloading</li>
       </ul>
+      <figure class="shot" style="margin: 0 0 26px">
+        <picture><source srcset="img/fresh-jobs.webp" type="image/webp"><img loading="lazy" src="img/fresh-jobs.jpg" alt="EarlyApply time buttons (15m, 30m, 1h) on the LinkedIn jobs page" width="880" height="550"></picture>
+        <figcaption>EarlyApply on LinkedIn: jobs posted in the last 15 minutes, newest first (demo screenshot)</figcaption>
+      </figure>
       <a class="btn" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add EarlyApply to Chrome, free</a>
       <small>No account, no data collected. <span data-edge-alt>Also on <a href="https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep">Microsoft Edge</a>. </span><a href="./">See how it works →</a></small>
     </section>

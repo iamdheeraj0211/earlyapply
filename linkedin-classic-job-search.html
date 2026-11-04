@@ -86,34 +86,23 @@
   </div>
 </header>
 
-<section class="hero">
+<section class="hero hero--solo">
   <div>
     <span class="kicker">LinkedIn job search guide</span>
     <h1>How to get LinkedIn classic job search back</h1>
     <p class="byline">By <a href="https://iamdheeraj0211.github.io/">Dheeraj</a> · Tested Oct 2026 · Updated Nov 2026</p>
-    <div class="pf">
-      <div class="p"><b>PROBLEM</b><span>LinkedIn removed the <strong>classic job search</strong> button. The new AI search has <strong>no "Most recent" sort</strong> and treats any time filter under 24 hours as 24 hours.</span></div>
-      <div class="f"><b>FIX</b><span><strong>EarlyApply</strong>, a free browser extension, adds a <strong>★ Newest jobs</strong> button to the new search: your search, newest first, from the last 15 minutes to 12 hours. Its Job Radar alerts you to new jobs within minutes.</span></div>
+    <div class="answer">
+      <strong>Short answer:</strong> there is <b>no switch back</b> while you're logged in. The closest thing is LinkedIn's <strong>logged-out job list</strong>: open <code>linkedin.com/jobs/search</code> in a private window, search, and add <code>&amp;f_TPR=r3600</code> (last hour) to the address. The list is not sorted by date, so check the "posted X ago" line on each job. Sign in only when you apply.
     </div>
     <div class="acts">
-      <a class="btn" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add EarlyApply to Chrome, free</a>
-      <a class="alt" href="#by-hand">or use the free workaround &darr;</a>
+      <a class="alt" href="#by-hand">Read the steps &darr;</a>
     </div>
-    <p class="trust">No account &middot; no data collected &middot; never applies for you<span data-edge-alt> &middot; also on <a href="https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep">Edge</a></span></p>
   </div>
-  <figure class="shot">
-    <picture><source srcset="img/fresh-jobs.webp" type="image/webp"><img src="img/fresh-jobs.jpg" alt="EarlyApply Newest first and time buttons on the LinkedIn jobs page" width="880" height="550"></picture>
-    <figcaption>EarlyApply on LinkedIn: newest jobs first, posted minutes ago</figcaption>
-  </figure>
 </section>
 
 <main>
   <article class="wrap">
     <p class="lead" id="by-hand">LinkedIn moved everyone to its <strong>AI-powered job search</strong> and took away the "Switch to classic job search" button. Most people miss two things: sorting by <strong>Most recent</strong>, and seeing only the jobs posted in the last hour. Here is what changed, what still works, and what does not.</p>
-
-    <div class="answer">
-      <strong>Short answer:</strong> there is <b>no switch back</b> while you're logged in. The closest thing is LinkedIn's <strong>logged-out job list</strong>: open <code>linkedin.com/jobs/search</code> in a private window, search, and add <code>&amp;f_TPR=r3600</code> (last hour) to the address. The list is not sorted by date, so check the "posted X ago" line on each job. Sign in only when you apply.
-    </div>
 
     <h2>What changed</h2>
     <table>
@@ -173,6 +162,10 @@
         <li>Job Radar checks LinkedIn's newest jobs every 3 minutes and alerts you</li>
         <li>Hides promoted, reposted and staffing-agency jobs</li>
       </ul>
+      <figure class="shot" style="margin: 0 0 26px">
+        <picture><source srcset="img/fresh-jobs.webp" type="image/webp"><img loading="lazy" src="img/fresh-jobs.jpg" alt="EarlyApply Newest first and time buttons on the LinkedIn jobs page" width="880" height="550"></picture>
+        <figcaption>EarlyApply on LinkedIn: newest jobs first, posted minutes ago (demo screenshot)</figcaption>
+      </figure>
       <a class="btn" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add EarlyApply to Chrome, free</a>
       <small>No account, no data collected. <span data-edge-alt>Also on <a href="https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep">Microsoft Edge</a>. </span><a href="./">See how it works →</a></small>
     </section>
