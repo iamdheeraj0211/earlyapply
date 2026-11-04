@@ -100,6 +100,9 @@
   .tool .acts2 { display: flex; flex-wrap: wrap; gap: 12px; margin: 14px 0 0; align-items: center; }
   .tool button.copy { padding: 11px 20px; border-radius: 999px; border: 0; font: inherit; font-weight: 700; cursor: pointer; background: var(--accent); color: var(--accent-ink); }
   .tool .note { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
+  .hero--solo { grid-template-columns: 1fr; }
+  .hero--solo > div { max-width: 820px; }
+  .hero--solo .answer { margin-top: 26px; }
   td.ok { color: var(--accent); font-weight: 700; }
   td.no { color: var(--red); font-weight: 700; }
   @media (max-width: 600px) { .tool .row { grid-template-columns: 1fr; } }
@@ -132,36 +135,26 @@
   </div>
 </header>
 
-<section class="hero">
+<section class="hero hero--solo">
   <div>
     <span class="kicker">LinkedIn job search guide</span>
     <h1>LinkedIn job search URL parameters that still work</h1>
     <p class="byline">By <a href="https://iamdheeraj0211.github.io/">Dheeraj</a> · Tested Oct and Nov 2026 · Updated Nov 2026</p>
-    <div class="pf">
-      <div class="p"><b>PROBLEM</b><span>Many guides list LinkedIn URL codes that <strong>no longer do anything</strong>. You type them in and the list does not change.</span></div>
-      <div class="f"><b>FIX</b><span>Use only the codes in the table below. We tested each one, <strong>logged out and logged in</strong>. Or skip the codes: <strong>EarlyApply</strong> is a free Chrome and Edge extension that adds time buttons (15m, 30m, 1h) right on the LinkedIn jobs page.</span></div>
-    </div>
-    <div class="acts">
-      <a class="btn" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add EarlyApply to Chrome, free</a>
-      <a class="alt" href="#builder">or build a link &darr;</a>
-    </div>
-    <p class="trust">No account &middot; no data collected &middot; never applies for you<span data-edge-alt> &middot; also on <a href="https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep">Edge</a></span></p>
+  <div class="answer">
+    <strong>Short answer:</strong> these work both logged out and logged in: <code>keywords</code>, <b><code>f_TPR</code></b> (date posted), <b><code>f_AL=true</code></b> (Easy Apply) and <b><code>f_EA=true</code></b> (under 10 applicants). <code>f_WT</code> (workplace type) works only logged in. <b><code>sortBy=DD</code>, <code>f_E</code> and <code>f_JT</code> do nothing</b>, whatever other guides say.
   </div>
-  <figure class="shot">
-    <picture><source srcset="img/fresh-jobs.webp" type="image/webp"><img src="img/fresh-jobs.jpg" alt="EarlyApply time buttons (15m, 30m, 1h) on the LinkedIn jobs page" width="880" height="550"></picture>
-    <figcaption>EarlyApply on LinkedIn: time buttons instead of URL codes</figcaption>
-  </figure>
+    <div class="acts">
+      <a class="alt" href="#params">See the full table &darr;</a>
+      <a class="alt" href="#builder">Build a link &darr;</a>
+    </div>
+  </div>
 </section>
 
 <main>
   <article class="wrap">
     <p class="lead">LinkedIn job search addresses carry settings such as <code>f_TPR</code>, <code>f_AL</code> and <code>sortBy</code>. Plenty of guides list them. We tested them in October and November 2026 with real searches, in a clean logged-out browser and in a logged-in account. <strong>Some work. Several do nothing.</strong></p>
 
-    <div class="answer">
-      <strong>Short answer:</strong> these work both logged out and logged in: <code>keywords</code>, <b><code>f_TPR</code></b> (date posted), <b><code>f_AL=true</code></b> (Easy Apply) and <b><code>f_EA=true</code></b> (under 10 applicants). <code>f_WT</code> (workplace type) works only logged in. <b><code>sortBy=DD</code>, <code>f_E</code> and <code>f_JT</code> do nothing</b>, whatever other guides say.
-    </div>
-
-    <h2>Every parameter we tested</h2>
+    <h2 id="params">Every parameter we tested</h2>
     <table>
       <thead><tr><th>Parameter</th><th>What it should do</th><th>Logged out</th><th>Logged in (AI search)</th></tr></thead>
       <tbody>
@@ -178,6 +171,10 @@
       </tbody>
     </table>
     <p>Two more, not tested logged in: <code>f_SB2</code> (salary) and <code>f_JIYN</code> did nothing logged out. <code>f_C</code> (company, uses company ID numbers) is offered by the logged-out page, and we did not test it.</p>
+
+    <div class="answer">
+      <strong>Logged in? Your 1-hour filter is really a 24-hour filter.</strong> LinkedIn's AI search treats <code>f_TPR=r3600</code> as 24 hours, and no code sorts the list newest first. <a href="#cta">EarlyApply</a> adds time buttons that hide older jobs, and a ★ Newest jobs list, right inside the page.
+    </div>
 
     <h2>How we tested</h2>
     <ul class="notes">
@@ -238,7 +235,7 @@
       <li><strong>Not in the mobile app.</strong> The app has no address bar. Use a browser.</li>
     </ul>
 
-    <section class="cta">
+    <section class="cta" id="cta">
       <span class="kicker">The one-click way</span>
       <h2>Skip the codes: use EarlyApply</h2>
       <p>EarlyApply is a free Chrome and Edge extension that works while you are logged in, right on the LinkedIn page.</p>
@@ -248,6 +245,10 @@
         <li>Hides promoted, reposted and old jobs</li>
         <li>Job Radar: a desktop alert the minute a new job is posted</li>
       </ul>
+      <figure class="shot" style="margin: 0 0 26px">
+        <picture><source srcset="img/fresh-jobs.webp" type="image/webp"><img src="img/fresh-jobs.jpg" alt="EarlyApply time buttons (15m, 30m, 1h) on the LinkedIn jobs page, with sample jobs" width="880" height="550" loading="lazy"></picture>
+        <figcaption>EarlyApply on the LinkedIn jobs page (sample jobs shown)</figcaption>
+      </figure>
       <a class="btn" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add EarlyApply to Chrome, free</a>
       <small>No account, no data collected. <span data-edge-alt>Also on <a href="https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep">Microsoft Edge</a>. </span><a href="./">See how it works →</a></small>
     </section>
