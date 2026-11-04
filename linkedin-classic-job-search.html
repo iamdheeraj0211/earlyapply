@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How to Get LinkedIn Classic Job Search Back (Go Back to the Old Search)</title>
-<meta name="description" content="LinkedIn removed the Switch to classic job search button. How to go back to the old LinkedIn job search: the logged-out job list, with Most recent sort and a last-hour filter. Tested October 2026.">
+<meta name="description" content="LinkedIn removed the Switch to classic job search button. How to go back to the old LinkedIn job search: the logged-out job list with a last-hour filter. Tested October and November 2026.">
 <link rel="canonical" href="https://iamdheeraj0211.github.io/earlyapply/linkedin-classic-job-search.html">
 <meta name="theme-color" content="#f5f8f6">
 <meta property="og:title" content="How to get LinkedIn classic job search back">
-<meta property="og:description" content="The classic search button is gone. Here is the workaround that still gives you Most recent and last-hour jobs.">
+<meta property="og:description" content="The classic search button is gone. Here is the workaround that still gives you last-hour jobs.">
 <meta property="og:image" content="https://iamdheeraj0211.github.io/earlyapply/img/share.jpg">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://iamdheeraj0211.github.io/earlyapply/linkedin-classic-job-search.html">
@@ -18,7 +18,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "How to get LinkedIn classic job search back",
-  "description": "LinkedIn removed the Switch to classic job search button. The workaround that still works: the logged-out job list, with Most recent sort and a last-hour filter.",
+  "description": "LinkedIn removed the Switch to classic job search button. The workaround that still works: the logged-out job list with a last-hour filter.",
   "datePublished": "2026-10-29",
   "dateModified": "2026-11-05",
   "image": "https://iamdheeraj0211.github.io/earlyapply/img/share.jpg",
@@ -40,7 +40,7 @@
   {
    "@type": "Question",
    "name": "Why can't I sort LinkedIn jobs by Most recent anymore?",
-   "acceptedAnswer": { "@type": "Answer", "text": "LinkedIn's AI-powered search has no sort option. Results are ordered by relevance only. Logged out, adding sortBy=DD to the search address still sorts the list newest first. Logged in, the free EarlyApply extension adds a Newest jobs button that lists your search newest first." }
+   "acceptedAnswer": { "@type": "Answer", "text": "LinkedIn's AI-powered search has no sort option. Results are ordered by relevance only. The logged-out list ignores sortBy=DD too (we tested this in November 2026), so the sort does not come back that way. Logged in, the free EarlyApply extension adds a Newest jobs button that lists your search newest first." }
   },
   {
    "@type": "Question",
@@ -109,10 +109,10 @@
 
 <main>
   <article class="wrap">
-    <p class="lead" id="by-hand">LinkedIn moved everyone to its <strong>AI-powered job search</strong> and took away the "Switch to classic job search" button. Most people miss two things: sorting by <strong>Most recent</strong>, and seeing only the jobs posted in the last hour. Here is what changed, and the workaround that still works.</p>
+    <p class="lead" id="by-hand">LinkedIn moved everyone to its <strong>AI-powered job search</strong> and took away the "Switch to classic job search" button. Most people miss two things: sorting by <strong>Most recent</strong>, and seeing only the jobs posted in the last hour. Here is what changed, what still works, and what does not.</p>
 
     <div class="answer">
-      <strong>Short answer:</strong> there is <b>no switch back</b> while you're logged in. The closest thing is LinkedIn's <strong>logged-out job list</strong>: open <code>linkedin.com/jobs/search</code> in a private window, search, and add <code>&amp;sortBy=DD</code> (newest first) and <code>&amp;f_TPR=r3600</code> (last hour) to the address. Sign in only when you apply.
+      <strong>Short answer:</strong> there is <b>no switch back</b> while you're logged in. The closest thing is LinkedIn's <strong>logged-out job list</strong>: open <code>linkedin.com/jobs/search</code> in a private window, search, and add <code>&amp;f_TPR=r3600</code> (last hour) to the address. The list is not sorted by date, so check the "posted X ago" line on each job. Sign in only when you apply.
     </div>
 
     <h2>What changed</h2>
@@ -125,7 +125,7 @@
         <tr><td>Order between reloads</td><td>Newest on top</td><td>Same jobs in the same order</td></tr>
       </tbody>
     </table>
-    <p>We tested this in October 2026 with a "sales" search in the United States. Logged in, a "last hour" search showed jobs 2 to 21 hours old. Logged out, the same search showed only jobs under an hour old, newest first.</p>
+    <p>We tested this in October 2026 with a "sales" search in the United States. Logged in, a "last hour" search showed jobs 2 to 21 hours old. Logged out, the same search showed only jobs under an hour old, but not in date order.</p>
 
     <h2>How to go back to the old LinkedIn job search</h2>
     <ol class="steps">
@@ -138,10 +138,10 @@
         <p>Type your job title and location as usual. If a sign-in pop-up appears, close it.</p>
       </li>
       <li>
-        <h3>Add newest first and a time window to the address</h3>
-        <p>Click the address bar and add these two settings at the end, then press Enter:</p>
-        <div class="url">https://www.linkedin.com/jobs/search?keywords=data%20analyst&amp;location=India<mark>&amp;sortBy=DD&amp;f_TPR=r3600</mark></div>
-        <p><code>sortBy=DD</code> puts the newest job on top. <code>f_TPR=r3600</code> keeps only the last hour (3,600 seconds). See <a href="linkedin-jobs-posted-last-hour.html">all the f_TPR codes</a>.</p>
+        <h3>Add a time window to the address</h3>
+        <p>Click the address bar and add this setting at the end, then press Enter:</p>
+        <div class="url">https://www.linkedin.com/jobs/search?keywords=data%20analyst&amp;location=India<mark>&amp;f_TPR=r3600</mark></div>
+        <p><code>f_TPR=r3600</code> keeps only the last hour (3,600 seconds). The list is not sorted by date: in a clean-browser test in November 2026, <code>sortBy=DD</code> changed nothing, so read the "posted X ago" line. See <a href="linkedin-jobs-posted-last-hour.html">all the f_TPR codes</a>.</p>
       </li>
       <li>
         <h3>Use the filters it shows</h3>
