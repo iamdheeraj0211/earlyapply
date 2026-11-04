@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Job Search URL Parameters That Still Work (Tested 2026)</title>
+<meta name="description" content="Which LinkedIn job search URL codes work in 2026: f_TPR, f_AL, f_EA, f_WT and more. Tested logged out and logged in, with copy-paste links and a URL builder.">
+<link rel="canonical" href="https://iamdheeraj0211.github.io/earlyapply/linkedin-job-search-url-parameters.html">
+<meta name="theme-color" content="#f5f8f6">
+<meta property="og:title" content="LinkedIn job search URL parameters that still work">
+<meta property="og:description" content="We tested the LinkedIn URL codes. Some work, several do nothing. Copy-paste links and a URL builder.">
+<meta property="og:image" content="https://iamdheeraj0211.github.io/earlyapply/img/share.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iamdheeraj0211.github.io/earlyapply/linkedin-job-search-url-parameters.html">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "LinkedIn job search URL parameters that still work (tested)",
+  "description": "Which LinkedIn job search URL codes work in 2026, logged out and logged in: f_TPR, f_AL, f_EA, f_WT and more. Tested, with copy-paste links and a URL builder.",
+  "datePublished": "2026-11-05",
+  "dateModified": "2026-11-05",
+  "image": "https://iamdheeraj0211.github.io/earlyapply/img/share.jpg",
+  "mainEntityOfPage": "https://iamdheeraj0211.github.io/earlyapply/linkedin-job-search-url-parameters.html",
+  "author": {
+    "@type": "Person",
+    "name": "Dheeraj",
+    "url": "https://iamdheeraj0211.github.io/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EarlyApply",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://iamdheeraj0211.github.io/earlyapply/logo.png"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "What are LinkedIn job search URL parameters?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "They are the settings after the question mark in a LinkedIn jobs address, for example f_TPR=r3600 for the last hour or f_AL=true for Easy Apply. You can type them in the address bar to set a filter that the menu does not offer, or to save a search as a bookmark."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does sortBy=DD still sort LinkedIn jobs by most recent?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. In October and November 2026 we tested it in a clean, logged-out browser (24 runs, 4 searches) and in a logged-in account. The order did not change. Logged in, LinkedIn removes it from the address."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I show only Easy Apply jobs with a URL?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Add f_AL=true to the search address. It works logged out and logged in."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I show only jobs with fewer than 10 applicants?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Add f_EA=true. LinkedIn shows it as the Under 10 applicants button. It works logged out and logged in, and it helps you apply early."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does f_WT not filter remote jobs when I am logged out?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The logged-out job list ignores it. Logged in, LinkedIn accepts it and turns it into its own filter, so it can still change your results. We tested f_WT=2 (remote)."
+   }
+  }
+ ]
+}
+</script>
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="guide.css">
+<style>
+  .tool { margin: 18px 0 0; padding: 20px; border-radius: 14px; background: var(--ui); border: 1px solid var(--ui-line); }
+  .tool .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .tool label { display: block; font-size: 14px; font-weight: 600; color: var(--muted); margin-bottom: 6px; }
+  .tool input[type=text], .tool select { width: 100%; box-sizing: border-box; padding: 11px 12px; font: inherit; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; }
+  .tool .checks { display: flex; flex-wrap: wrap; gap: 18px; margin: 16px 0 0; }
+  .tool .checks label { display: flex; align-items: center; gap: 8px; margin: 0; color: var(--fg); font-weight: 500; }
+  .tool .out { margin: 18px 0 0; padding: 14px 16px; border-radius: 10px; background: var(--bg); border: 1px solid var(--line); font: 14px/1.6 var(--mono); word-break: break-all; }
+  .tool .acts2 { display: flex; flex-wrap: wrap; gap: 12px; margin: 14px 0 0; align-items: center; }
+  .tool button.copy { padding: 11px 20px; border-radius: 999px; border: 0; font: inherit; font-weight: 700; cursor: pointer; background: var(--accent); color: var(--accent-ink); }
+  .tool .note { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
+  td.ok { color: var(--accent); font-weight: 700; }
+  td.no { color: var(--red); font-weight: 700; }
+  @media (max-width: 600px) { .tool .row { grid-template-columns: 1fr; } }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4STR109LDN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4STR109LDN');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="chromewebstore.google.com"], a[href*="microsoftedge.microsoft.com"]');
+    if (!a) return;
+    gtag('event', 'store_click', {
+      store: a.href.indexOf('microsoftedge') > -1 ? 'edge' : 'chrome',
+      page_path: location.pathname,
+      transport_type: 'beacon'
+    });
+  });
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="logo.png" alt="" width="28" height="28">EarlyApply</a>
+    <span class="tag">Free LinkedIn Jobs extension for Chrome &amp; Edge</span>
+    <a class="btn" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add to Chrome, free</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <span class="kicker">LinkedIn job search guide</span>
+    <h1>LinkedIn job search URL parameters that still work</h1>
+    <p class="byline">By <a href="https://iamdheeraj0211.github.io/">Dheeraj</a> · Tested Oct and Nov 2026 · Updated Nov 2026</p>
+    <div class="pf">
+      <div class="p"><b>PROBLEM</b><span>Many guides list LinkedIn URL codes that <strong>no longer do anything</strong>. You type them in and the list does not change.</span></div>
+      <div class="f"><b>FIX</b><span>Use only the codes in the table below. We tested each one, <strong>logged out and logged in</strong>. Or skip the codes: <strong>EarlyApply</strong> adds the buttons right on the jobs page.</span></div>
+    </div>
+    <div class="acts">
+      <a class="btn" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add to Chrome, it's free</a>
+      <a class="alt" href="#builder">or build a link &darr;</a>
+    </div>
+    <p class="trust">No account &middot; no data collected &middot; never applies for you<span data-edge-alt> &middot; also on <a href="https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep">Edge</a></span></p>
+  </div>
+  <figure class="shot">
+    <picture><source srcset="img/fresh-jobs.webp" type="image/webp"><img src="img/fresh-jobs.jpg" alt="EarlyApply time buttons (15m, 30m, 1h) on the LinkedIn jobs page" width="880" height="550"></picture>
+    <figcaption>EarlyApply on LinkedIn: time buttons instead of URL codes</figcaption>
+  </figure>
+</section>
+
+<main>
+  <article class="wrap">
+    <p class="lead">LinkedIn job search addresses carry settings such as <code>f_TPR</code>, <code>f_AL</code> and <code>sortBy</code>. Plenty of guides list them. We tested them in October and November 2026 with real searches, in a clean logged-out browser and in a logged-in account. <strong>Some work. Several do nothing.</strong></p>
+
+    <div class="answer">
+      <strong>Short answer:</strong> these work both logged out and logged in: <code>keywords</code>, <b><code>f_TPR</code></b> (date posted), <b><code>f_AL=true</code></b> (Easy Apply) and <b><code>f_EA=true</code></b> (under 10 applicants). <code>f_WT</code> (workplace type) works only logged in. <b><code>sortBy=DD</code>, <code>f_E</code> and <code>f_JT</code> do nothing</b>, whatever other guides say.
+    </div>
+
+    <h2>Every parameter we tested</h2>
+    <table>
+      <thead><tr><th>Parameter</th><th>What it should do</th><th>Logged out</th><th>Logged in (AI search)</th></tr></thead>
+      <tbody>
+        <tr><td><code>keywords</code></td><td>Your search words</td><td class="ok">Works</td><td class="ok">Works</td></tr>
+        <tr><td><code>location</code>, <code>geoId</code></td><td>The place. <code>geoId</code> is LinkedIn's number for it (103644278 is the United States)</td><td class="ok">Works</td><td>LinkedIn keeps <code>geoId</code> and drops the <code>location</code> text</td></tr>
+        <tr><td><code>f_TPR</code></td><td>Date posted, in seconds: <code>r3600</code> is 1 hour</td><td class="ok">Works, any number of seconds</td><td>Works, but anything under 24 hours is treated as 24 hours</td></tr>
+        <tr><td><code>f_AL=true</code></td><td>Easy Apply jobs only</td><td class="ok">Works</td><td class="ok">Works</td></tr>
+        <tr><td><code>f_EA=true</code></td><td>Under 10 applicants</td><td class="ok">Works</td><td class="ok">Works</td></tr>
+        <tr><td><code>f_WT</code></td><td>Workplace type (we tested <code>f_WT=2</code>, remote)</td><td class="no">No effect</td><td>LinkedIn turns it into its own filter and the results change</td></tr>
+        <tr><td><code>sortBy=DD</code></td><td>Most recent first</td><td class="no">No effect</td><td class="no">No effect, removed from the address</td></tr>
+        <tr><td><code>f_E</code></td><td>Experience level (we tested <code>f_E=2</code>)</td><td class="no">No effect</td><td class="no">No effect, removed from the address</td></tr>
+        <tr><td><code>f_JT</code></td><td>Job type (we tested <code>f_JT=C</code>, contract)</td><td class="no">No effect</td><td class="no">No effect, removed from the address</td></tr>
+        <tr><td><code>distance</code></td><td>Miles around the place</td><td class="no">No effect</td><td class="no">Stays in the address, results did not change</td></tr>
+      </tbody>
+    </table>
+    <p>Two more, not tested logged in: <code>f_SB2</code> (salary) and <code>f_JIYN</code> did nothing logged out. <code>f_C</code> (company, uses company ID numbers) is offered by the logged-out page, and we did not test it.</p>
+
+    <h2>How we tested</h2>
+    <ul class="notes">
+      <li><strong>Logged out:</strong> a fresh Chrome with a clean profile. For <code>sortBy</code>: 4 searches (sales, nurse, data analyst, software engineer), each with a 1-hour and a 24-hour window, with no sort, <code>sortBy=DD</code> and <code>sortBy=R</code>. 24 runs, the first 25 jobs each. The order was the same every time, and not newest first.</li>
+      <li><strong>Logged in:</strong> one signed-in account, one search ("sales", United States). For each code we checked what stayed in the address after LinkedIn loaded, and whether the 24 jobs on the page changed.</li>
+      <li><strong>Limits:</strong> LinkedIn changes often, and it shows different jobs to different people. If a code works for you and not here, tell us.</li>
+    </ul>
+
+    <h2>Copy-paste links (logged out)</h2>
+    <p>Open these in a <strong>private window</strong>. Change <code>data%20analyst</code> to your job title and <code>United%20States</code> to your place. A space is written <code>%20</code>.</p>
+    <p><strong>Jobs posted in the last hour</strong></p>
+    <div class="url">https://www.linkedin.com/jobs/search/?keywords=data%20analyst&amp;location=United%20States<mark>&amp;f_TPR=r3600</mark></div>
+    <p><strong>Easy Apply, past 24 hours</strong></p>
+    <div class="url">https://www.linkedin.com/jobs/search/?keywords=data%20analyst&amp;location=United%20States<mark>&amp;f_TPR=r86400&amp;f_AL=true</mark></div>
+    <p><strong>Under 10 applicants, past 24 hours</strong></p>
+    <div class="url">https://www.linkedin.com/jobs/search/?keywords=data%20analyst&amp;location=United%20States<mark>&amp;f_TPR=r86400&amp;f_EA=true</mark></div>
+    <p>More time values (15 minutes, 30 minutes, 3 hours and so on) are in the <a href="linkedin-jobs-posted-last-hour.html">f_TPR code table</a>.</p>
+
+    <h2 id="builder">Build your own link</h2>
+    <div class="tool" id="tool">
+      <div class="row">
+        <div><label for="kw">Job title or keywords</label><input type="text" id="kw" placeholder="data analyst" autocomplete="off"></div>
+        <div><label for="loc">Place</label><input type="text" id="loc" placeholder="United States" autocomplete="off"></div>
+      </div>
+      <div class="row" style="margin-top:14px">
+        <div><label for="tpr">Posted within</label>
+          <select id="tpr">
+            <option value="">Any time</option>
+            <option value="r900">15 minutes</option>
+            <option value="r1800">30 minutes</option>
+            <option value="r3600" selected>1 hour</option>
+            <option value="r10800">3 hours</option>
+            <option value="r21600">6 hours</option>
+            <option value="r43200">12 hours</option>
+            <option value="r86400">24 hours</option>
+            <option value="r604800">Past week</option>
+            <option value="r2592000">Past month</option>
+          </select>
+        </div>
+      </div>
+      <div class="checks">
+        <label><input type="checkbox" id="al"> Easy Apply only</label>
+        <label><input type="checkbox" id="ea"> Under 10 applicants</label>
+      </div>
+      <div class="out" id="out" aria-live="polite"></div>
+      <div class="acts2">
+        <button type="button" class="copy" id="copy">Copy link</button>
+        <a class="alt" id="go" href="#" target="_blank" rel="noopener">Open on LinkedIn &rarr;</a>
+      </div>
+      <p class="note">Works best in a private window (logged out). Logged in, LinkedIn treats anything shorter than 24 hours as 24 hours. This builder runs in your browser and sends nothing anywhere.</p>
+    </div>
+
+    <h2>Good to know</h2>
+    <ul class="notes">
+      <li><strong>Logged in, the time codes lose their edge.</strong> LinkedIn's AI search treats <code>r3600</code> as 24 hours. See <a href="linkedin-classic-job-search.html">how to get classic job search back</a>.</li>
+      <li><strong>No code sorts the list.</strong> Read the "posted X ago" line, or use the <strong>★ Newest jobs</strong> button in EarlyApply.</li>
+      <li><strong>Promoted and reposted jobs still slip in.</strong> See <a href="hide-promoted-reposted-jobs-linkedin.html">how to remove promoted jobs</a> and <a href="filter-out-reposted-jobs-linkedin.html">how to filter out reposted jobs</a>.</li>
+      <li><strong>Not in the mobile app.</strong> The app has no address bar. Use a browser.</li>
+    </ul>
+
+    <section class="cta">
+      <span class="kicker">The one-click way</span>
+      <h2>Skip the codes: use EarlyApply</h2>
+      <p>EarlyApply is a free Chrome and Edge extension that works while you are logged in, right on the LinkedIn page.</p>
+      <ul>
+        <li>One-click buttons: 15m, 30m, 1h, 3h, 6h, 12h</li>
+        <li>★ Newest jobs: your search, newest first</li>
+        <li>Hides promoted, reposted and old jobs</li>
+        <li>Job Radar: a desktop alert the minute a new job is posted</li>
+      </ul>
+      <a class="btn" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add to Chrome, it's free</a>
+      <small>No account, no data collected. <span data-edge-alt>Also on <a href="https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep">Microsoft Edge</a>. </span><a href="./">See how it works →</a></small>
+    </section>
+
+    <h2>Questions</h2>
+    <details><summary>What are LinkedIn job search URL parameters?</summary><p>They are the settings after the question mark in a LinkedIn jobs address, for example <code>f_TPR=r3600</code> for the last hour or <code>f_AL=true</code> for Easy Apply. You can type them in the address bar to set a filter that the menu does not offer, or to save a search as a bookmark.</p></details>
+    <details><summary>Does sortBy=DD still sort LinkedIn jobs by most recent?</summary><p>No. In October and November 2026 we tested it in a clean, logged-out browser (24 runs, 4 searches) and in a logged-in account. The order did not change. Logged in, LinkedIn removes it from the address.</p></details>
+    <details><summary>How do I show only Easy Apply jobs with a URL?</summary><p>Add <code>f_AL=true</code> to the search address. It works logged out and logged in.</p></details>
+    <details><summary>How do I show only jobs with fewer than 10 applicants?</summary><p>Add <code>f_EA=true</code>. LinkedIn shows it as the Under 10 applicants button. It works logged out and logged in, and it helps you apply early.</p></details>
+    <details><summary>Why does f_WT not filter remote jobs when I am logged out?</summary><p>The logged-out job list ignores it. Logged in, LinkedIn accepts it and turns it into its own filter, so it can still change your results. We tested f_WT=2 (remote).</p></details>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="./"><img src="logo.png" alt="" width="22" height="22">EarlyApply</a>
+    <nav><a href="./">Home</a><a href="linkedin-jobs-posted-last-hour.html">Jobs posted in the last hour</a><a href="hide-promoted-reposted-jobs-linkedin.html">Remove promoted jobs</a><a href="filter-out-reposted-jobs-linkedin.html">Filter out reposted jobs</a><a href="linkedin-instant-job-alerts.html">Instant job alerts</a><a href="linkedin-easy-apply-questions.html">Easy Apply questions</a><a href="linkedin-classic-job-search.html">Classic job search</a><a href="privacy.html">Privacy policy</a></nav>
+    <p>EarlyApply is an independent project and is not affiliated with LinkedIn Corporation.</p>
+  </div>
+</footer>
+
+<script>
+  // URL builder: makes a LinkedIn jobs link from the form. WHY: lets readers copy a tested link; runs in the browser only.
+  (function () {
+    var $ = function (id) { return document.getElementById(id); };
+    function build() {
+      var kw = $('kw').value.trim(), loc = $('loc').value.trim(), tpr = $('tpr').value;
+      var parts = [];
+      if (kw) parts.push('keywords=' + encodeURIComponent(kw));
+      if (loc) parts.push('location=' + encodeURIComponent(loc));
+      if (tpr) parts.push('f_TPR=' + tpr);
+      if ($('al').checked) parts.push('f_AL=true');
+      if ($('ea').checked) parts.push('f_EA=true');
+      var u = 'https://www.linkedin.com/jobs/search/?' + parts.join('&');
+      $('out').textContent = u;
+      $('go').href = u;
+      return u;
+    }
+    ['kw', 'loc', 'tpr', 'al', 'ea'].forEach(function (id) { $(id).addEventListener('input', build); $(id).addEventListener('change', build); });
+    $('copy').addEventListener('click', function () {
+      var u = build(), b = $('copy');
+      function done() { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy link'; }, 1500); }
+      function fail() { b.textContent = 'Select and copy the link above'; }
+      try { navigator.clipboard.writeText(u).then(done, fail); } catch (e) { fail(); }
+    });
+    build();
+  })();
+
+  // In Microsoft Edge: the store buttons go to the Edge Add-ons store and say "Edge".
+  (function () {
+    if (!/\sEdg\//.test(navigator.userAgent)) return;
+    var edge = 'https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep';
+    document.querySelectorAll('[data-store]').forEach(function (a) {
+      a.href = edge;
+      a.childNodes.forEach(function (n) { if (n.nodeType === 3) n.nodeValue = n.nodeValue.replace('Chrome', 'Edge'); });
+    });
+    document.querySelectorAll('[data-edge-alt]').forEach(function (p) { p.hidden = true; });
+  })();
+</script>
+</body>
+</html>
