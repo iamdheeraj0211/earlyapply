@@ -120,3 +120,9 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
 /* Answer-first top: one column, the same width as the article text, so the left edges line up. */
 .hero--solo { grid-template-columns: 1fr; width: min(760px, 100% - 32px); }
 .hero--solo .answer { margin-top: 26px; }
+
+/* Related guides box at the end of each guide */
+.related-guides { margin: 64px 0 0; padding: 24px 26px; border: 1px solid var(--line); border-radius: 14px; }
+.related-guides h2 { margin: 0 0 8px; font-size: 22px; }
+.related-guides ul { margin: 0; padding-left: 20px; }
+.related-guides li { margin: 8px 0; }
