@@ -82,6 +82,16 @@
     "@type": "Answer",
     "text": "The logged-out job list ignores it. Logged in, LinkedIn accepts it and turns it into its own filter, so it can still change your results. We tested f_WT=2 (remote)."
    }
+  },
+  {
+   "@type": "Question",
+   "name": "What does f_AL=true mean in a LinkedIn URL?",
+   "acceptedAnswer": { "@type": "Answer", "text": "It shows Easy Apply jobs only. It works logged out and logged in." }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does LinkedIn drop my location when I am logged in?",
+   "acceptedAnswer": { "@type": "Answer", "text": "Logged in, LinkedIn drops the place text and keeps only the geoId. 103644278 is the United States (tested in November 2026)." }
   }
  ]
 }
@@ -256,6 +266,8 @@
     <details><summary>How do I show only Easy Apply jobs with a URL?</summary><p>Add <code>f_AL=true</code> to the search address. It works logged out and logged in.</p></details>
     <details><summary>How do I show only jobs with fewer than 10 applicants?</summary><p>Add <code>f_EA=true</code>. LinkedIn shows it as the Under 10 applicants button. It works logged out and logged in, and it helps you apply early.</p></details>
     <details><summary>Why does f_WT not filter remote jobs when I am logged out?</summary><p>The logged-out job list ignores it. Logged in, LinkedIn accepts it and turns it into its own filter, so it can still change your results. We tested f_WT=2 (remote).</p></details>
+    <details><summary>What does f_AL=true mean in a LinkedIn URL?</summary><p>It shows Easy Apply jobs only. It works logged out and logged in.</p></details>
+    <details><summary>Why does LinkedIn drop my location when I am logged in?</summary><p>Logged in, LinkedIn drops the place text and keeps only the geoId. 103644278 is the United States (tested in November 2026).</p></details>
 
     <aside class="related-guides">
       <h2>Related guides</h2>
