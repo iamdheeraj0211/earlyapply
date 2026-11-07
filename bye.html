@@ -10,20 +10,22 @@
 <link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="site.css">
 <style>
-  .bye { max-width: 640px; margin: 0 auto; padding: 56px 0 8px; }
-  .bye h1 { margin: 10px 0 0; font: 700 clamp(30px, 5vw, 44px)/1.1 var(--head); letter-spacing: -0.02em; }
-  .bye .lead { margin: 12px 0 24px; color: var(--muted); font-size: 17px; }
-  .bye form { display: grid; gap: 10px; }
-  .bye .why { display: flex; align-items: center; gap: 12px; padding: 13px 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); cursor: pointer; font-size: 16px; }
+  .bye { max-width: 600px; margin: 0 auto; padding: 28px 0 4px; }
+  .bye h1 { margin: 6px 0 0; font: 700 clamp(24px, 4vw, 30px)/1.15 var(--head); letter-spacing: -0.02em; }
+  .bye .lead { margin: 8px 0 14px; color: var(--muted); font-size: 15px; line-height: 1.5; }
+  .bye form { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .bye form > .more, .bye form > .row, .bye form > .small { grid-column: 1 / -1; }
+  @media (max-width: 560px) { .bye form { grid-template-columns: 1fr; } }
+  .bye .why { display: flex; align-items: center; gap: 12px; padding: 9px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); cursor: pointer; font-size: 14px; line-height: 1.3; }
   .bye .why:hover { border-color: var(--border-strong); }
   .bye .why:has(input:checked) { border-color: var(--accent); box-shadow: 0 0 0 3px var(--glow); }
   .bye .why input { accent-color: var(--accent); width: 18px; height: 18px; flex: none; }
-  .bye .more { display: grid; gap: 6px; margin-top: 8px; font-size: 15px; color: var(--muted); }
-  .bye textarea { width: 100%; min-height: 76px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); color: var(--fg); font: inherit; font-size: 15px; resize: vertical; }
+  .bye .more { display: grid; gap: 4px; margin-top: 2px; font-size: 13px; color: var(--muted); }
+  .bye textarea { width: 100%; min-height: 48px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); color: var(--fg); font: inherit; font-size: 14px; resize: vertical; }
   .bye .row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; margin-top: 6px; }
   .bye button.btn { border: 0; cursor: pointer; font: inherit; font-weight: 600; }
   .bye button.btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
-  .bye .small { color: var(--faint); font-size: 13px; margin: 14px 0 0; }
+  .bye .small { color: var(--faint); font-size: 12px; margin: 2px 0 0; }
   .bye .thanks { display: none; padding: 20px; border: 1px solid var(--border-strong); border-radius: 14px; background: var(--surface); }
   .bye .thanks h2 { margin: 0 0 6px; font: 700 22px/1.2 var(--head); }
   .bye .thanks p { margin: 0 0 14px; color: var(--muted); }
@@ -48,9 +50,8 @@
 
 <main class="wrap">
   <section class="bye" id="bye">
-    <p class="eyebrow">EarlyApply was removed</p>
     <h1>Sorry to see you go</h1>
-    <p class="lead">One click helps me fix it. Why did you remove EarlyApply?</p>
+    <p class="lead">EarlyApply is free, with no account and no tracking. Why did you leave? One click is enough.</p>
 
     <form id="form" novalidate>
       <label class="why"><input type="radio" name="why" value="I found a job"> I found a job</label>
