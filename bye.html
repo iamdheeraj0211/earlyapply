@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sorry to see you go – EarlyApply</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f5f8f6">
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="site.css">
+<style>
+  .bye { max-width: 640px; margin: 0 auto; padding: 56px 0 8px; }
+  .bye h1 { margin: 10px 0 0; font: 700 clamp(30px, 5vw, 44px)/1.1 var(--head); letter-spacing: -0.02em; }
+  .bye .lead { margin: 12px 0 24px; color: var(--muted); font-size: 17px; }
+  .bye form { display: grid; gap: 10px; }
+  .bye .why { display: flex; align-items: center; gap: 12px; padding: 13px 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); cursor: pointer; font-size: 16px; }
+  .bye .why:hover { border-color: var(--border-strong); }
+  .bye .why:has(input:checked) { border-color: var(--accent); box-shadow: 0 0 0 3px var(--glow); }
+  .bye .why input { accent-color: var(--accent); width: 18px; height: 18px; flex: none; }
+  .bye .more { display: grid; gap: 6px; margin-top: 8px; font-size: 15px; color: var(--muted); }
+  .bye textarea { width: 100%; min-height: 76px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); color: var(--fg); font: inherit; font-size: 15px; resize: vertical; }
+  .bye .row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; margin-top: 6px; }
+  .bye button.btn { border: 0; cursor: pointer; font: inherit; font-weight: 600; }
+  .bye button.btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+  .bye .small { color: var(--faint); font-size: 13px; margin: 14px 0 0; }
+  .bye .thanks { display: none; padding: 20px; border: 1px solid var(--border-strong); border-radius: 14px; background: var(--surface); }
+  .bye .thanks h2 { margin: 0 0 6px; font: 700 22px/1.2 var(--head); }
+  .bye .thanks p { margin: 0 0 14px; color: var(--muted); }
+  .bye.done form { display: none; }
+  .bye.done .thanks { display: block; }
+</style>
+<!-- Google tag (gtag.js): counts which reason was clicked. No text is sent to Analytics. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4STR109LDN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4STR109LDN');
+</script>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="logo.png" alt="" width="32" height="32">EarlyApply</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="bye" id="bye">
+    <p class="eyebrow">EarlyApply was removed</p>
+    <h1>Sorry to see you go</h1>
+    <p class="lead">One click helps me fix it. Why did you remove EarlyApply?</p>
+
+    <form id="form" novalidate>
+      <label class="why"><input type="radio" name="why" value="I found a job"> I found a job</label>
+      <label class="why"><input type="radio" name="why" value="Promoted / reposted jobs still showed"> Promoted / reposted jobs still showed</label>
+      <label class="why"><input type="radio" name="why" value="I didn't see what it does"> I didn't see what it does</label>
+      <label class="why"><input type="radio" name="why" value="Job Radar alerts didn't come"> Job Radar alerts didn't come</label>
+      <label class="why"><input type="radio" name="why" value="Something else"> Something else</label>
+      <label class="more">Anything to add? (optional. Please don't write personal details.)
+        <textarea id="more" maxlength="500" placeholder="What went wrong, or what would have made you stay?"></textarea>
+      </label>
+      <div class="row">
+        <button class="btn btn--primary" id="send" type="submit" disabled>Send</button>
+        <a href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo" data-store>Changed your mind? Add it again</a>
+      </div>
+      <p class="small">Sends only the reason you pick and the text you type, nothing else. <a href="privacy.html">Privacy</a></p>
+    </form>
+
+    <div class="thanks" id="thanks" role="status">
+      <h2>Thank you</h2>
+      <p>I read every answer. It helps me make EarlyApply better.</p>
+      <a class="btn btn--primary btn--small" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add it again</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="logo.png" alt="" width="24" height="24">EarlyApply</a>
+    <nav aria-label="Footer">
+      <a href="./">Home</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    // Google Form that collects the answers (public, no sign-in). The field ids match the form.
+    var FORM = 'https://docs.google.com/forms/d/e/1FAIpQLSem0dhIjff3qI8feI5t2SMlB7jjfpkWL96pxN2qRAvAjslKyA/formResponse';
+    var version = (new URLSearchParams(location.search).get('v') || '').replace(/[^0-9.]/g, '').slice(0, 20);
+    var form = document.getElementById('form');
+    var send = document.getElementById('send');
+    var sent = false;
+
+    function reason() {
+      var picked = form.querySelector('input[name="why"]:checked');
+      return picked ? picked.value : '';
+    }
+
+    // A reason click is counted in Google Analytics at once (the reason and the version only, no text).
+    form.addEventListener('change', function () {
+      send.disabled = !reason();
+      if (reason() && typeof gtag === 'function') gtag('event', 'uninstall_reason', { reason: reason(), version: version || 'unknown' });
+    });
+
+    // Send posts the reason, the optional text and the version to the Google Form (answers cannot be read back here).
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (sent || !reason()) return;
+      sent = true;
+      var body = new URLSearchParams();
+      body.set('entry.1864451872', reason());
+      body.set('entry.87981366', document.getElementById('more').value.slice(0, 500));
+      body.set('entry.1393908508', version);
+      fetch(FORM, { method: 'POST', mode: 'no-cors', body: body }).catch(function () {});
+      document.getElementById('bye').classList.add('done');
+    });
+
+    // In Microsoft Edge: the store button goes to the Edge Add-ons store.
+    if (/\sEdg\//.test(navigator.userAgent)) document.querySelectorAll('[data-store]').forEach(function (a) { a.href = 'https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep'; a.textContent = a.textContent.replace('Chrome', 'Edge'); });
+  })();
+</script>
+</body>
+</html>
