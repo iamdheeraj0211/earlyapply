@@ -29,7 +29,11 @@
   .bye .thanks { display: none; padding: 20px; border: 1px solid var(--border-strong); border-radius: 14px; background: var(--surface); }
   .bye .thanks h2 { margin: 0 0 6px; font: 700 22px/1.2 var(--head); }
   .bye .thanks p { margin: 0 0 14px; color: var(--muted); }
-  .bye.done form { display: none; }
+  .bye .thanks .when-found { display: none; }
+  .bye.found .thanks .when-found { display: block; }
+  .bye.found .thanks .when-other { display: none; }
+  .bye .copied { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
+  .bye.done form, .bye.done .lead { display: none; }
   .bye.done .thanks { display: block; }
 </style>
 <!-- Google tag (gtag.js): counts which reason was clicked. No text is sent to Analytics. -->
@@ -72,7 +76,12 @@
     <div class="thanks" id="thanks" role="status">
       <h2>Thank you</h2>
       <p>I read every answer. It helps me make EarlyApply better.</p>
-      <a class="btn btn--primary btn--small" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add it again</a>
+      <div class="when-found">
+        <p>Congratulations on the new job! I built EarlyApply to help people like you. If it helped, a short honest review would mean a lot, and it helps other job seekers find it.</p>
+        <a class="btn btn--primary btn--small" id="review" href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo/reviews" target="_blank" rel="noopener">Copy my text and write a review</a>
+        <p class="copied" id="copied" hidden>Your text is copied. Paste it in the review box.</p>
+      </div>
+      <a class="btn btn--primary btn--small when-other" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add it again</a>
     </div>
   </section>
 </main>
@@ -95,6 +104,7 @@
     var form = document.getElementById('form');
     var send = document.getElementById('send');
     var sent = false;
+    var savedText = '';
 
     function reason() {
       var picked = form.querySelector('input[name="why"]:checked');
@@ -117,9 +127,23 @@
       body.set('entry.87981366', document.getElementById('more').value.slice(0, 500));
       body.set('entry.1393908508', version);
       fetch(FORM, { method: 'POST', mode: 'no-cors', body: body }).catch(function () {});
-      document.getElementById('bye').classList.add('done');
+      var page = document.getElementById('bye');
+      if (reason() === 'I found a job') {
+        page.classList.add('found');
+        savedText = document.getElementById('more').value.trim();
+        if (!savedText) document.getElementById('review').textContent = 'Write a review';
+      }
+      page.classList.add('done');
     });
 
+    // Review button: copies what they wrote (so they only paste it in the store), then the store page opens.
+    var review = document.getElementById('review');
+    review.addEventListener('click', function () {
+      if (!savedText || !navigator.clipboard) return;
+      navigator.clipboard.writeText(savedText).then(function () { document.getElementById('copied').hidden = false; }).catch(function () {});
+    });
+    // In Microsoft Edge: the review button goes to the Edge Add-ons store too.
+    if (/\sEdg\//.test(navigator.userAgent)) review.href = 'https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep';
     // In Microsoft Edge: the store button goes to the Edge Add-ons store.
     if (/\sEdg\//.test(navigator.userAgent)) document.querySelectorAll('[data-store]').forEach(function (a) { a.href = 'https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep'; a.textContent = a.textContent.replace('Chrome', 'Edge'); });
   })();
