@@ -76,7 +76,7 @@
         <button class="btn btn--primary" id="send" type="submit" disabled>Send</button>
         <a href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo" data-store>Changed your mind? Add it again</a>
       </div>
-      <p class="small">Sends only the reason you pick and the text you type, nothing else. <a href="privacy.html">Privacy</a> · Need help? <a href="mailto:connect.earlyapply@gmail.com">connect.earlyapply@gmail.com</a></p>
+      <p class="small">Sends only the reason you pick and the text you type, nothing else. <a href="privacy.html">Privacy</a> · Need help? <a href="https://mail.google.com/mail/?view=cm&fs=1&to=connect.earlyapply@gmail.com" target="_blank" rel="noopener">connect.earlyapply@gmail.com</a></p>
     </form>
 
     <div class="thanks" id="thanks" role="status">
@@ -129,7 +129,7 @@
         body: 'Hi,\n\nA promoted or reposted job was not hidden.\n\nJob title:\nCompany:\nMy search (keywords and location):\nBrowser (Chrome or Edge):\n\nThanks'
       },
       "I didn't see what it does": {
-        head: 'It adds a small bar above your LinkedIn job list.', text: 'It hides old, promoted and repeated jobs and alerts you to new ones.', guide: 'See it in 2 minutes', mail: 'Tell us what was unclear',
+        head: 'It adds a small bar above your LinkedIn job list.', text: 'It hides old, promoted and repeated jobs and alerts you to new ones. The guide shows every feature, with screenshots.', guide: 'Read the guide: how to use EarlyApply', mail: 'Tell us what was unclear',
         subject: 'EarlyApply: I could not tell what it does',
         body: 'Hi,\n\nWhat I expected EarlyApply to do:\n\nWhat I saw after installing it:\n\nThanks'
       },
@@ -167,7 +167,9 @@
       var m = document.createElement('a');
       m.className = 'btn btn--small' + (h.guide ? '' : ' btn--primary');
       var body = h.body + (version ? '\n\nEarlyApply version: ' + version : '');
-      m.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent(h.subject) + '&body=' + encodeURIComponent(body);
+      m.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(MAIL) + '&su=' + encodeURIComponent(h.subject) + '&body=' + encodeURIComponent(body);
+      m.target = '_blank';
+      m.rel = 'noopener';
       m.textContent = h.mail;
       acts.append(m);
       box.append(b, p, acts);
