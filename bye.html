@@ -25,6 +25,11 @@
   .bye .row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; margin-top: 6px; }
   .bye button.btn { border: 0; cursor: pointer; font: inherit; font-weight: 600; }
   .bye button.btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+  .bye .help { grid-column: 1 / -1; margin: 2px 0 4px; padding: 12px 14px; border: 1px solid var(--border-strong); border-radius: 12px; background: var(--surface); font-size: 14px; line-height: 1.5; }
+  .bye .help b { display: block; margin-bottom: 4px; }
+  .bye .help p { margin: 0 0 8px; color: var(--muted); }
+  .bye .help .acts { display: flex; flex-wrap: wrap; gap: 8px; }
+  .bye .thanks .help { margin: 0 0 14px; }
   .bye .small { color: var(--faint); font-size: 12px; margin: 2px 0 0; }
   .bye .thanks { display: none; padding: 20px; border: 1px solid var(--border-strong); border-radius: 14px; background: var(--surface); }
   .bye .thanks h2 { margin: 0 0 6px; font: 700 22px/1.2 var(--head); }
@@ -63,6 +68,7 @@
       <label class="why"><input type="radio" name="why" value="I didn't see what it does"> I didn't see what it does</label>
       <label class="why"><input type="radio" name="why" value="Job Radar alerts didn't come"> Job Radar alerts didn't come</label>
       <label class="why"><input type="radio" name="why" value="Something else"> Something else</label>
+      <div class="help" id="help" hidden></div>
       <label class="more">Share your success story or any criticism (optional)
         <textarea id="more" maxlength="500" placeholder="Found a job? Tell me how. Something missing or broken? Tell me that too."></textarea>
       </label>
@@ -70,12 +76,13 @@
         <button class="btn btn--primary" id="send" type="submit" disabled>Send</button>
         <a href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo" data-store>Changed your mind? Add it again</a>
       </div>
-      <p class="small">Sends only the reason you pick and the text you type, nothing else. <a href="privacy.html">Privacy</a></p>
+      <p class="small">Sends only the reason you pick and the text you type, nothing else. <a href="privacy.html">Privacy</a> · Need help? <a href="mailto:connect.earlyapply@gmail.com">connect.earlyapply@gmail.com</a></p>
     </form>
 
     <div class="thanks" id="thanks" role="status">
       <h2>Thank you</h2>
       <p>I read every answer. It helps me make EarlyApply better.</p>
+      <div class="help" id="help2" hidden></div>
       <div class="when-found">
         <p>Congratulations on the new job! I built EarlyApply to help people like you. If it helped, a short honest review would mean a lot, and it helps other job seekers find it.</p>
         <a class="btn btn--primary btn--small" id="review" href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo/reviews" target="_blank" rel="noopener">Copy my text and write a review</a>
@@ -111,9 +118,65 @@
       return picked ? picked.value : '';
     }
 
+
+    // Per-reason help: a short answer and a ready-made email (subject and body filled in) so the person only presses Send.
+    var MAIL = 'connect.earlyapply@gmail.com';
+    var GUIDE = 'how-to-use-earlyapply.html?from=bye';
+    var HELP = {
+      'Promoted / reposted jobs still showed': {
+        head: 'Sorry about that.', text: 'Tell us which job it was and we will fix it.', mail: 'Email us the job',
+        subject: 'EarlyApply: a promoted or reposted job still showed',
+        body: 'Hi,\n\nA promoted or reposted job was not hidden.\n\nJob title:\nCompany:\nMy search (keywords and location):\nBrowser (Chrome or Edge):\n\nThanks'
+      },
+      "I didn't see what it does": {
+        head: 'It adds a small bar above your LinkedIn job list.', text: 'It hides old, promoted and repeated jobs and alerts you to new ones.', guide: 'See it in 2 minutes', mail: 'Tell us what was unclear',
+        subject: 'EarlyApply: I could not tell what it does',
+        body: 'Hi,\n\nWhat I expected EarlyApply to do:\n\nWhat I saw after installing it:\n\nThanks'
+      },
+      "Job Radar alerts didn't come": {
+        head: 'Most often Windows is blocking Chrome alerts.', text: 'Turn on Google Chrome in Settings > Notifications, then press "Send test alert" in the EarlyApply popup.', mail: 'Still no alerts? Email us',
+        subject: 'EarlyApply: Job Radar alerts did not come',
+        body: 'Hi,\n\nJob Radar alerts did not come.\n\nComputer (Windows or Mac):\nBrowser (Chrome or Edge):\nDid "Send test alert" show a notification? (yes or no):\nMy search (keywords and location):\n\nThanks'
+      },
+      'Something else': {
+        head: 'Tell us more in the box below, or email us.', text: 'We reply to every email.', mail: 'Write an email',
+        subject: 'EarlyApply feedback',
+        body: 'Hi,\n\nWhat happened, or what is missing:\n\nThanks'
+      }
+    };
+
+    // Builds the help box (text plus buttons) for the picked reason into `box`; hides it when there is none.
+    function fillHelp(box) {
+      var h = HELP[reason()];
+      box.textContent = '';
+      box.hidden = !h;
+      if (!h) return;
+      var b = document.createElement('b');
+      b.textContent = h.head;
+      var p = document.createElement('p');
+      p.textContent = h.text;
+      var acts = document.createElement('div');
+      acts.className = 'acts';
+      if (h.guide) {
+        var g = document.createElement('a');
+        g.className = 'btn btn--primary btn--small';
+        g.href = GUIDE;
+        g.textContent = h.guide;
+        acts.append(g);
+      }
+      var m = document.createElement('a');
+      m.className = 'btn btn--small' + (h.guide ? '' : ' btn--primary');
+      var body = h.body + (version ? '\n\nEarlyApply version: ' + version : '');
+      m.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent(h.subject) + '&body=' + encodeURIComponent(body);
+      m.textContent = h.mail;
+      acts.append(m);
+      box.append(b, p, acts);
+    }
+
     // A reason click is counted in Google Analytics at once (the reason and the version only, no text).
     form.addEventListener('change', function () {
       send.disabled = !reason();
+      fillHelp(document.getElementById('help'));
       if (reason() && typeof gtag === 'function') gtag('event', 'uninstall_reason', { reason: reason(), version: version || 'unknown' });
     });
 
@@ -133,6 +196,7 @@
         savedText = document.getElementById('more').value.trim();
         if (!savedText) document.getElementById('review').textContent = 'Write a review';
       }
+      if (reason() !== 'I found a job') fillHelp(document.getElementById('help2'));
       page.classList.add('done');
     });
 
