@@ -66,11 +66,12 @@
     <form id="form" novalidate>
       <label class="why"><input type="radio" name="why" value="I found a job"> I found a job</label>
       <label class="why"><input type="radio" name="why" value="Promoted / reposted jobs still showed"> Promoted / reposted jobs still showed</label>
-      <label class="why"><input type="radio" name="why" value="I didn't see what it does"> I didn't see what it does</label>
+      <label class="why"><input type="radio" name="why" value="It hid jobs I wanted to see"> It hid jobs I wanted to see</label>
+      <label class="why"><input type="radio" name="why" value="It didn't work on LinkedIn's new AI search"> It didn't work on LinkedIn's new AI search</label>
       <label class="why"><input type="radio" name="why" value="Job Radar alerts didn't come"> Job Radar alerts didn't come</label>
+      <label class="why"><input type="radio" name="why" value="Job Radar alerts were too many or too loud"> Job Radar alerts were too many or too loud</label>
       <label class="why"><input type="radio" name="why" value="It slowed down or broke LinkedIn"> It slowed down or broke LinkedIn</label>
-      <label class="why"><input type="radio" name="why" value="It wanted access to my LinkedIn data"> It wanted access to my LinkedIn data</label>
-      <label class="why"><input type="radio" name="why" value="I only wanted to try it"> I only wanted to try it</label>
+      <label class="why"><input type="radio" name="why" value="I didn't see what it does"> I didn't see what it does</label>
       <label class="why"><input type="radio" name="why" value="Something else"> Something else</label>
       <div class="help" id="help" hidden></div>
       <label class="more">Share your success story or any criticism (optional)
@@ -138,29 +139,39 @@
     var GUIDE = 'how-to-use-earlyapply.html?from=bye';
     var HELP = {
       'Promoted / reposted jobs still showed': {
-        head: 'Sorry about that.', text: 'Tell us which job it was and we will fix it.', mail: 'Email us the job',
+        head: 'On LinkedIn’s new AI search, these are hidden only after you open them.', text: 'Classic job search hides them straight away. If a job still slipped through, tell us which one.', guide: 'Guide: get classic search back', guideHref: 'linkedin-classic-job-search.html?from=bye', mail: 'Email us the job',
         subject: 'EarlyApply: a promoted or reposted job still showed',
         body: 'Hi,\n\nA promoted or reposted job was not hidden.\n\nJob title:\nCompany:\nMy search (keywords and location):\nBrowser (Chrome or Edge):\n\nThanks'
       },
-      "I didn't see what it does": {
-        head: 'It adds a small bar above your LinkedIn job list.', text: 'It hides old, promoted and repeated jobs and alerts you to new ones. The guide shows every feature, with screenshots.', guide: 'Read the guide: how to use EarlyApply', mail: 'Tell us what was unclear',
-        subject: 'EarlyApply: I could not tell what it does',
-        body: 'Hi,\n\nWhat I expected EarlyApply to do:\n\nWhat I saw after installing it:\n\nThanks'
+      'It hid jobs I wanted to see': {
+        head: 'Click “jobs hidden · Show them” in the bar to see what was hidden.', text: 'Then turn off the filter you don’t want (promoted, reposted, agencies, blocked companies or words).', mail: 'Tell us what was hidden',
+        subject: 'EarlyApply: it hid jobs I wanted',
+        body: 'Hi,\n\nA job I wanted was hidden.\n\nJob title:\nCompany:\nWhich filter hid it (if you know):\n\nThanks'
+      },
+      "It didn't work on LinkedIn's new AI search": {
+        head: 'LinkedIn’s AI search can’t sort by date.', text: 'Click ★ Newest jobs to see your search newest first. For every filter, use the classic job search.', guide: 'Guide: get classic search back', guideHref: 'linkedin-classic-job-search.html?from=bye', mail: 'Tell us what did not work',
+        subject: 'EarlyApply: it did not work on the new AI search',
+        body: 'Hi,\n\nWhat I expected on the AI search:\n\nWhat happened:\n\nBrowser (Chrome or Edge):\n\nThanks'
       },
       "Job Radar alerts didn't come": {
         head: 'Most often Windows is blocking Chrome alerts.', text: 'Turn on Google Chrome in Settings > Notifications. Then try again. Still nothing? Email us.', mail: 'Still no alerts? Email us',
         subject: 'EarlyApply: Job Radar alerts did not come',
         body: 'Hi,\n\nJob Radar alerts did not come.\n\nComputer (Windows or Mac):\nBrowser (Chrome or Edge):\nDo other Chrome sites show notifications on this computer? (yes or no):\nMy search (keywords and location):\n\nThanks'
       },
+      'Job Radar alerts were too many or too loud': {
+        head: 'You can calm them down in the Job Radar panel.', text: 'Check less often (up to every 60 minutes), turn off the sound, or turn off pop-up alerts.', mail: 'Tell us what was too much',
+        subject: 'EarlyApply: Job Radar alerts were too many or too loud',
+        body: 'Hi,\n\nWhat was too much (how often, or the sound):\n\nMy search (keywords and location):\n\nThanks'
+      },
       'It slowed down or broke LinkedIn': {
-        head: 'Sorry, that should not happen.', text: 'Tell us what broke and in which browser. We will fix it.', mail: 'Email us what broke',
+        head: 'Sorry, that should not happen.', text: 'Reload the LinkedIn tab (Ctrl+R) and update EarlyApply in chrome://extensions. Still broken? Tell us what you see.', mail: 'Email us what broke',
         subject: 'EarlyApply: it slowed down or broke LinkedIn',
         body: 'Hi,\n\nWhat was slow or broken:\n\nBrowser (Chrome or Edge):\nComputer (Windows or Mac):\nMy search (keywords and location):\n\nThanks'
       },
-      'It wanted access to my LinkedIn data': {
-        head: 'Fair question.', text: 'Chrome shows "Read and change your data on www.linkedin.com" for any extension that works on that site. EarlyApply uses it only to add its bar to LinkedIn job pages. No account, no data collected. The privacy page lists each permission and why it is needed.', guide: 'Read the privacy page', mail: 'Ask us a question',
-        subject: 'EarlyApply: a question about permissions',
-        body: 'Hi,\n\nMy question about permissions:\n\nThanks'
+      "I didn't see what it does": {
+        head: 'It adds a small bar above your LinkedIn job list.', text: 'It hides old, promoted and repeated jobs and alerts you to new ones. The guide shows every feature, with screenshots.', guide: 'Read the guide: how to use EarlyApply', guideHref: 'how-to-use-earlyapply.html?from=bye', mail: 'Tell us what was unclear',
+        subject: 'EarlyApply: I could not tell what it does',
+        body: 'Hi,\n\nWhat I expected EarlyApply to do:\n\nWhat I saw after installing it:\n\nThanks'
       },
       'Something else': {
         head: 'Tell us more in the box below, or email us.', text: 'We reply to every email.', mail: 'Write an email',
@@ -184,7 +195,7 @@
       if (h.guide) {
         var g = document.createElement('a');
         g.className = 'btn btn--primary btn--small';
-        g.href = reason() === 'It wanted access to my LinkedIn data' ? 'privacy.html' : GUIDE;
+        g.href = h.guideHref || GUIDE;
         g.textContent = h.guide;
         acts.append(g);
       }
