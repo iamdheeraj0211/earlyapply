@@ -21,6 +21,7 @@
   .bye .why:has(input:checked) { border-color: var(--accent); box-shadow: 0 0 0 3px var(--glow); }
   .bye .why input { accent-color: var(--accent); width: 18px; height: 18px; flex: none; }
   .bye .more { display: grid; gap: 4px; margin-top: 2px; font-size: 13px; color: var(--muted); }
+  .bye input[type="email"] { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); color: var(--fg); font: inherit; font-size: 14px; }
   .bye textarea { width: 100%; min-height: 48px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); color: var(--fg); font: inherit; font-size: 14px; resize: vertical; }
   .bye .row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; margin-top: 6px; }
   .bye button.btn { border: 0; cursor: pointer; font: inherit; font-weight: 600; }
@@ -67,16 +68,22 @@
       <label class="why"><input type="radio" name="why" value="Promoted / reposted jobs still showed"> Promoted / reposted jobs still showed</label>
       <label class="why"><input type="radio" name="why" value="I didn't see what it does"> I didn't see what it does</label>
       <label class="why"><input type="radio" name="why" value="Job Radar alerts didn't come"> Job Radar alerts didn't come</label>
+      <label class="why"><input type="radio" name="why" value="It slowed down or broke LinkedIn"> It slowed down or broke LinkedIn</label>
+      <label class="why"><input type="radio" name="why" value="It asked for too many permissions"> It asked for too many permissions</label>
+      <label class="why"><input type="radio" name="why" value="I only wanted to try it"> I only wanted to try it</label>
       <label class="why"><input type="radio" name="why" value="Something else"> Something else</label>
       <div class="help" id="help" hidden></div>
       <label class="more">Share your success story or any criticism (optional)
         <textarea id="more" maxlength="500" placeholder="Found a job? Tell me how. Something missing or broken? Tell me that too."></textarea>
       </label>
+      <label class="more" id="mailbox" hidden>Your email, only if you want a reply (optional)
+        <input type="email" id="mail" maxlength="120" autocomplete="email" placeholder="you@example.com">
+      </label>
       <div class="row">
         <button class="btn btn--primary" id="send" type="submit" disabled>Send</button>
         <a href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo" data-store>Changed your mind? Add it again</a>
       </div>
-      <p class="small">Sends only the reason you pick and the text you type, nothing else. <a href="privacy.html">Privacy</a> · Need help? <a href="https://mail.google.com/mail/?view=cm&fs=1&to=connect.earlyapply@gmail.com" target="_blank" rel="noopener">connect.earlyapply@gmail.com</a></p>
+      <p class="small">Sends only the reason you pick, the text you type, and your extension version and browser name (Chrome or Edge). If you close this page after picking a reason, the reason alone is still saved. <a href="privacy.html">Privacy</a> · Need help? <a href="https://mail.google.com/mail/?view=cm&fs=1&to=connect.earlyapply@gmail.com" target="_blank" rel="noopener">connect.earlyapply@gmail.com</a></p>
     </form>
 
     <div class="thanks" id="thanks" role="status">
@@ -111,6 +118,13 @@
     var form = document.getElementById('form');
     var send = document.getElementById('send');
     var sent = false;
+    // Optional email: set this to the Google Form field id ("entry.123...") once the Form has an email question. Empty = the box stays hidden.
+    var EMAIL_ENTRY = '';
+    if (EMAIL_ENTRY) document.getElementById('mailbox').hidden = false;
+    // Browser name added to the version (so one Form column shows which release and which browser).
+    var browser = /\sEdg\//.test(navigator.userAgent) ? 'Edge' : 'Chrome';
+    var versionBrowser = (version || 'unknown') + ' ' + browser;
+    var pageHidden = false;
     var savedText = '';
 
     function reason() {
@@ -138,6 +152,16 @@
         subject: 'EarlyApply: Job Radar alerts did not come',
         body: 'Hi,\n\nJob Radar alerts did not come.\n\nComputer (Windows or Mac):\nBrowser (Chrome or Edge):\nDo other Chrome sites show notifications on this computer? (yes or no):\nMy search (keywords and location):\n\nThanks'
       },
+      'It slowed down or broke LinkedIn': {
+        head: 'Sorry, that should not happen.', text: 'Tell us what broke and in which browser. We will fix it.', mail: 'Email us what broke',
+        subject: 'EarlyApply: it slowed down or broke LinkedIn',
+        body: 'Hi,\n\nWhat was slow or broken:\n\nBrowser (Chrome or Edge):\nComputer (Windows or Mac):\nMy search (keywords and location):\n\nThanks'
+      },
+      'It asked for too many permissions': {
+        head: 'Fair question.', text: 'EarlyApply only runs on LinkedIn jobs pages and collects no data. The privacy page lists every permission and why it is needed.', guide: 'Read the privacy page', mail: 'Ask us a question',
+        subject: 'EarlyApply: a question about permissions',
+        body: 'Hi,\n\nMy question about permissions:\n\nThanks'
+      },
       'Something else': {
         head: 'Tell us more in the box below, or email us.', text: 'We reply to every email.', mail: 'Write an email',
         subject: 'EarlyApply feedback',
@@ -160,7 +184,7 @@
       if (h.guide) {
         var g = document.createElement('a');
         g.className = 'btn btn--primary btn--small';
-        g.href = GUIDE;
+        g.href = reason() === 'It asked for too many permissions' ? 'privacy.html' : GUIDE;
         g.textContent = h.guide;
         acts.append(g);
       }
@@ -190,7 +214,8 @@
       var body = new URLSearchParams();
       body.set('entry.1864451872', reason());
       body.set('entry.87981366', document.getElementById('more').value.slice(0, 500));
-      body.set('entry.1393908508', version);
+      body.set('entry.1393908508', versionBrowser);
+      if (EMAIL_ENTRY) body.set(EMAIL_ENTRY, document.getElementById('mail').value.trim().slice(0, 120));
       fetch(FORM, { method: 'POST', mode: 'no-cors', body: body }).catch(function () {});
       var page = document.getElementById('bye');
       if (reason() === 'I found a job') {
@@ -201,6 +226,20 @@
       if (reason() !== 'I found a job') fillHelp(document.getElementById('help2'));
       page.classList.add('done');
     });
+
+    // If the tab is closed after a reason is picked but before Send, the reason alone is still saved (once).
+    // WHAT: marks the row so it can be told apart from a full answer. WHY: many people click a reason and leave.
+    function saveUnsent() {
+      if (sent || pageHidden || !reason()) return;
+      pageHidden = true;
+      var b = new URLSearchParams();
+      b.set('entry.1864451872', reason());
+      b.set('entry.87981366', (document.getElementById('more').value.slice(0, 480) + ' (reason only, Send not pressed)').trim());
+      b.set('entry.1393908508', versionBrowser);
+      fetch(FORM, { method: 'POST', mode: 'no-cors', body: b, keepalive: true }).catch(function () {});
+    }
+    document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') saveUnsent(); });
+    window.addEventListener('pagehide', saveUnsent);
 
     // Review button: copies what they wrote (so they only paste it in the store), then the store page opens.
     var review = document.getElementById('review');
