@@ -12,7 +12,11 @@
 <style>
   .bye { display: grid; grid-template-columns: 1fr 1.1fr; max-width: 1040px; margin: 28px auto 8px; border: 1px solid var(--border); border-radius: 18px; overflow: hidden; background: var(--surface); }
   .bye [hidden] { display: none !important; }
-  .bye .side { padding: 40px 36px; background: #e9f1ed; display: flex; flex-direction: column; gap: 18px; }
+  .bye .side { padding: 36px; background: radial-gradient(circle at 100% 0, rgba(4,131,90,0.18), transparent 55%), linear-gradient(160deg, #e3f0ea, #d5e8df); display: flex; flex-direction: column; gap: 28px; }
+  .bye .brandrow { display: flex; align-items: center; gap: 14px; }
+  .bye .brandrow img { border-radius: 12px; box-shadow: 0 6px 16px rgba(4,131,90,0.25); }
+  .bye .brandrow strong { display: block; font: 700 19px/1.2 var(--head); }
+  .bye .brandrow span { font-size: 13px; color: #4c615b; }
   .bye .ask { padding: 40px 36px; display: flex; flex-direction: column; min-width: 0; }
   @media (max-width: 760px) { .bye { grid-template-columns: 1fr; } .bye .side, .bye .ask { padding: 26px 20px; } }
   .bye h1 { margin: 0; font: 700 clamp(26px, 4vw, 34px)/1.15 var(--head); letter-spacing: -0.02em; }
@@ -71,10 +75,11 @@
 <main class="wrap">
   <section class="bye" id="bye">
     <aside class="side">
+      <div class="brandrow"><img src="logo.png" alt="" width="48" height="48"><div><strong>EarlyApply</strong><span>Be early on LinkedIn jobs</span></div></div>
       <div class="side-ask">
         <div id="intro" style="display:grid;gap:18px">
           <h1>Sorry to see you go.</h1>
-          <p class="lead">I’m Dheeraj, I make EarlyApply. It is free, with no account and no tracking. I read every answer. One click on the right is enough.</p>
+          <p class="lead">Your answer tells us what to fix next. It takes one click, and every answer is read.</p>
           <div class="tips">
             <div class="kicker">Before you go, things people miss</div>
             <div><b>★ Newest jobs</b><br>On LinkedIn’s new AI search it shows your search newest first.</div>
@@ -87,7 +92,7 @@
       <div class="side-thanks">
         <h1 class="when-other">Thank you.</h1>
         <h1 class="when-found">Congratulations on the new job!</h1>
-        <p class="lead" style="margin-top:18px">I read every answer. It helps me make EarlyApply better.<span class="when-other"> If you left an email, I will reply.</span><span class="when-found"> I built EarlyApply to help people like you.</span></p>
+        <p class="lead" style="margin-top:18px">Your answer helps us make EarlyApply better.<span class="when-other"> If you left an email, we will write back.</span><span class="when-found"> We built EarlyApply for people like you, and we are glad it helped.</span></p>
       </div>
     </aside>
 
@@ -105,7 +110,7 @@
       <label class="why"><input type="radio" name="why" value="I didn't see what it does"> I didn't see what it does</label>
       <label class="why"><input type="radio" name="why" value="Something else"> Something else</label>
       <label class="more">Anything to add? (optional)
-        <textarea id="more" maxlength="500" placeholder="Found a job? Tell me how. Something missing or broken? Tell me that too."></textarea>
+        <textarea id="more" maxlength="500" placeholder="Found a job? Tell us how. Something missing or broken? Tell us that too."></textarea>
       </label>
       <label class="more" id="mailbox" hidden>Your email, only if you want a reply (optional)
         <input type="email" id="mail" maxlength="120" autocomplete="email" placeholder="you@example.com">
