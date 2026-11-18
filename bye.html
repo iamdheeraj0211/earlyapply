@@ -38,6 +38,7 @@
   .bye .thanks .when-found { display: none; }
   .bye.found .thanks .when-found { display: block; }
   .bye.found .thanks .when-other { display: none; }
+  .bye .thanks .again { margin: 0; font-size: 14px; color: var(--muted); }
   .bye .copied { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
   .bye.done form, .bye.done .lead { display: none; }
   .bye.done .thanks { display: block; }
@@ -96,7 +97,7 @@
         <a class="btn btn--primary btn--small" id="review" href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo/reviews" target="_blank" rel="noopener">Copy my text and write a review</a>
         <p class="copied" id="copied" hidden>Your text is copied. Paste it in the review box.</p>
       </div>
-      <a class="btn btn--primary btn--small when-other" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add it again</a>
+      <p class="again when-other">Changed your mind? <a data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add it again</a></p>
     </div>
   </section>
 </main>
