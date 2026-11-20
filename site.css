@@ -8,7 +8,7 @@
   --border-strong: rgba(52, 245, 176, 0.28);
   --fg: #eef5f2;
   --muted: #93a8a1;
-  --faint: #5f7570;
+  --faint: #53665f;
   --accent: #34f5b0;
   --accent-ink: #04221a;
   --gold: #ffc94d;
@@ -460,3 +460,8 @@ h2, h3, .hero__lead, .section__lead, .final p { text-wrap: balance; }
 @media (prefers-reduced-motion: reduce) {
   .scope::after { animation: none; rotate: 215deg; }
 }
+
+/* Accessibility: visible keyboard focus, skip link, reduced motion (Step 3, 2026-11-21). */
+.skip { position: absolute; left: 12px; top: -60px; z-index: 100; padding: 10px 16px; border-radius: 8px; background: var(--accent); color: var(--accent-ink); font-weight: 700; text-decoration: none; }
+.skip:focus { top: 12px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }

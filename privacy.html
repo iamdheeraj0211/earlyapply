@@ -38,6 +38,7 @@
 </script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="./"><img src="logo.png" alt="" width="32" height="32">EarlyApply</a>
@@ -49,7 +50,7 @@
   </div>
 </header>
 
-<main class="wrap">
+<main id="main" class="wrap">
   <header class="doc-hero">
     <p class="eyebrow">Privacy policy</p>
     <h1>Your data stays in your browser.</h1>
@@ -84,6 +85,7 @@
       <p>EarlyApply runs only on <code>www.linkedin.com</code>. On LinkedIn Jobs pages it reads what LinkedIn already shows you, inside your browser, to do its job:</p>
       <ul>
         <li><strong>Job search results:</strong> job titles, company names, when a job was posted, and labels such as "Promoted", "Reposted" or "Be an early applicant". This is used to filter, sort and highlight jobs, and for Job Radar to notice new jobs.</li>
+        <li><strong>Job pages (label check):</strong> on LinkedIn's new job search, while Hide Promoted or Hide Reposted is on, EarlyApply reads the top of the page of each job in the list, in your own browser session, to find the "Promoted" and "Reposted" labels. It stops reading before the job description. It does this only while the tab is open and visible, and it asks for a limited number of pages per visit.</li>
         <li><strong>Easy Apply forms (Saved answers):</strong> the text of the questions on the form, to show which of your saved answers fits. When you click <em>Save</em> or <em>Update</em> on the Saved answers card, EarlyApply reads the answer you typed in that field so it can save it. It never types into, clicks or submits LinkedIn's forms.</li>
         <li><strong>Application confirmations (Daily goal):</strong> LinkedIn's "Your application was sent" message, or your "Yes" to LinkedIn's "Did you apply?" question, to count applications toward your daily goal.</li>
       </ul>
@@ -104,6 +106,7 @@
       <h3>Stored only on this computer (Chrome local storage)</h3>
       <ul>
         <li><strong>Job Radar:</strong> the LinkedIn search it watches (its link and keywords), the IDs of jobs already seen, the new jobs it found (title, company, posted time), and simple counts such as how many new jobs it has found for you.</li>
+        <li><strong>Job labels:</strong> for jobs it has seen, the LinkedIn job ID, a short letter code (Promoted, Reposted, viewed by you, or checked with no label) and the posted time. It keeps up to 3,000 jobs, and the oldest are dropped first. It is used only to hide or tag jobs when you search again.</li>
         <li><strong>Saved answers:</strong> the answers you save, such as notice period, expected or current salary, years of experience, a short introduction, and your own questions and answers. These can be personal; they stay on this computer, are never synced and never sent anywhere.</li>
         <li><strong>Daily goal:</strong> your goal, how many applications were counted each day (kept for 30 days), and the LinkedIn job IDs counted today so a job is not counted twice.</li>
         <li><strong>Small usage notes:</strong> for example whether you closed the first-run tip, and on how many days you used EarlyApply, so the extension knows when to show a one-time message.</li>
@@ -118,6 +121,7 @@
         <h2><span>03</span>Network requests</h2>
       <p>EarlyApply does not send your data anywhere. In particular:</p>
       <ul>
+        <li><strong>The label check</strong> asks linkedin.com for the top of a job page, the same page you would open yourself, from your own signed-in browser. What it finds stays on your computer. Nothing is sent to the developer or to any other site.</li>
         <li><strong>Job Radar</strong> works by reloading the LinkedIn search page in your own browser, like pressing refresh. It does not use any other server.</li>
         <li><strong>Paid licenses (only if you buy one):</strong> if paid plans are offered and you enter a license key, EarlyApply sends that key to the payment provider (for example Dodo Payments or Lemon Squeezy) to check that it's valid. Only the key is sent. While EarlyApply is free, this never happens.</li>
         <li><strong>Links you click:</strong> "Feedback" opens a Gmail message to the developer in a new tab, and "Connect with Dheeraj" opens a LinkedIn profile. Nothing is sent unless you choose to send that email.</li>

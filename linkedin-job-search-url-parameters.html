@@ -157,6 +157,7 @@
 </script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="nav">
   <div class="wrap">
@@ -180,6 +181,7 @@
     <strong>Short answer:</strong> these work both logged out and logged in: <code>keywords</code>, <b><code>f_TPR</code></b> (date posted), <b><code>f_AL=true</code></b> (Easy Apply) and <b><code>f_EA=true</code></b> (under 10 applicants). <code>f_WT</code> (workplace type) works only logged in. <b><code>sortBy=DD</code>, <code>f_E</code> and <code>f_JT</code> do nothing</b>, whatever other guides say.
   </div>
     <div class="acts">
+      <a class="alt guide-edge" data-edge-alt href="https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep">Add to Edge, free</a>
       <a class="alt" href="#params">See the full table &darr;</a>
       <a class="alt" href="#builder">Build a link &darr;</a>
     </div>
@@ -190,9 +192,11 @@
   </figure>
 </section>
 
-<main>
+<main id="main">
   <article class="wrap">
     <p class="lead">LinkedIn job search addresses carry settings such as <code>f_TPR</code>, <code>f_AL</code> and <code>sortBy</code>. Plenty of guides list them. We tested them in October and November 2026 with real searches, in a clean logged-out browser and in a logged-in account. <strong>Some work. Several do nothing.</strong></p>
+
+    <nav class="toc" aria-label="On this page"><strong>On this page</strong><ul><li><a href="#params">Every parameter we tested</a></li><li><a href="#how-we-tested">How we tested</a></li><li><a href="#copy-paste-links-logged-out">Copy-paste links (logged out)</a></li><li><a href="#builder">Build your own link</a></li><li><a href="#good-to-know">Good to know</a></li><li><a href="#questions">Questions</a></li></ul></nav>
 
     <h2 id="params">Every parameter we tested</h2>
     <table>
@@ -216,14 +220,14 @@
       <strong>Logged in? Your 1-hour filter is really a 24-hour filter.</strong> LinkedIn's AI search treats <code>f_TPR=r3600</code> as 24 hours, and no code sorts the list newest first. <a href="#cta">EarlyApply</a> adds time buttons that hide older jobs, and a ★ Newest jobs list, right inside the page.
     </div>
 
-    <h2>How we tested</h2>
+    <h2 id="how-we-tested">How we tested</h2>
     <ul class="notes">
       <li><strong>Logged out:</strong> a fresh Chrome with a clean profile. For <code>sortBy</code>: 4 searches (sales, nurse, data analyst, software engineer), each with a 1-hour and a 24-hour window, with no sort, <code>sortBy=DD</code> and <code>sortBy=R</code>. 24 runs, the first 25 jobs each. The order was the same every time, and not newest first.</li>
       <li><strong>Logged in:</strong> one signed-in account, one search ("sales", United States). For each code we checked what stayed in the address after LinkedIn loaded, and whether the 24 jobs on the page changed.</li>
       <li><strong>Limits:</strong> LinkedIn changes often, and it shows different jobs to different people. If a code works for you and not here, tell us.</li>
     </ul>
 
-    <h2>Copy-paste links (logged out)</h2>
+    <h2 id="copy-paste-links-logged-out">Copy-paste links (logged out)</h2>
     <p>Open these in a <strong>private window</strong>. Change <code>data%20analyst</code> to your job title and <code>United%20States</code> to your place. A space is written <code>%20</code>.</p>
     <p><strong>Jobs posted in the last hour</strong></p>
     <div class="url">https://www.linkedin.com/jobs/search/?keywords=data%20analyst&amp;location=United%20States<mark>&amp;f_TPR=r3600</mark></div>
@@ -273,7 +277,7 @@
       <a class="btn" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add to Chrome, free</a>
     </div>
 
-    <h2>Good to know</h2>
+    <h2 id="good-to-know">Good to know</h2>
     <ul class="notes">
       <li><strong>Logged in, the time codes lose their edge.</strong> LinkedIn's AI search treats <code>r3600</code> as 24 hours. See <a href="linkedin-classic-job-search.html">how to get classic job search back</a>.</li>
       <li><strong>No code sorts the list.</strong> Read the "posted X ago" line, or use the <strong>★ Newest jobs</strong> button in EarlyApply.</li>
@@ -283,7 +287,7 @@
 
     <section class="cta" id="cta">
       <span class="kicker">The one-click way</span>
-      <h2>Skip the codes: use EarlyApply</h2>
+      <h2 id="skip-the-codes-use-earlyapply">Skip the codes: use EarlyApply</h2>
       <p>EarlyApply is a free Chrome and Edge extension that works while you are logged in, right on the LinkedIn page.</p>
       <ul>
         <li>One-click buttons: 15m, 30m, 1h, 3h, 6h, 12h</li>
@@ -299,7 +303,7 @@
       <small>No account, no data collected. <span data-edge-alt>Also on <a href="https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep">Microsoft Edge</a>. </span><a href="./">See how it works →</a></small>
     </section>
 
-    <h2>Questions</h2>
+    <h2 id="questions">Questions</h2>
     <details><summary>What are LinkedIn job search URL parameters?</summary><p>They are the settings after the question mark in a LinkedIn jobs address, for example <code>f_TPR=r3600</code> for the last hour or <code>f_AL=true</code> for Easy Apply. You can type them in the address bar to set a filter that the menu does not offer, or to save a search as a bookmark.</p></details>
     <details><summary>Does sortBy=DD still sort LinkedIn jobs by most recent?</summary><p>No. In October and November 2026 we tested it in a clean, logged-out browser (24 runs, 4 searches) and in a logged-in account. The order did not change. Logged in, LinkedIn removes it from the address.</p></details>
     <details><summary>How do I show only Easy Apply jobs with a URL?</summary><p>Add <code>f_AL=true</code> to the search address. It works logged out and logged in.</p></details>
@@ -309,7 +313,7 @@
     <details><summary>Why does LinkedIn drop my location when I am logged in?</summary><p>Logged in, LinkedIn drops the place text and keeps only the geoId. 103644278 is the United States (tested in November 2026).</p></details>
 
     <aside class="related-guides">
-      <h2>Related guides</h2>
+      <h2 id="related-guides">Related guides</h2>
       <ul>
       <li><a href="linkedin-jobs-posted-last-hour.html">See jobs posted in the last hour</a>: the f_TPR guide</li>
       <li><a href="linkedin-classic-job-search.html">Get the classic job search back</a>: the old search back</li>

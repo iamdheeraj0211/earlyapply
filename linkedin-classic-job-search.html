@@ -110,6 +110,7 @@
 </script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="nav">
   <div class="wrap">
@@ -133,6 +134,7 @@
       <strong>Short answer:</strong> there is <b>no switch back</b> while you're logged in. The closest thing is LinkedIn's <strong>logged-out job list</strong>: open <code>linkedin.com/jobs/search</code> in a private window, search, and add <code>&amp;f_TPR=r3600</code> (last hour) to the address. The list is not sorted by date, so check the "posted X ago" line on each job. Sign in only when you apply.
     </div>
     <div class="acts">
+      <a class="alt guide-edge" data-edge-alt href="https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep">Add to Edge, free</a>
       <a class="alt" href="#by-hand">Read the steps &darr;</a>
     </div>
   </div>
@@ -142,11 +144,13 @@
   </figure>
 </section>
 
-<main>
+<main id="main">
   <article class="wrap">
     <p class="lead" id="by-hand">LinkedIn moved everyone to its <strong>AI-powered job search</strong> and took away the "Switch to classic job search" button. Most people miss two things: sorting by <strong>Most recent</strong>, and seeing only the jobs posted in the last hour. Here is what changed, what still works, and what does not.</p>
 
-    <h2>What changed</h2>
+    <nav class="toc" aria-label="On this page"><strong>On this page</strong><ul><li><a href="#what-changed">What changed</a></li><li><a href="#how-to-go-back-to-the-old-linkedin-job-s">How to go back to the old LinkedIn job search</a></li><li><a href="#good-to-know">Good to know</a></li><li><a href="#questions">Questions</a></li></ul></nav>
+
+    <h2 id="what-changed">What changed</h2>
     <table>
       <thead><tr><th></th><th>Classic search (before)</th><th>AI search (now, logged in)</th></tr></thead>
       <tbody>
@@ -158,7 +162,7 @@
     </table>
     <p>We tested this in October 2026 with a "sales" search in the United States. Logged in, a "last hour" search showed jobs 2 to 21 hours old. Logged out, the same search showed only jobs under an hour old, but not in date order.</p>
 
-    <h2>How to go back to the old LinkedIn job search</h2>
+    <h2 id="how-to-go-back-to-the-old-linkedin-job-s">How to go back to the old LinkedIn job search</h2>
     <ol class="steps">
       <li>
         <h3>Open a private window</h3>
@@ -184,7 +188,7 @@
       </li>
     </ol>
 
-    <h2>Good to know</h2>
+    <h2 id="good-to-know">Good to know</h2>
     <ul class="notes">
       <li><strong>Fewer filters logged out.</strong> Experience level, remote and job type menus are hidden. Put the most important words in your keywords instead.</li>
       <li><strong>Only a few codes work.</strong> Easy Apply (<code>f_AL</code>) and under 10 applicants (<code>f_EA</code>) do; most others do nothing. See <a href="linkedin-job-search-url-parameters.html">which LinkedIn URL parameters still work</a>.</li>
@@ -195,7 +199,7 @@
 
     <section class="cta">
       <span class="kicker">Stay logged in</span>
-      <h2>Get back what classic search gave you, with EarlyApply</h2>
+      <h2 id="get-back-what-classic-search-gave-you-wi">Get back what classic search gave you, with EarlyApply</h2>
       <p>EarlyApply is a free Chrome and Edge extension that works on LinkedIn's new AI search, while you're logged in.</p>
       <ul>
         <li>★ Newest jobs: your search from LinkedIn's full job list, newest first, without logging out</li>
@@ -212,7 +216,7 @@
       <small>No account, no data collected. <span data-edge-alt>Also on <a href="https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep">Microsoft Edge</a>. </span><a href="./">See how it works →</a></small>
     </section>
 
-    <h2>Questions</h2>
+    <h2 id="questions">Questions</h2>
     <details><summary>Can I switch back to classic job search on LinkedIn?</summary><p>Not while logged in. LinkedIn removed the Switch to classic job search button, and the old address now opens the AI-powered search. The closest thing is LinkedIn's logged-out job list: open <code>linkedin.com/jobs/search</code> in a private window.</p></details>
     <details><summary>Why can't I sort LinkedIn jobs by Most recent anymore?</summary><p>LinkedIn's AI-powered search has no sort option. Results are ordered by relevance only. Logged out, adding <code>sortBy=DD</code> to the search address still sorts the list newest first. Logged in, the free EarlyApply extension adds a <strong>★ Newest jobs</strong> button that lists your search newest first.</p></details>
     <details><summary>Does the f_TPR last-hour trick still work?</summary><p>Only when you are logged out. Logged in, the AI-powered search treats any time filter under 24 hours as 24 hours. Logged out, <code>f_TPR=r3600</code> still shows only jobs from the last hour.</p></details>
@@ -221,7 +225,7 @@
     <details><summary>Where did "Switch to classic job search" go?</summary><p>LinkedIn removed it. There is no setting to switch back while you are logged in.</p></details>
 
     <aside class="related-guides">
-      <h2>Related guides</h2>
+      <h2 id="related-guides">Related guides</h2>
       <ul>
       <li><a href="linkedin-jobs-posted-last-hour.html">See jobs posted in the last hour</a>: the filter LinkedIn hides</li>
       <li><a href="hide-promoted-reposted-jobs-linkedin.html">Remove promoted jobs</a>: clean up the results</li>
