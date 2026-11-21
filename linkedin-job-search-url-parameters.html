@@ -369,6 +369,21 @@
     });
     document.querySelectorAll('[data-edge-alt]').forEach(function (p) { p.hidden = true; });
   })();
+
+  // Phones, tablets, Firefox and Safari cannot install the extension: say so next to the button (one short line).
+  (function () {
+    var ua = navigator.userAgent;
+    var can = /Chrome\//.test(ua) && !/Mobi|Android|iPhone|iPad|iPod|CriOS|FxiOS/.test(ua);
+    if (can) return;
+    var anchor = document.querySelector('.acts, .hero__cta');
+    if (!anchor) return;
+    var p = document.createElement('p');
+    p.className = 'device-note';
+    p.setAttribute('role', 'note');
+    p.style.cssText = 'margin:12px 0 0;font-size:14px;line-height:1.45;color:var(--muted,#55695f);max-width:46ch';
+    p.textContent = 'EarlyApply works in Chrome and Edge on a computer. Open this page on your computer to install it.';
+    anchor.insertAdjacentElement('afterend', p);
+  })();
 </script>
 </body>
 </html>
