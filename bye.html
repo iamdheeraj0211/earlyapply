@@ -65,7 +65,8 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-4STR109LDN');
+  // No normal page view here: a person who left must not count as a visit. One custom event is sent below instead.
+  gtag('config', 'G-4STR109LDN', { send_page_view: false });
 </script>
 </head>
 <body>
@@ -162,6 +163,8 @@
     // Browser name added to the version (so one Form column shows which release and which browser).
     var browser = /\sEdg\//.test(navigator.userAgent) ? 'Edge' : 'Chrome';
     var versionBrowser = (version || 'unknown') + ' ' + browser;
+    // One event per leaver (version only, no personal data), so uninstalls are counted as churn, not as visits.
+    if (typeof gtag === 'function') gtag('event', 'extension_uninstalled', { version: version || 'unknown' });
     var pageHidden = false;
     var savedText = '';
 
