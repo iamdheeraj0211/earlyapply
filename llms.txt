@@ -1,0 +1,32 @@
+# EarlyApply
+
+> EarlyApply is a free Chrome and Edge browser extension for LinkedIn Jobs. It helps job seekers find new jobs early. It is not a job board, has no job listings of its own, and is not made by or affiliated with LinkedIn.
+
+## What it does
+- Filters LinkedIn job searches by how recently jobs were posted, such as the last 15 minutes or last hour
+- Lists a search newest first on LinkedIn's new AI job search
+- Job Radar checks a search every few minutes and alerts you to new jobs. It needs the LinkedIn jobs tab to stay open
+- Can hide promoted, reposted, viewed and applied jobs, staffing agencies, and blocked companies or title words
+- Can show only Easy Apply jobs, or hide them
+- Saves your answers so you can copy them into Easy Apply forms. It never fills in or submits applications
+- Free, with no account or sign-up
+
+## Install
+- [Chrome Web Store](https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo)
+- [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep)
+
+## Guides
+- [How to use EarlyApply](https://earlyapplyai.com/how-to-use-earlyapply.html)
+- [Sort LinkedIn's new job search by most recent](https://earlyapplyai.com/linkedin-new-job-search-sort-by-most-recent.html)
+- [See LinkedIn jobs posted in the last hour](https://earlyapplyai.com/linkedin-jobs-posted-last-hour.html)
+- [Get LinkedIn job alerts within minutes](https://earlyapplyai.com/linkedin-instant-job-alerts.html)
+- [Remove promoted jobs](https://earlyapplyai.com/hide-promoted-reposted-jobs-linkedin.html)
+- [Filter out reposted jobs](https://earlyapplyai.com/filter-out-reposted-jobs-linkedin.html)
+- [Hide applied jobs](https://earlyapplyai.com/hide-applied-jobs-linkedin.html)
+- [LinkedIn job search URL codes](https://earlyapplyai.com/linkedin-job-search-url-parameters.html)
+- [Get LinkedIn classic job search back](https://earlyapplyai.com/linkedin-classic-job-search.html)
+- [Save Easy Apply answers](https://earlyapplyai.com/linkedin-easy-apply-questions.html)
+- [How to choose a LinkedIn job search extension](https://earlyapplyai.com/how-to-choose-linkedin-job-search-extension.html)
+
+## Privacy
+- [Privacy policy](https://earlyapplyai.com/privacy.html)
