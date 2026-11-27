@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EarlyApply Support</title>
+<link rel="canonical" href="https://earlyapplyai.com/support.html">
+<meta name="description" content="Help for the EarlyApply Chrome and Edge extension: quick fixes for common problems, and how to email us about a bug or an idea.">
+<meta property="og:title" content="EarlyApply Support">
+<meta property="og:description" content="Help for the EarlyApply Chrome and Edge extension: quick fixes for common problems, and how to email us about a bug or an idea.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://earlyapplyai.com/support.html">
+<meta property="og:image" content="https://earlyapplyai.com/img/share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EarlyApply Support">
+<meta name="twitter:description" content="Help for the EarlyApply Chrome and Edge extension: quick fixes for common problems, and how to email us about a bug or an idea.">
+<meta name="twitter:image" content="https://earlyapplyai.com/img/share.jpg">
+<meta name="theme-color" content="#f5f8f6">
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="site.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4STR109LDN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4STR109LDN');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="chromewebstore.google.com"], a[href*="microsoftedge.microsoft.com"]');
+    if (!a) return;
+    gtag('event', 'store_click', {
+      store: a.href.indexOf('microsoftedge') > -1 ? 'edge' : 'chrome',
+      page_path: location.pathname,
+      transport_type: 'beacon'
+    });
+  });
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="logo.png" alt="" width="32" height="32">EarlyApply</a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="./#features">Features</a>
+      <a href="support.html" aria-current="page">Support</a>
+      <a class="btn btn--primary btn--small" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add to Chrome</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <header class="doc-hero">
+    <p class="eyebrow">Support</p>
+    <h1>EarlyApply Support</h1>
+    <p class="intro">Have a problem, found a bug, or have an idea? Email us:</p>
+  </header>
+
+  <article class="prose">
+    <div class="contact-card">
+      <p><a href="mailto:connect.earlyapply@gmail.com">connect.earlyapply@gmail.com</a></p>
+      <a class="btn btn--primary btn--small" href="https://mail.google.com/mail/?view=cm&fs=1&to=connect.earlyapply@gmail.com&amp;su=EarlyApply%20support" target="_blank" rel="noopener">Write in Gmail</a>
+    </div>
+
+    <p>To help us fix a problem, tell us:</p>
+    <ul>
+      <li>Your browser (Chrome or Edge)</li>
+      <li>Your EarlyApply version (shown on your browser's extensions page, under EarlyApply's details)</li>
+      <li>What you did, what you expected, and what happened</li>
+      <li>A screenshot, if you can. Hide any personal information first.</li>
+    </ul>
+
+    <h2>Quick fixes</h2>
+
+    <h3>I installed EarlyApply. Where is it?</h3>
+    <p>Open LinkedIn Jobs and search for a job title. The EarlyApply bar appears above the job list. It does not show on the LinkedIn feed or on a single job page.</p>
+
+    <h3>Why do I see no alerts from Job Radar?</h3>
+    <p>Keep your browser open, with the LinkedIn Jobs tab open. On Windows, open Settings, then System, then Notifications, and make sure notifications are on for your browser.</p>
+
+    <h3>How do I update EarlyApply right away?</h3>
+    <p>Chrome and Edge update it on their own. To check now, open chrome://extensions (Edge: edge://extensions), turn on Developer mode, click Update, then turn Developer mode off again.</p>
+
+    <h3>Why does the bar say "Nothing to hide on this page"?</h3>
+    <p>EarlyApply checked the jobs on the page and found none that your filters needed to hide.</p>
+
+    <p>More help: <a href="how-to-use-earlyapply.html">How to use EarlyApply</a><br>
+    <a href="privacy.html">Privacy policy</a></p>
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="logo.png" alt="" width="24" height="24">EarlyApply</a>
+    <nav aria-label="Footer">
+      <a href="./">Home</a>
+      <a href="privacy.html">Privacy policy</a>
+      <a href="https://www.linkedin.com/in/iamdheeraj0211/" rel="noopener">Made by Dheeraj</a>
+    </nav>
+    <p>EarlyApply is an independent project and is not affiliated with LinkedIn Corporation. LinkedIn is a trademark of LinkedIn Corporation.</p>
+  </div>
+</footer>
+<script>
+  // In Microsoft Edge: the store button goes to the Edge Add-ons store.
+  if (/\sEdg\//.test(navigator.userAgent)) document.querySelectorAll('[data-store]').forEach(function (a) { a.href = 'https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep'; a.textContent = a.textContent.replace('Chrome', 'Edge'); });
+</script>
+</body>
+</html>
