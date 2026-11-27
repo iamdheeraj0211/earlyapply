@@ -143,8 +143,8 @@
 @media all {
   :root:not([data-theme="dark"]) {
     --bg: #f5f8f6; --bg-2: #eaf2ee; --fg: #0c1714; --muted: #4c615b; --faint: #62786f;
-    --line: rgba(10, 40, 32, 0.1); --accent: #04835a; --accent-ink: #fff; --red: #d64545;
-    --ui: #ffffff; --ui-line: rgba(4, 140, 96, 0.2); --glow: rgba(4, 140, 96, 0.14);
+    --line: rgba(10, 40, 32, 0.1); --accent: #057642; --accent-ink: #fff; --red: #d64545;
+    --ui: #ffffff; --ui-line: rgba(5, 118, 66, 0.2); --glow: rgba(5, 118, 66, 0.14);
     color-scheme: light;
   }
 }
@@ -390,6 +390,61 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
 .skip:focus { top: 12px; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 @media (max-width: 480px) { .nav .btn { white-space: nowrap; padding: 9px 14px; font-size: 14px; } .nav .wrap { gap: 12px; } .brand { font-size: 18px; } }
+
+/* ---------- hero demo and section order ---------- */
+#features .chips { flex-wrap: wrap; }
+.hero2 { text-align: left; padding: 104px 0 40px; }
+.hero2 .wrap { display: grid; grid-template-columns: 1fr 1.08fr; gap: 48px; align-items: center; }
+.hero2 h1 { font-size: clamp(40px, 5vw, 66px); margin: 0; max-width: 12ch; }
+.hero2__one { margin: 22px 0 0; font-size: 19px; color: var(--muted); max-width: 40ch; }
+.hero2 .hero__cta { justify-content: flex-start; margin-top: 28px; gap: 22px; }
+.demo { background: var(--bg-2); border: 1px solid var(--ui-line); border-radius: 20px; padding: 14px; min-width: 0; }
+.demo__switch { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; border-radius: 999px; background: var(--ui); border: 1px solid var(--line); }
+.demo__switch button { min-height: 44px; border: 0; border-radius: 999px; background: none; color: var(--muted); font: 700 14px var(--body); cursor: pointer; }
+.demo__switch button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.demo__bar { margin-top: 12px; display: grid; gap: 8px; font-size: 12.5px; }
+.demo__row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.demo__row b { color: var(--fg); min-width: 52px; }
+.seg { display: flex; flex-wrap: wrap; border: 1px solid var(--ui-line); border-radius: 9px; overflow: hidden; background: var(--ui); }
+.seg i { font-style: normal; padding: 5px 8px; color: var(--muted); }
+.seg i.on, .pill.on { background: var(--accent); color: var(--accent-ink); font-weight: 700; }
+.pill { padding: 5px 10px; border: 1px solid var(--ui-line); border-radius: 999px; color: var(--muted); background: var(--ui); }
+.demo__list { list-style: none; margin: 12px 0 0; padding: 0; height: 292px; overflow: hidden; }
+.demo__list .piece { position: relative; animation: none; min-width: 0; height: 54px; margin-bottom: 6px; padding-block: 0; overflow: hidden; box-shadow: none; transition: height .45s, margin .45s, opacity .3s, border-width .45s; }
+.demo[data-state="after"] .noise { height: 0; margin-bottom: 0; opacity: 0; border-width: 0; visibility: hidden; }
+.demo[data-state="before"] .demo__bar { display: none; }
+.demo__list b, .demo__list small { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.demo__list .piece > div { min-width: 0; }
+.demo[data-state="before"] .demo__list { height: 374px; }
+.demo[data-state="before"] .tag-new { visibility: hidden; }
+.demo[data-state="before"] .demo__list { -webkit-mask-image: linear-gradient(#000 82%, transparent); mask-image: linear-gradient(#000 82%, transparent); }
+.demo__gone { padding: 9px; text-align: center; font-size: 13px; color: var(--muted); border: 1px dashed var(--ui-line); border-radius: 12px; }
+.demo__radar { display: flex; align-items: center; gap: 10px; margin-top: 8px; padding: 12px; font-size: 13px; color: var(--muted); background: var(--ui); border: 1px solid var(--ui-line); border-radius: 12px; }
+.demo__radar b { color: var(--fg); }
+.demo__list .demo__radar b { display: inline; white-space: normal; }
+.demo__radar i { flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+.demo[data-state="before"] .demo__gone, .demo[data-state="before"] .demo__radar { display: none; }
+.demo__note { margin: 6px 0 0; font-size: 12.5px; color: var(--faint); text-align: right; }
+.about { padding: 28px 0; border-block: 1px solid var(--line); }
+.about .wrap { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: start; }
+.about h2 { margin-top: 8px !important; }
+.about .lead { margin: 0; color: var(--muted); max-width: 68ch; }
+#features .chapter:first-of-type { padding-top: 80px; }
+.how { padding-top: 120px; }
+.how h2 { font-size: clamp(26px, 3vw, 34px); }
+.how__steps { margin-top: 24px; }
+.how__steps li { display: grid; grid-template-columns: 40px 1fr; column-gap: 14px; align-content: start; }
+.how__steps b { grid-row: span 2; }
+.how__steps h3 { margin-top: 0; font-size: 17px; }
+.how__steps p { font-size: 14.5px; }
+.race { padding-top: 100px; }
+@media (max-width: 860px) {
+  .hero2 { padding-top: 96px; }
+  .hero2 .wrap, .about .wrap { grid-template-columns: 1fr; gap: 28px; }
+  .demo__list { height: 320px; }
+  .demo[data-state="before"] .demo__list { height: 480px; }
+  .seg i { flex: 1 1 auto; text-align: center; }
+}
 </style>
 <noscript><style>.rv { opacity: 1; translate: none; } .track::after { width: 100%; }</style></noscript>
 <!-- Google tag (gtag.js) -->
@@ -439,29 +494,133 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
 </header>
 
 <main id="main">
-  <section class="hero">
-    <div class="hero__radar" aria-hidden="true"></div>
+  <section class="hero hero2">
     <div class="wrap">
-      <span class="kicker">Free Chrome and Edge extension for LinkedIn Jobs</span>
-      <h1>Be applicant <em>#3</em>, not <span class="strike">#300</span>.</h1>
-      <h2 class="hero__sub" style="font-size:20px;font-weight:600;margin:0 0 12px">LinkedIn job alerts and jobs posted in the last hour.</h2>
-      <p class="lead">EarlyApply shows you LinkedIn jobs minutes after they're posted, hides the noise, and alerts you the moment a new one appears. You still apply yourself. EarlyApply is a browser extension, not a job board: it works on LinkedIn's own job pages and has no job listings of its own.</p>
+      <div class="hero2__text">
+      <h1>Be an <em>early applicant</em> on LinkedIn.</h1>
+      <p class="hero2__one">See LinkedIn jobs minutes after they&#8217;re posted, and get an alert when a new one appears.</p>
       <div class="hero__cta">
         <a class="btn btn--go" data-store href="https://chromewebstore.google.com/detail/mdnefacoafkpdmbnjdaijlgahjnebgbo">Add to Chrome, it's free</a>
         <a class="link-play" href="#video"><i>▶</i>Watch the 1-min video</a>
       </div>
       <p class="hero__small">No account · No sign-up · No data collected<span data-edge-alt> · Also on <a href="https://microsoftedge.microsoft.com/addons/detail/hnjfgommfnihplmlicjdfkheokdmnnep">Microsoft Edge</a></span></p>
-
-      <div class="float" aria-hidden="true">
-        <div class="piece chips f2"><b>Posted</b><span class="chip on">✓ 15m</span><span class="chip">30m</span><span class="chip">1h</span><span class="chip">3h</span><span class="chip">Easy Apply ▾</span><span class="chip">↓ Newest first</span></div>
-        <div class="piece job f1"><span class="logo" style="background:#0a66c2">A</span><div><b>Sales Executive</b><small>Acme Pharma · <em>2 min ago</em></small></div><span class="tag-new">NEW</span></div>
-        <div class="piece toast f3"><span class="from">● Google Chrome · EarlyApply</span><b>Woohoo! 🎉 3 fresh “sales” jobs</b>Business Development Rep · Initech<br><small>just now · apply now</small></div>
-        <div class="piece job f4"><span class="logo" style="background:#7b3fa0">G</span><div><b>Inside Sales Rep</b><small>Globex · Remote · <em>3 min ago</em></small></div><span class="tag-new">NEW</span></div>
-        <div class="piece you f5">You're applicant #3<span>while others are still scrolling</span></div>
-        <div class="piece watching f6"><span class="pulse"></span>Job Radar is watching “sales” · checks every 3 min</div>
+      </div>
+      <div class="demo" data-demo data-state="after">
+        <div class="demo__switch" role="group" aria-label="Compare the job list">
+          <button type="button" data-set="before" aria-pressed="false">Without EarlyApply</button>
+          <button type="button" data-set="after" aria-pressed="true">With EarlyApply</button>
+        </div>
+        <div class="demo__bar" aria-hidden="true"><div class="demo__row"><b>Posted:</b><span class="seg"><i class="on">15m</i><i class="">30m</i><i class="">1h</i><i class="">3h</i><i class="">6h</i><i class="">12h</i></span><span class="pill">Easy Apply ▾</span><span class="pill on">★ Newest jobs</span></div><div class="demo__row"><b>Hide:</b><span class="seg"><i class="on">Promoted</i><i class="on">Reposted</i><i class="on">Viewed</i><i class="on">Applied</i><i class="on">Agencies</i><i class="on">Blocklist ▾</i></span></div></div>
+        <ul class="demo__list" aria-label="Example job list"><li class="piece job noise"><span class="logo" style="background:#5e6b78">V</span><div><b>Sales Associate</b><small>Vandelay</small></div><span class="label">Promoted</span></li><li class="piece job "><span class="logo" style="background:#0a7a4a">I</span><div><b>Business Development Rep</b><small>Initech &middot; <em>just now</em></small></div><span class="tag-new">NEW</span></li><li class="piece job noise"><span class="logo" style="background:#5e6b78">T</span><div><b>Account Manager</b><small>Tyrell</small></div><span class="label">Reposted</span></li><li class="piece job noise"><span class="logo" style="background:#5e6b78">U</span><div><b>Sales Consultant</b><small>Umbrella</small></div><span class="label">Viewed</span></li><li class="piece job noise"><span class="logo" style="background:#5e6b78">H</span><div><b>Territory Manager</b><small>Hooli</small></div><span class="label">Applied</span></li><li class="piece job "><span class="logo" style="background:#0a66c2">A</span><div><b>Sales Executive</b><small>Acme Pharma &middot; <em>2 min ago</em></small></div><span class="tag-new">NEW</span></li><li class="piece job noise"><span class="logo" style="background:#5e6b78">R</span><div><b>Field Sales Officer</b><small>Robert Staffing</small></div><span class="label">Agency</span></li><li class="piece job "><span class="logo" style="background:#7b3fa0">G</span><div><b>Inside Sales Rep</b><small>Globex &middot; <em>3 min ago</em></small></div><span class="tag-new">NEW</span></li><li class="demo__gone">5 of 8 jobs hidden &middot; Show them</li><li class="demo__radar"><i></i><span><b>Job Radar is watching</b> &ldquo;sales&rdquo; &middot; next check in 3 min</span></li></ul>
+        <p class="demo__note">Demo with made-up jobs.</p>
       </div>
     </div>
   </section>
+
+  <section class="about">
+    <div class="wrap">
+      <div><span class="kicker">Free Chrome and Edge extension for LinkedIn Jobs</span><h2 class="hero__sub" style="font-size:20px;font-weight:600;margin:0 0 12px">LinkedIn job alerts and jobs posted in the last hour.</h2></div>
+      <p class="lead">EarlyApply shows you LinkedIn jobs minutes after they're posted, hides the noise, and alerts you the moment a new one appears. You still apply yourself. EarlyApply is a browser extension, not a job board: it works on LinkedIn's own job pages and has no job listings of its own.</p>
+    </div>
+  </section>
+
+  <div id="features">
+    <section class="chapter">
+      <div class="wrap">
+        <div class="text rv">
+          <h2>See the freshest jobs first.</h2>
+          <p>One click filters your search to jobs posted in the last 15 minutes, 30 minutes or a few hours, newest on top.</p>
+          <ul>
+            <li>Time filters LinkedIn doesn't offer, right on the page</li>
+            <li>Old jobs that sneak in are hidden for you</li>
+            <li>Works on LinkedIn's job search, including the new AI-powered search</li>
+            <li>★ Newest jobs: the AI search has no date sort, so one click lists your search newest first</li>
+          </ul>
+          <p><a href="linkedin-jobs-posted-last-hour.html" style="text-decoration:underline;text-underline-offset:3px">See how to find LinkedIn jobs posted in the last hour →</a></p>
+          <p><a href="linkedin-new-job-search-sort-by-most-recent.html" style="text-decoration:underline;text-underline-offset:3px">LinkedIn's new search can't sort by date: see your jobs newest first →</a></p>
+        </div>
+        <div class="stage rv" aria-hidden="true">
+          <div class="stack">
+            <div class="piece chips"><b>Posted</b><span class="chip on">✓ 15m</span><span class="chip">30m</span><span class="chip">1h</span><span class="chip">3h</span><span class="chip">6h</span><span class="chip">12h</span><span class="chip">Easy Apply ▾</span><span class="chip on">★ Newest jobs</span></div>
+            <div class="piece job"><span class="logo" style="background:#0a7a4a">I</span><div><b>Business Development Rep</b><small>Initech · <em>just now</em></small></div><span class="tag-new">NEW</span></div>
+            <div class="piece job"><span class="logo" style="background:#0a66c2">A</span><div><b>Sales Executive</b><small>Acme Pharma · <em>2 min ago</em></small></div></div>
+            <div class="piece job"><span class="logo" style="background:#7b3fa0">G</span><div><b>Inside Sales Rep</b><small>Globex · <em>11 min ago</em></small></div></div>
+            <div class="piece job age-old"><span class="logo" style="background:#5e6b78">T</span><div><b>Account Manager</b><small>Tyrell · 3 weeks ago</small></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter">
+      <div class="wrap">
+        <div class="text rv">
+          <h2>Get an alert within minutes of a new job.</h2>
+          <p>Turn on Job Radar for any search and get back to work. It checks every few minutes and tells you when something new appears.</p>
+          <ul>
+            <li>Desktop alert and a soft chime, even in other apps</li>
+            <li>The toolbar icon shows how many new jobs</li>
+            <li>Remembers your search, even after Chrome restarts</li>
+          </ul>
+          <p><a href="linkedin-instant-job-alerts.html" style="text-decoration:underline;text-underline-offset:3px">Set up instant LinkedIn job alerts →</a></p>
+        </div>
+        <div class="stage rv" aria-hidden="true">
+          <div class="stack">
+            <div class="piece watching"><span class="pulse"></span>Job Radar is watching “sales” · next check in 2 min</div>
+            <div class="piece toast" style="width:auto"><span class="from">● Google Chrome · EarlyApply</span><b>Jackpot! 🎯 2 fresh “sales” jobs</b>Sales Executive · Acme Pharma<br>Inside Sales Rep · Globex<br><small>2 min ago · apply now · 5 today</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter">
+      <div class="wrap">
+        <div class="text rv">
+          <h2>Hide everything you'd skip anyway.</h2>
+          <p>Promoted posts, reposts, jobs you already viewed or applied to, staffing agencies, companies you never want to see again, and titles like "Senior" when you're entry-level. Easy Apply jobs: show only them, or hide them.</p>
+          <ul>
+            <li>One click "Hide company" on any job, and it stays hidden in every search</li>
+            <li>Block job titles by word, like "Senior" or "Intern", for good</li>
+            <li>"3 hidden · show" lets you peek at what was filtered</li>
+          </ul>
+          <p><a href="hide-promoted-reposted-jobs-linkedin.html" style="text-decoration:underline;text-underline-offset:3px">Hide promoted and reposted jobs on LinkedIn →</a></p>
+        </div>
+        <div class="stage rv" aria-hidden="true">
+          <div class="stack" data-hide>
+            <div class="piece chips" style="flex-wrap:wrap;gap:4px;padding:12px 10px;font-size:12px"><b>Hide</b><span class="chip">Promoted</span><span class="chip on">Reposted</span><span class="chip">Viewed</span><span class="chip">Applied</span><span class="chip on">Agencies</span><span class="chip">Blocklist ▾</span></div>
+            <div class="piece job"><span class="logo" style="background:#0a66c2">A</span><div><b>Sales Executive</b><small>Acme Pharma · <em>2 min ago</em></small></div></div>
+            <div class="piece job gone" data-step="company"><span class="logo" style="background:#5e6b78">R</span><div><b>Account Manager</b><small>Robert Staffing</small></div><span class="hide-btn">Hide company</span></div>
+            <div class="piece job gone" data-step="promoted"><span class="logo" style="background:#5e6b78">V</span><div><b>Sales Associate</b><small>Vandelay</small></div><span class="label">Promoted</span></div>
+            <div class="piece job"><span class="logo" style="background:#7b3fa0">G</span><div><b>Inside Sales Rep</b><small>Globex · <em>3 min ago</em></small></div></div>
+            <div class="piece job gone" data-step="role"><span class="logo" style="background:#5e6b78">H</span><div><b>Senior Sales Lead</b><small>Hooli</small></div><span class="label">Senior</span></div>
+            <div class="forever"><span class="forever__label">Hidden for good:</span><span class="fv-chip" data-chip="company">Robert Staffing</span><span class="fv-chip" data-chip="role">title: Senior</span></div>
+            <span class="hidden-count"><b>3 hidden</b> · show</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter">
+      <div class="wrap">
+        <div class="text rv">
+          <h2>Stop typing the same answers again.</h2>
+          <p>"Tell us about yourself." "Do you need visa sponsorship?" "What salary do you expect?" Every Easy Apply form asks the same awkward questions, and writing them out again and again is exhausting. Write each answer once, then copy it in one click, right beside the form.</p>
+          <ul>
+            <li>Shows the answers that fit each question</li>
+            <li>A daily goal and a streak to keep you going</li>
+            <li>You stay in control: it never fills or submits forms</li>
+          </ul>
+          <p><a href="linkedin-easy-apply-questions.html" style="text-decoration:underline;text-underline-offset:3px">Answer LinkedIn Easy Apply questions faster →</a></p>
+        </div>
+        <div class="stage rv" aria-hidden="true">
+          <div class="stack">
+            <div class="piece qa"><small>★ matches: Tell us about yourself</small><div>Sales exec, 4 yrs in pharma…<span class="copy">Copy</span></div></div>
+            <div class="piece qa"><small>★ matches: Will you now or in the future require visa sponsorship?</small><div>No<span class="copy">Copy</span></div></div>
+            <div class="piece goal"><b>6 of 10 applied today</b> · 3-day streak 🔥<div class="bar"><i></i></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
   <section class="how" id="how">
     <div class="wrap">
@@ -485,7 +644,7 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
       <div class="track" data-track>
         <div class="stop rv"><time>0 min</time><i class="dot"></i><h3>A job is posted</h3><p>Nobody has seen it yet.</p><span class="count">0 applicants</span></div>
         <div class="stop rv"><time>≈3 min</time><i class="dot"></i><h3>Job Radar spots it</h3><p>A desktop alert, even while you work in another app.</p><span class="count">0 applicants</span></div>
-        <div class="stop stop--you rv"><time>5 min</time><i class="dot"></i><h3>You apply</h3><p>Your profile is at the top of the pile.</p><span class="count">#3</span></div>
+        <div class="stop stop--you rv"><time>5 min</time><i class="dot"></i><h3>You apply</h3><p>Your profile is at the top of the pile.</p><span class="count">You’re early</span></div>
         <div class="stop rv"><time>1 hour</time><i class="dot"></i><h3>Everyone else finds it</h3><p>LinkedIn starts showing it to more people.</p><span class="count">200</span></div>
         <div class="stop stop--late rv"><time>1 day</time><i class="dot"></i><h3>Too late</h3><p>The recruiter stopped reading long ago.</p><span class="count">1,200</span></div>
       </div>
@@ -505,108 +664,6 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
       </div>
     </div>
   </section>
-
-  <div id="features">
-    <section class="chapter">
-      <div class="wrap">
-        <div class="text rv">
-          <span class="num">01</span>
-          <h2>See the freshest jobs first.</h2>
-          <p>One click filters your search to jobs posted in the last 15 minutes, 30 minutes or a few hours, newest on top.</p>
-          <ul>
-            <li>Time filters LinkedIn doesn't offer, right on the page</li>
-            <li>Old jobs that sneak in are hidden for you</li>
-            <li>Works on LinkedIn's job search, including the new AI-powered search</li>
-            <li>★ Newest jobs: the AI search has no date sort, so one click lists your search newest first</li>
-          </ul>
-          <p><a href="linkedin-jobs-posted-last-hour.html" style="text-decoration:underline;text-underline-offset:3px">See how to find LinkedIn jobs posted in the last hour →</a></p>
-          <p><a href="linkedin-new-job-search-sort-by-most-recent.html" style="text-decoration:underline;text-underline-offset:3px">LinkedIn's new search can't sort by date: see your jobs newest first →</a></p>
-        </div>
-        <div class="stage rv" aria-hidden="true">
-          <div class="stack">
-            <div class="piece chips"><b>Posted</b><span class="chip on">✓ 15m</span><span class="chip">30m</span><span class="chip">1h</span><span class="chip">3h</span><span class="chip">Easy Apply ▾</span></div>
-            <div class="piece job"><span class="logo" style="background:#0a7a4a">I</span><div><b>Business Development Rep</b><small>Initech · <em>just now</em></small></div><span class="tag-new">NEW</span></div>
-            <div class="piece job"><span class="logo" style="background:#0a66c2">A</span><div><b>Sales Executive</b><small>Acme Pharma · <em>2 min ago</em></small></div></div>
-            <div class="piece job"><span class="logo" style="background:#7b3fa0">G</span><div><b>Inside Sales Rep</b><small>Globex · <em>11 min ago</em></small></div></div>
-            <div class="piece job age-old"><span class="logo" style="background:#5e6b78">T</span><div><b>Account Manager</b><small>Tyrell · 3 weeks ago</small></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="chapter">
-      <div class="wrap">
-        <div class="text rv">
-          <span class="num">02</span>
-          <h2>Get an alert within minutes of a new job.</h2>
-          <p>Turn on Job Radar for any search and get back to work. It checks every few minutes and tells you when something new appears.</p>
-          <ul>
-            <li>Desktop alert and a soft chime, even in other apps</li>
-            <li>The toolbar icon shows how many new jobs</li>
-            <li>Remembers your search, even after Chrome restarts</li>
-          </ul>
-          <p><a href="linkedin-instant-job-alerts.html" style="text-decoration:underline;text-underline-offset:3px">Set up instant LinkedIn job alerts →</a></p>
-        </div>
-        <div class="stage rv" aria-hidden="true">
-          <div class="stack">
-            <div class="piece watching"><span class="pulse"></span>Job Radar is watching “sales” · next check in 2 min</div>
-            <div class="piece toast" style="width:auto"><span class="from">● Google Chrome · EarlyApply</span><b>Jackpot! 🎯 2 fresh “sales” jobs</b>Sales Executive · Acme Pharma<br>Inside Sales Rep · Globex<br><small>2 min ago · apply now · 5 today</small></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="chapter">
-      <div class="wrap">
-        <div class="text rv">
-          <span class="num">03</span>
-          <h2>Hide everything you'd skip anyway.</h2>
-          <p>Promoted posts, reposts, jobs you already viewed or applied to, staffing agencies, companies you never want to see again, and titles like "Senior" when you're entry-level. Easy Apply jobs: show only them, or hide them.</p>
-          <ul>
-            <li>One click "Hide company" on any job, and it stays hidden in every search</li>
-            <li>Block job titles by word, like "Senior" or "Intern", for good</li>
-            <li>"3 hidden · show" lets you peek at what was filtered</li>
-          </ul>
-          <p><a href="hide-promoted-reposted-jobs-linkedin.html" style="text-decoration:underline;text-underline-offset:3px">Hide promoted and reposted jobs on LinkedIn →</a></p>
-        </div>
-        <div class="stage rv" aria-hidden="true">
-          <div class="stack" data-hide>
-            <div class="piece chips" style="flex-wrap:wrap;gap:4px;padding:12px 10px;font-size:12px"><b>Hide</b><span class="chip">Promoted</span><span class="chip on">Reposted</span><span class="chip">Viewed</span><span class="chip">Applied</span><span class="chip on">Agencies</span></div>
-            <div class="piece job"><span class="logo" style="background:#0a66c2">A</span><div><b>Sales Executive</b><small>Acme Pharma · <em>2 min ago</em></small></div></div>
-            <div class="piece job gone" data-step="company"><span class="logo" style="background:#5e6b78">R</span><div><b>Account Manager</b><small>Robert Staffing</small></div><span class="hide-btn">Hide company</span></div>
-            <div class="piece job gone" data-step="promoted"><span class="logo" style="background:#5e6b78">V</span><div><b>Sales Associate</b><small>Vandelay</small></div><span class="label">Promoted</span></div>
-            <div class="piece job"><span class="logo" style="background:#7b3fa0">G</span><div><b>Inside Sales Rep</b><small>Globex · <em>3 min ago</em></small></div></div>
-            <div class="piece job gone" data-step="role"><span class="logo" style="background:#5e6b78">H</span><div><b>Senior Sales Lead</b><small>Hooli</small></div><span class="label">Senior</span></div>
-            <div class="forever"><span class="forever__label">Hidden for good:</span><span class="fv-chip" data-chip="company">Robert Staffing</span><span class="fv-chip" data-chip="role">title: Senior</span></div>
-            <span class="hidden-count"><b>3 hidden</b> · show</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="chapter">
-      <div class="wrap">
-        <div class="text rv">
-          <span class="num">04</span>
-          <h2>Stop typing the same answers again.</h2>
-          <p>"Tell us about yourself." "Do you need visa sponsorship?" "What salary do you expect?" Every Easy Apply form asks the same awkward questions, and writing them out again and again is exhausting. Write each answer once, then copy it in one click, right beside the form.</p>
-          <ul>
-            <li>Shows the answers that fit each question</li>
-            <li>A daily goal and a streak to keep you going</li>
-            <li>You stay in control: it never fills or submits forms</li>
-          </ul>
-          <p><a href="linkedin-easy-apply-questions.html" style="text-decoration:underline;text-underline-offset:3px">Answer LinkedIn Easy Apply questions faster →</a></p>
-        </div>
-        <div class="stage rv" aria-hidden="true">
-          <div class="stack">
-            <div class="piece qa"><small>★ matches: Tell us about yourself</small><div>Sales exec, 4 yrs in pharma…<span class="copy">Copy</span></div></div>
-            <div class="piece qa"><small>★ matches: Will you now or in the future require visa sponsorship?</small><div>No<span class="copy">Copy</span></div></div>
-            <div class="piece goal"><b>6 of 10 applied today</b> · 3-day streak 🔥<div class="bar"><i></i></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
 
   <section class="private">
     <div class="wrap">
@@ -777,6 +834,26 @@ footer p { flex-basis: 100%; margin: 6px 0 0; }
       f.referrerPolicy = 'strict-origin-when-cross-origin'; // YouTube refuses to play without a referrer (error 153)
       box.replaceChildren(f);
     });
+  })();
+</script>
+<script>
+  // WHAT: switches the demo list. WHY: visitors see the difference; it auto-plays once, then stays still.
+  (function () {
+    var demo = document.querySelector('[data-demo]');
+    var buttons = demo.querySelectorAll('[data-set]');
+    var timer;
+    // WHAT: shows one state and marks its button. WHY: used by clicks and by the single auto-play.
+    function show(state) {
+      demo.setAttribute('data-state', state);
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-set') === state)); });
+    }
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () { clearTimeout(timer); show(b.getAttribute('data-set')); });
+    });
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      show('before');
+      timer = setTimeout(function () { show('after'); }, 2200);
+    }
   })();
 </script>
 </body>

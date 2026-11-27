@@ -26,14 +26,14 @@
     --surface: #ffffff;
     --surface-strong: #ffffff;
     --border: rgba(10, 40, 32, 0.1);
-    --border-strong: rgba(4, 140, 96, 0.35);
+    --border-strong: rgba(5, 118, 66, 0.35);
     --fg: #0c1714;
     --muted: #4c615b;
     --faint: #7d8f8a;
-    --accent: #04835a;
+    --accent: #057642;
     --accent-ink: #ffffff;
     --gold: #c98a00;
-    --glow: rgba(4, 140, 96, 0.12);
+    --glow: rgba(5, 118, 66, 0.12);
     --shadow: 0 24px 60px rgba(10, 40, 32, 0.14);
     color-scheme: light;
   }
@@ -140,7 +140,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   color: transparent;
 }
 @media all {
-  .hero h1 em { background: linear-gradient(100deg, #048c60 10%, #0aa874 60%, #c98a00 100%); -webkit-background-clip: text; background-clip: text; }
+  .hero h1 em { background: linear-gradient(100deg, #057642 10%, #0aa874 60%, #c98a00 100%); -webkit-background-clip: text; background-clip: text; }
 }
 .hero__lead { margin: 16px 0 0; color: var(--muted); font-size: 16.5px; }
 .hero__cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }

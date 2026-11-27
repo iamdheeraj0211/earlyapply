@@ -19,8 +19,8 @@
 @media all {
   :root:not([data-theme="dark"]) {
     --bg: #f5f8f6; --fg: #0c1714; --muted: #4c615b; --faint: #55695f;
-    --line: rgba(10, 40, 32, 0.1); --accent: #04835a; --accent-ink: #fff; --red: #d64545;
-    --ui: #ffffff; --ui-line: rgba(4, 140, 96, 0.2); --glow: rgba(4, 140, 96, 0.14);
+    --line: rgba(10, 40, 32, 0.1); --accent: #057642; --accent-ink: #fff; --red: #d64545;
+    --ui: #ffffff; --ui-line: rgba(5, 118, 66, 0.2); --glow: rgba(5, 118, 66, 0.14);
     color-scheme: light;
   }
 }
